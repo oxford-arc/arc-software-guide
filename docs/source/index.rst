@@ -1,17 +1,13 @@
-Welcome to Lumache's documentation!
-===================================
+ARC Software Guide
+==================
 
-**Lumache** (/lu'make/) is a Python library for cooks and food lovers
-that creates recipes mixing random ingredients.
-It pulls data from the `Open Food Facts database <https://world.openfoodfacts.org/>`_
-and offers a *simple* and *intuitive* API.
+This documentation provides information on the software applications installed on ARC clusters
+and also provides template submission scripts for some of the most popular applications.
 
-Check out the :doc:`usage` section for further information, including
-how to :ref:`installation` the project.
 
 .. note::
 
-   This project is under active development.
+   This document is under active development.
 
 Contents
 --------
