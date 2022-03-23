@@ -17,7 +17,7 @@ In the scenario of a workload with a large number of independent runs, packing s
 of jobs can be started with a single submission command and a single submission script. The job array index can be used within the submission script to identify
 the parameters each process works with (input or output files, command line parameters, etc.).
 
-To give an example, assume ``serialapp`` has to run a parameter sweep, with values ranging from ``1.01`` to ``1.96`` with a step of ``0.0`` All the processing can
+To give an example, assume ``serialapp`` has to run a parameter sweep, with values ranging from ``1.01`` to ``1.96`` with a step of ``0.01`` All the processing can
 be carried out by submitting one job with the following job script::
 
   #!/bin/bash
@@ -31,7 +31,7 @@ be carried out by submitting one job with the following job script::
   serialapp $RUN_PARAM
   
 
-The job can be submitted using the command:
+The job can be submitted using the command::
 
   sbatch --array=1-96
 
