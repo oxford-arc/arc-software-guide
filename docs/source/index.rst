@@ -5,14 +5,8 @@ This documentation provides information on the software applications installed o
 and also provides template submission scripts for some of the most popular applications.
 
 
-.. note::
-
-   This document is under active development.
-
-Contents
---------
 
 .. toctree::
 
-   usage
+   arc-modules
    api
