@@ -46,7 +46,7 @@ The response from Jupyter will be of the following form::
       or http://127.0.0.1:8888/?token=1f4df891d02d913a7b926203a978c0b3060113c1607527bf
 
 .. note::
-  In the above output, the last few lines contain key information. You will use the information from the last two lines to make a connection to the jupyter server. 
+  In the above output, the last few lines contain key information. You will use the information from the last two lines to make a connection to the Jupyter server. 
   
   In our example above we can see (from the penultimate line) that the server is running on node arc-c305 and the port is 8888:
   
@@ -79,11 +79,11 @@ You will be asked to enter your ARC password, and once authenticated the tunnel 
 on your local browser to connect to the server running on ARC.
 
 .. note::
-  It is possible that when making the connection above you receive a "port in use" error on your local machine. In which case you should change the first port number
-  in the SSH command, and also change this in the web URL.
+  It is possible that when making the connection above you may receive a "port in use" error on your local machine. In which case you should change the first port 
+  number in the SSH command, and also change this in the web URL.
   
   
-**Closing down server**
+**Closing down the Jupyter server**
 
 Open the window with the orginal connection to ARC (where you started Jupyter) and hit CTRL-C, when asked if you would like to ``Shutdown this notebook server?`` Answer ``y``- as in the following example::
 
