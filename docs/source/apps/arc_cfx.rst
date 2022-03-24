@@ -49,7 +49,7 @@ The example submission script below is suitable for running on the ARC cluster::
             -start-method "Open MPI Distributed Parallel"
  
 .. note::
-  This example is customised for the standard ANSYS CFX benchmark Airoil 50M and uses the OpenMPI libraries built for ARC.
+  This example is customised for the standard ANSYS CFX benchmark Airfoil 50M and uses the OpenMPI libraries built for ARC.
  
  
  
