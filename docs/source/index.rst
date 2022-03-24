@@ -12,5 +12,5 @@ and also provides template submission scripts for some of the most popular appli
    arc-serial
    arc-compiling
    arc-legacy
-   python/anaconda.rst
-   python/anaconda_mpi.rst
+   python/anaconda
+   
