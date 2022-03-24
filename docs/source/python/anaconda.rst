@@ -8,4 +8,5 @@ installed, they exist such that users of the ARC service can use them to install
 
    anaconda_venv
    anaconda_mpi
+   arc_jupyter
    
