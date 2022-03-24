@@ -3,7 +3,7 @@
 # -- Project information
 
 project = 'ARC Software Guide'
-copyright = '2021'
+# copyright = '2021'
 author = 'The ARC Team'
 
 release = '0.1'
