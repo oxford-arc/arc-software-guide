@@ -28,7 +28,7 @@ Any MPI library implementation has a number of tools that help programmers build
 compiler utilities and
 an application run agent.
 
-Compiler utilities (mpicc, mpiicc, mpicxx, mpif77, mpif90, mpiifort) are used to compile and link MPI programs.
+Compiler utilities (``mpicc``, ``mpiicc``, ``mpicxx``, ``mpif77``, ``mpif90``, ``mpiifort``) are used to compile and link MPI programs.
 These are not compilers as such but wrappers around back-end compilers (e.g. the GNU or Intel compilers) and are designed to make compiling
 and linking against the MPI library easy.
 
@@ -116,8 +116,8 @@ variables::
   export MPICH_CXX=icpc
   export MPICH_CCC=icpc
  
-Other toolchains/versions can be made available, a list of EasyBuild supported versions can be found here. Please note that the ARC systems only support ``foss/2018b``
-and newer, and intel/2020a and newer - due to operating system compatibility.
+Other toolchains/versions can be made available, a list of EasyBuild supported versions can be found `here <https://docs.easybuild.io/en/master/version-specific/toolchains.html>`_. Please note that the ARC systems only support ``foss/2018b``
+and newer, and ``intel/2020a`` and newer - due to operating system compatibility.
 
 Compilation
 -----------
