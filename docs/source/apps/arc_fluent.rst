@@ -1,4 +1,5 @@
 ANSYS FLUENT
+------------
 
 **Introduction**
  
@@ -6,13 +7,13 @@ ANSYS FLUENT software contains the broad physical modeling capabilities needed t
 
 **Module Information**::
  
-module spider FLUENT
+ module spider FLUENT
 
------------------------------------------------------------------------
-  fluent:
------------------------------------------------------------------------
-     Versions:
-        fluent/2021R2
+ -----------------------------------------------------------------------
+   fluent:
+ -----------------------------------------------------------------------
+      Versions:
+         fluent/2021R2
  
 
 If you need to use a version of FLUENT earlier that R2021R2 then you will have to use the "legacy" software partition.
