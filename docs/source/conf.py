@@ -4,8 +4,7 @@
 
 project = 'ARC Software Guide'
 # copyright = '2021'
-html_show_copyright = False
-html_show_sphinx = False
+
 author = 'The ARC Team'
 
 release = '0.1'
@@ -35,3 +34,8 @@ html_theme = 'sphinx_rtd_theme'
 
 # -- Options for EPUB output
 epub_show_urls = 'footnote'
+
+# -- ARC Customisations
+
+html_show_copyright = False
+html_show_sphinx = False
