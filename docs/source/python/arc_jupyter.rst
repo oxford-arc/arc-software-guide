@@ -4,19 +4,25 @@ Using Jupyter Notebooks on ARC
 **Interactive Notebook example**
  
 The following example shows how to connect to a Jupyter notebook session running on ARC. The example shows the best practice method of running
-the Jupyter session on an interactive node, and we make the assumption that you are connected to the university network or VPN. We also strongly
-recommend using MobaXterm as the SSH client if using Windows for this activity.
+the Jupyter session on an interactive node.
 
-1) First we need to log in to an ARC login node, for this example we are using ``arc-login.arc.ox.ac.uk`` - and start an interactive session using
-the standard srun command::
+.. note::
+ We make the assumption that you are already connected to the university network or VPN. We also strongly recommend using MobaXterm as the SSH
+ client if using Windows for this activity.
+
+1) First we need to log in to an ARC login node, for this example we are using ``arc-login.arc.ox.ac.uk`` and start an interactive session using
+the standard ``srun`` command::
 
   srun --nodes=1 --ntasks-per-node=4 --partition=interactive --pty /bin/bash
  
-Once the srun allocation is started on the interactive node (for example: ``arc-c304``) we will get a command prompt and can load the Anaconda module
-and start Jupyter with the options shown below (Note: it is important to use Anaconda3 version 2021.11 or newer for notebooks to work on ARC)::
+Once the ``srun`` allocation is started on the interactive node (for example: ``arc-c304``) you will get a command prompt and can load the Anaconda module
+and start Jupyter with the options shown below::
 
   module load Anaconda3/2021.11
   jupyter notebook --no-browser --ip=*
+  
+.. note::
+ It is essential to use Anaconda3 version 2021.11 or newer for notebooks to work on ARC
  
 The response from Jupyter will be of the following form::
 
