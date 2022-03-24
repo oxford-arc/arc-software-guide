@@ -4,6 +4,7 @@
 
 project = 'ARC Software Guide'
 # copyright = '2021'
+html_show_copyright = False
 author = 'The ARC Team'
 
 release = '0.1'
