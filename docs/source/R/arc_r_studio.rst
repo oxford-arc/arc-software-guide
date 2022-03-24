@@ -7,7 +7,10 @@ as MobaXterm for Windows, or XQuartz for Mac.
 It is necessary to make your SSH connection to the ARC login node with the -X option in order to forward ``X11`` graphics back to your desktop machine - for example::
  
   ssh -X username@arc-login.arc.ox.ac.uk
- 
+
+.. note::
+ Mac users may need to use -Y instead of -X if they get security warnings with -X. 
+
 See the **Connecting to ARC Clusters** section of the ARC User Guide for more information.
  
 Once connected to a login node, you will need to connect to an interactive session on a compute node::
@@ -16,7 +19,7 @@ Once connected to a login node, you will need to connect to an interactive sessi
  
 The above line will create an interactive session and ensure that the ``X11`` forwarding is preserved.
  
-To run R-Studio you will need to load the appropriate module:
+To run R-Studio you will need to load the appropriate module::
  
   module spider RStudio
  
@@ -34,3 +37,25 @@ So to begin using the application you will need to type::
   rstudio
  
 After a short delay, the R-Studio window should appear on your desktop display.
+
+.. note::
+ Mac users may experience problems using the XQuartz X11 server with R-Studio, where the application starts then fails with OpenGL errors. In this case follow the     
+ guidance below::
+ 
+  mkdir -p $HOME/.config/RStudio
+  touch $HOME/.config/RStudio/desktop.ini
+
+Then edit the file $HOME/.config/RStudio/desktop.ini to contain the following text::
+
+  [General]
+  cookies=@Invalid()
+  desktop.renderingEngine=software
+  general.disableGpuDriverBugWorkarounds=true
+  general.ignoreGpuExclusionList=true
+
+
+The above options ensure that RStudio only uses software graphics rendering rather than OpenGL which seems to give problems with XQuartz.
+
+
+ 
+ 
