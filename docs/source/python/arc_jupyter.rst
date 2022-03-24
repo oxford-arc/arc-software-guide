@@ -48,13 +48,19 @@ The response from Jupyter will be of the following form::
 .. note::
   In the above output, the last few lines contain key information. You will use the information from the last two lines to make a connection to the jupyter server. 
   
-  In our example above we can see (from the penultimate line) that the server is running on node arc-c305 and the port is 8888. We are also given a URL for accessing the notebook in your local browser (on the last line).
+  In our example above we can see (from the penultimate line) that the server is running on node arc-c305 and the port is 8888::
+   http://arc-c305:8888/?token=1f4df891d02d913a7b926203a978c0b3060113c1607527bf
   
-  These values will be different for each run and you should make a note of them.
+  We are also given a URL for accessing the notebook in your local browser (on the last line). For example::
+   http://127.0.0.1:8888/?token=1f4df891d02d913a7b926203a978c0b3060113c1607527bf
+  
+  These values **will** be different for each run and you must make a note of them.
 
 You can now minimise (but do not close) your SSH window to the interactive session above.
 
-We now need to tunnel the Jupyter port we have just created to your local desktop. Open new terminal window on your local machine...
+We now need to tunnel the Jupyter port we have just created to your local desktop. 
+
+Open new terminal window on your local machine...
 
 The format of the command we need to run to make the tunnel is as follows, but you will need to make changes::
  
@@ -71,7 +77,7 @@ You will be asked to enter your ARC password, and once authenticated the tunnel 
 on your local browser to connect to the server running on ARC.
 
 .. note::
-  It is possible that when making the connection above you receive a "port in use" error for your local machine. In which case you should change the first port number
+  It is possible that when making the connection above you receive a "port in use" error on your local machine. In which case you should change the first port number
   in the SSH command, and also change this in the web URL.
   
   
