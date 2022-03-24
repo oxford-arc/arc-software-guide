@@ -22,7 +22,7 @@ Python 3::
 
   module load Anaconda3 
 
-or one of the specific Anaconda versions shown by module spider. 
+or one of the specific Anaconda versions shown by ``module spider``. 
 
 Once the module is loaded you can use the ``conda`` commands to create a virtual environment in your $DATA area. For example to create an environment named
 ``myenv`` in $DATA we can use the following commands::
@@ -61,7 +61,7 @@ Using values from the above example (and assuming Python version 3, Anaconda 202
 
   # After SBATCH section of script
 
-  module load Anaconda3//2020.11
+  module load Anaconda3/2020.11
   source activate $DATA/myenv
 
   # Your Python commands here...
