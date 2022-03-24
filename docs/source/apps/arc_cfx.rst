@@ -48,7 +48,7 @@ The example submission script below is suitable for running on the ARC cluster::
             -part $SLURM_NTASKS -batch -parallel -par-host-list $MPI_HOSTS \
             -start-method "Open MPI Distributed Parallel"
  
- .. note::
+.. note::
   This example is customised for the standard ANSYS CFX benchmark Airoil 50M and uses the OpenMPI libraries built for ARC.
  
  
