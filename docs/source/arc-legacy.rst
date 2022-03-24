@@ -1,5 +1,5 @@
 Legacy Application Software
----------------------------
+===========================
  
 The ARC cluster environment has a number of compute nodes dedicated to running older "legacy" software applications.
 These are applications which are unable to run on the newer operating system installed on the main cluster.
