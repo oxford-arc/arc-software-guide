@@ -23,11 +23,11 @@ To run R-Studio you will need to load the appropriate module::
  
   module spider RStudio
  
-The above command returns the available versions of R-Studio, for example:
+The above command returns the available versions of R-Studio, for example::
  
----------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------------------------------------------------------------------------
   RStudio: RStudio/2022.02-R-4.2.1-ARC
----------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------------------------------------------------------------------------
  
 In the above case, loading the module ``RStudio/2022.02-R.4.2.1-ARC`` will load version 2022.2 of RStudio along with R version 4.2.1 with added ARC libraries.
  
