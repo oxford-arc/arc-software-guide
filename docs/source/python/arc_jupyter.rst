@@ -49,7 +49,7 @@ The response from Jupyter will be of the following form::
   In the above output, the last few lines contain key information. You will use the information from the last two lines to make a connection to the jupyter server. 
   
   In our example above we can see (from the penultimate line) that the server is running on node arc-c305 and the port is 8888
-   http://arc-c305:8888/?token=1f4df891d02d913a7b926203a978c0b3060113c1607527bf
+  ``http://arc-c305:8888/?token=1f4df891d02d913a7b926203a978c0b3060113c1607527bf``
   
   We are also given a URL for accessing the notebook in your local browser (on the last line). For example
    http://127.0.0.1:8888/?token=1f4df891d02d913a7b926203a978c0b3060113c1607527bf
