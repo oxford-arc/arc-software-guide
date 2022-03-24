@@ -45,7 +45,7 @@ After a short delay, the R-Studio window should appear on your desktop display.
   mkdir -p $HOME/.config/RStudio
   touch $HOME/.config/RStudio/desktop.ini
 
-Then edit the file $HOME/.config/RStudio/desktop.ini to contain the following text::
+  Edit the file $HOME/.config/RStudio/desktop.ini to contain the following text...
 
   [General]
   cookies=@Invalid()
@@ -53,8 +53,7 @@ Then edit the file $HOME/.config/RStudio/desktop.ini to contain the following te
   general.disableGpuDriverBugWorkarounds=true
   general.ignoreGpuExclusionList=true
 
-
-The above options ensure that RStudio only uses software graphics rendering rather than OpenGL which seems to give problems with XQuartz.
+  The above settings ensure that RStudio only uses software graphics rendering rather than OpenGL which seems to give problems with XQuartz.
 
 
  
