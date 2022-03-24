@@ -41,13 +41,16 @@ The response from Jupyter will be of the following form::
 
 .. note::
   In the above output, the last few lines contain key information. You will use the information from the last two lines to make a connection to the jupyter server. 
-  In our example above we can see (from the penultimate line that the server is running on arc-c305 and the port is 8888. It also provides a URL for accessing the notebook in your local browser (on the last line).
-  These values may be different for you and you should make a note of them.
+  
+  In our example above we can see (from the penultimate line) that the server is running on node arc-c305 and the port is 8888. We are also given a URL for accessing the notebook in your local browser (on the last line).
+  
+  These values will be different for each run and you should make a note of them.
 
-You can now minimise (but do not close) your SSH window to the interactive session (in this example arc-c305) - and a open new terminal window on your local machine
-as we now need to tunnel the Jupyter port we have just created on ARC to your local desktop.
+You can now minimise (but do not close) your SSH window to the interactive session above.
 
-To do this we run the following command on the local machine::
+We now need to tunnel the Jupyter port we have just created to your local desktop. Open new terminal window on your local machine...
+
+The format of the command we need to run to make the tunnel is as follows, but you will need to make changes::
  
   ssh -L 8888:arc-c305:8888 ouit0554@arc-login.arc.ox.ac.uk
  
@@ -58,7 +61,7 @@ For clarity here is an explanation of the fields in the above command::
  
   ssh -L [local port]:[remote host]:[remote port] [ARC username]@arc-login.arc.ox.ac.uk
   
-You will be asked to enter your ARC password, and once authenticated the tunnel should be set up and you should be able to use the URL from the original Jupyter output 
+You will be asked to enter your ARC password, and once authenticated the tunnel will be set up and you should be able to use the URL from the original Jupyter output 
 on your local browser to connect to the server running on ARC.
 
 .. note::
