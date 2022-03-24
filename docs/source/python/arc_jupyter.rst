@@ -83,6 +83,22 @@ on your local browser to connect to the server running on ARC.
   in the SSH command, and also change this in the web URL.
   
   
+**Closing down server**
+
+Open the window with the orginal connection to ARC (where you started Jupyter) and hit CTRL-C, when asked if you would like to ``Shutdown this notebook server?`` Answer ``y``- as in the following example::
+
+ ^C[I 16:33:40.585 NotebookApp] interrupted
+ Serving notebooks from local directory: /home/ouit0554
+ 0 active kernels
+ Jupyter Notebook 6.4.5 is running at:
+ http://arc-c305:8888/?token=1f4df891d02d913a7b926203a978c0b3060113c1607527bf
+  or http://127.0.0.1:8888/?token=1f4df891d02d913a7b926203a978c0b3060113c1607527bf
+ Shutdown this notebook server (y/[n])? y
+ [C 16:33:42.014 NotebookApp] Shutdown confirmed
+ [I 16:33:42.016 NotebookApp] Shutting down 0 kernels
+ [I 16:33:42.016 NotebookApp] Shutting down 0 terminals
+[ouit0554@arc-c305 ~]$ exit
+srun: error: arc-c305: task 0: Exited with exit code 130
 
 
 
