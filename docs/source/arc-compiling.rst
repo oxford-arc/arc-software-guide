@@ -248,7 +248,7 @@ Below is an example submission script (for OpenMPI) which requests two nodes wit
  mpirun --map-by numa:pe=${SLURM_CPUS_PER_TASK} mpisize
  
 
-The command from the ``mpitest module``, named mpisize outputs the following information:
+The command from the ``mpitest module``, named mpisize outputs the following information::
 
  Hello from host "arc-c303". This is MPI task 1, the total MPI Size is 2, and there are 8 CPU core(s) allocated to *this* MPI task, these being { 0 1 2 3 4 5 6 7 }
  Hello from host "arc-c302". This is MPI task 0, the total MPI Size is 2, and there are 8 CPU core(s) allocated to *this* MPI task, these being { 0 1 2 3 4 5 6 7 }
