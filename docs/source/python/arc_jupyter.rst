@@ -97,8 +97,8 @@ Open the window with the orginal connection to ARC (where you started Jupyter) a
  [C 16:33:42.014 NotebookApp] Shutdown confirmed
  [I 16:33:42.016 NotebookApp] Shutting down 0 kernels
  [I 16:33:42.016 NotebookApp] Shutting down 0 terminals
-[ouit0554@arc-c305 ~]$ exit
-srun: error: arc-c305: task 0: Exited with exit code 130
+ [ouit0554@arc-c305 ~]$ exit
+ srun: error: arc-c305: task 0: Exited with exit code 130
 
 
 
