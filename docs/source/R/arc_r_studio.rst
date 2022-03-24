@@ -40,12 +40,16 @@ After a short delay, the R-Studio window should appear on your desktop display.
 
 .. note::
  Mac users may experience problems using the XQuartz X11 server with R-Studio, where the application starts then fails with OpenGL errors. In this case follow the     
- guidance below::
+ guidance below...
+ 
+ **Forcing R-Studio to use software rendering**
+ 
+ Log in to arc-login and run the following commands::
  
   mkdir -p $HOME/.config/RStudio
   touch $HOME/.config/RStudio/desktop.ini
 
-  Edit the file $HOME/.config/RStudio/desktop.ini to contain the following text...
+ Edit the file $HOME/.config/RStudio/desktop.ini to contain the following text...
 
   [General]
   cookies=@Invalid()
@@ -53,7 +57,7 @@ After a short delay, the R-Studio window should appear on your desktop display.
   general.disableGpuDriverBugWorkarounds=true
   general.ignoreGpuExclusionList=true
 
-  The above settings ensure that RStudio only uses software graphics rendering rather than OpenGL which seems to give problems with XQuartz.
+ The above settings ensure that RStudio only uses software graphics rendering rather than OpenGL which seems to give problems with XQuartz and some other X11 servers.
 
 
  
