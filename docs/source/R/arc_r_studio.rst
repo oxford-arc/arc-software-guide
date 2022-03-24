@@ -49,7 +49,7 @@ After a short delay, the R-Studio window should appear on your desktop display.
   mkdir -p $HOME/.config/RStudio
   touch $HOME/.config/RStudio/desktop.ini
 
- Edit the file $HOME/.config/RStudio/desktop.ini to contain the following text...
+ Edit the file $HOME/.config/RStudio/desktop.ini to contain the following text::
 
   [General]
   cookies=@Invalid()
