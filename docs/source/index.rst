@@ -14,3 +14,4 @@ and also provides template submission scripts for some of the most popular appli
    arc-legacy
    python/anaconda
    R/arc_r_intro
+   apps/apps_intro
