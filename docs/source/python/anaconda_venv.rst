@@ -18,8 +18,8 @@ Python 3::
 
 or one of the specific Anaconda versions shown by ``module spider``. 
 
-Once the module is loaded you can use the ``conda`` commands to create a virtual environment in your $DATA area. For example to create an environment named
-``myenv`` in $DATA we can use the following commands::
+Once the module is loaded you can use the ``conda`` commands to create a virtual environment in your **$DATA** area. For example to create an environment named
+``myenv`` in **$DATA** we can use the following commands::
 
   export CONPREFIX=$DATA/myenv
 
@@ -31,12 +31,17 @@ Python 3::
 
   conda create --prefix $CONPREFIX --copy python=3.8
 
-Note: Please ignore any messages from conda which instruct you to run "conda init" - this command will add lines to your ~/.bashrc file which could cause
-undesirable behaviour in batch files.
+.. note::
+  Please be aware of messages from ``conda`` which instruct you to run ``conda init`` - this command will add lines to your ``~/.bashrc`` file which can in **certain**   
+  circumstances cause undesirable behaviour in SLURM batch files. We recommend activating with ``source activate`` if issues occur in batch files.
 
-You can now use (activate) the environment by running the following command::
+You can now use (activate) the environment by running one of the following commands::
 
   source activate $CONPREFIX
+
+or::
+
+  conda activate $CONPREFIX
 
 You can then use the ``conda install`` or ``pip`` commands to install packages. We recommend the use of ``conda install`` where possible to maintain package
 version consistency in the virtual environment. For example::
