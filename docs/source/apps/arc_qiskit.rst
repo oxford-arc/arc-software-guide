@@ -43,7 +43,7 @@ The example submission script below is suitable for running on the ARC cluster :
   #SBATCH --nodes=1
   #SBATCH --ntasks-per-node=48
   #SBATCH --time=00:10:00
-  #SBATCH --job-name=FluentTest
+  #SBATCH --job-name=QiskitTest
 
   module purge
   module load Anaconda3/2022.05
