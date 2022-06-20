@@ -1,5 +1,5 @@
-ANSYS FLUENT
-------------
+Qiskit
+------
 
 **Introduction**
  
@@ -18,7 +18,7 @@ Qiskit [quiss-kit] is an open-source SDK for working with quantum computers at t
 
  
 
-If you need to use a newer version of Qiskit than that installed centrally on the cluster, you may build a Python virtual environment and install it locally in your $DATA area.
+If you need to use a newer version of Qiskit than that installed centrally on the cluster via modules, you may build a Python virtual environment and install it locally in your $DATA area.
 
 **Example Virtual Environment Build**
 
