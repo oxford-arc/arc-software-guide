@@ -42,8 +42,8 @@ One way to run Matlab non-interactively is through
 - invoking Matlab from a submission script, submitted to the queue via the slurm scheduler.
 
 Input and output re-direction is arguably the easiest way of running Matlab non-interactivelly. It is achieved using the Linux operators < and >, with Matlab
-taking a code file as an input and writing the output to a file, e.g. matlab < myScript.m > myOutput.txt. The main function/program (e.g. myScript.m) should have
-the exit command at the end in order to force Matlab to quit after finishing the execution of the code.  
+taking a code file as an input and writing the output to a file, e.g. ``matlab < myScript.m > myOutput.txt`` The main function/program e.g. ``myScript.m`` should have
+the ``exit`` command at the end in order to force Matlab to quit after finishing the execution of the code.  
 
 A simple example illustrating non-interactive Matlab use is found in the ``/apps/common/examples/matlab/seq`` directory which you can copy to your own area as follows::
 
@@ -51,30 +51,20 @@ A simple example illustrating non-interactive Matlab use is found in the ``/apps
   cd $DATA/matlab/seq
   
 
-In this example, the MATLAB program main.m
-sets a linear system with the right-hand side read from a file provided, solves it and saves the result to another file.  A Matlab job is sent to the queue and
-executed on a backend node using the job scheduler.  
+In this example, the MATLAB program ``main.m`` sets a linear system with the right-hand side read from a file provided, solves it and saves the result to another file.  A Matlab job is sent to the queue and executed on a backend node using the job scheduler.  
 
 Submission scripts should contain the following line to run the Matlab script::
 
  matlab -nodisplay -nosplash < main.m > run.log
  
-
-The flag nodisplay instruct Matlab to run without the GUI, while nosplash prevents the display of the Matlab logo.
-The < redirection operator ensures that Matlab runs the script main.m, while the > operator re-directs the standard output
-(normally to the terminal) to run.log file.
+The flag ``-nodisplay`` instructs Matlab to run without the GUI, while ``-nosplash`` prevents the display of the Matlab logo.
+The < redirection operator ensures that Matlab runs the script ``main.m`` while the > operator re-directs the standard output
+(normally to the terminal) to ``run.log`` file.
  
 
 **Example Virtual Environment Build**::
 
- srun -p interactive --pty /bin/bash
  
- module purge
- module load Anaconda3/2022.05
- conda create -y --prefix $DATA/qiskit-env --copy python=3.9
- source activate $DATA/qiskit-env
- 
- pip install qiskit
 
 
 **Example Submission Script**
