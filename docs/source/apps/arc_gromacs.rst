@@ -20,9 +20,9 @@ The guide shows how to
 - prepare a GROMACS job submission script and
 - submit the GROMACS job.
 
-**Gromacs on ARC clusters**
+**GROMACS on ARC clusters**
 
-Several versions of GROMACS are installed on the ARC clusters, mostly with only single precision support.  GROMACS is managed through the module utility; use module spider gromacs to see the modules available, and also use module to load the appropriate Gromacs.
+Several versions of GROMACS are installed on the ARC clusters, mostly with only single precision support.  GROMACS is managed through the ``module`` utility; use ``module spider gromacs`` to see the modules available, and also use ``module`` to load the appropriate GROMACS version.
 
 **Running a GROMACS job on multi node cluster** 
 
@@ -53,7 +53,6 @@ Also, here is an example of using a GPU for GROMACS on the htc cluster.
   #SBATCH --mem=377000
   #SBATCH --gres=gpu:1
   #SBATCH --time=01:00:00
-  #SBATCH -J job1
 
   module purge 
   module load GROMACS/2020.4-fosscuda-2019b 
