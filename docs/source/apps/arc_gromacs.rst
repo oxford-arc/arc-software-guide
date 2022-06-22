@@ -3,7 +3,7 @@ GROMACS
 
 **Introduction**
 
-Gromacs is a versatile package for molecular dynamics simulations, which solves the Newtonian equations of motion for systems with hundreds to millions of particles.  Gromacs has been primarily designed for biochemical molecules (such as proteins, lipids and nucleic acids) but has also been used for research on non-biological systems, e.g. polymers.  This is a CPU only build, containing both MPI and threadMPI builds. 
+GROMACS is a versatile package for molecular dynamics simulations, which solves the Newtonian equations of motion for systems with hundreds to millions of particles.  GROMACS has been primarily designed for biochemical molecules (such as proteins, lipids and nucleic acids) but has also been used for research on non-biological systems, e.g. polymers.  This is a CPU only build, containing both MPI and threadMPI builds. 
 
 CPU Version::
 
