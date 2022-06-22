@@ -58,7 +58,7 @@ Submission scripts should contain the following line to run the Matlab script::
  matlab -nodisplay -nosplash < main.m > run.log
 
 The flag ``-nodisplay`` instructs Matlab to run without the GUI, while ``-nosplash`` prevents the display of the Matlab logo.
-The < redirection operator ensures that Matlab runs the script ``main.m`` while the > operator re-directs the standard output
+The < redirection operator ensures that Matlab runs your Matlab script, in this case ``main.m`` while the > operator re-directs the standard output
 (normally to the terminal) to ``run.log`` file.
 
 For example for the ``seq`` example above, the contents of the SLURM submission script ``run_slurm.sh`` is::
@@ -80,10 +80,25 @@ To submit this to the scheduler::
    sbatch run_slurm.sh
    
 
+**Running Matlab on parallel hardware**
 
-**Example Virtual Environment Build**::
+Overview of parallel computing in Matlab
+########################################
 
- 
+Matlab was developed for a long time as a product for single-processor computing, partly because distributed parallelism was incompatible with Matlab's original design principles and partly because the potential market was perceived as too small to justify major development efforts.  However, the advent of multi-core CPUs and the changing nature of Matlab, from the original educational "matrix laboratory" to a complex technical computing environment, prompted a revision of this situation. Matlab now benefits from running on modern parallel hardware in at least two ways.
+
+The first is a built-in feature of Matlab, which "naturally" exploits multi-core processing via the underlying multi-threaded libraries Intel MKL and FFTW.  Thus, linear algebra operations (such as the solution to a linear system A\b or matrix products A*B) and FFT operations (using the function fft) are implicitly multi-threaded and make use of all the cores available on a multi-core system without user intervention or special extra programming.  Some of the vectorised operations in Matlab are also multi-threaded.  However, this type of operations are only a part of Matlab programming and the vast proportion of the Matlab functionality are scripts or functions that can only use a single core.
+
+Second, users can exploit parallel processing through a series of explicit programming techniques.  The following techniques are briefly discussed below, with examples given:
+
+- using the Matlab toolbox Parallel Computing Toolbox;
+- trivial parallelism exploited through independent Matlab processes;
+- multi-threaded MEX programming.
+- Matlab has two toolboxes (licensed separately from the main distribution) that enable explicit parallel programming: the Parallel Computing Toolbox and the Distributed Computing Server.  The Parallel Computing Toolbox is designed for programming  multi-core architectures, while the Distributed Computing Server extends the Matlab's functionality to large resources, such as clusters.
+
+The functionality of the Parallel Computing Toolbox is extended from single cluster node processing to distributed processing across multiple nodes by the Distributed Computing Server.  To learn more about the product, please visit the Distributed Computing Server webpage.
+
+The University has licenses for the Parallel Computing Toolbox and users are encouraged to use it in their jobs run on the ARC hardware.  However, neither the University nor ARC have licenses for the Distributed Computing Engine.  If you need to use this product, please contact the ARC staff to make your interest known.
 
 
 **Example Submission Script**
