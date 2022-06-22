@@ -75,7 +75,7 @@ For example for the ``seq`` example above, the contents of the SLURM submission 
 
   matlab -nodisplay -nosplash < main.m > run.log
 
- To submit this to the scheduler::
+To submit this to the scheduler::
  
    sbatch run_slurm.sh
    
