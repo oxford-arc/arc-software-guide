@@ -148,7 +148,7 @@ The file ``oscillator.m`` is a Matlab script that computes the solution of a dam
 
 To deploy the script as a standalone application, load the modules for Matlab and for the Intel-compilers, e.g.::
 
-  module load matlab/R2021b intel/2020a
+  module load MATLAB/R2021b intel/2020a
  
 Then, compile the script using mcc and the command::
 
