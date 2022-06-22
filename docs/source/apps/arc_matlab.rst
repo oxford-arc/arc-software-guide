@@ -32,7 +32,7 @@ The purpose of this example-based tutorial is to guide the user through a few as
 
 
 Non-interactive Matlab Sessions
--------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 During code development on standard machines Matlab is usually run in interactive mode, in this way making full use of its integrated environment. 
 By contrast, given the "batch processing" nature of supercomputing resources, the preferred mode of operation for Matlab on our systems is non-interactive. 
@@ -82,10 +82,9 @@ To submit this to the scheduler::
    
 
 Running Matlab on parallel hardware
------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Overview of parallel computing in Matlab
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**Overview of parallel computing in Matlab**
 
 Matlab was developed for a long time as a product for single-processor computing, partly because distributed parallelism was incompatible with Matlab's original design principles and partly because the potential market was perceived as too small to justify major development efforts.  However, the advent of multi-core CPUs and the changing nature of Matlab, from the original educational "matrix laboratory" to a complex technical computing environment, prompted a revision of this situation. Matlab now benefits from running on modern parallel hardware in at least two ways.
 
