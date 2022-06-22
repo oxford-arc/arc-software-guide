@@ -101,24 +101,40 @@ The functionality of the Parallel Computing Toolbox is extended from single clus
 
 The University has licenses for the Parallel Computing Toolbox and users are encouraged to use it in their jobs run on the ARC hardware.  However, neither the University nor ARC have licenses for the Distributed Computing Engine.  If you need to use this product, please contact the ARC staff to make your interest known.
 
+**Using the Parallel Computing Toolbox**
 
-**Example Submission Script**
- 
+The Parallel Computing Toolbox offers the programmer a range of high-level parallelism contructs such as parfor (parallel for loops) and distributed arrays, which can be used to parallelise processing.  Matlab scripts enhanced using these contructs can be run on a single multi-core system (such as a node of the ARC clusters), utilising all the cores available for parallel processing.  While this offers scope for faster execution, the programming is not without catches and requires both programming experience and the understanding of the underlying algorithms.  The MathWorks pages are the best introduction to the product.
 
-The example submission script below is suitable for running on the ARC cluster ::
+A simple example of multi-core parallelism via the Parallel Computing Toolbox is provided in the ``/apps/common/examples/matlab/par`` directory which you can copy to your own area as follows::
+
+  cp -r /apps/common/examples/matlab $DATA/
+  cd $DATA/matlab/par
+  
+The program main.m evaluates an expensive function within a for loop and stores the results in an array.  The for loop is parallelised using the parfor construct; a parfor loop behaves like an ordinary for loop on a single-core execution but shares the computational load between several workers (normally, each run on a separate core) in parallel execution.  To make workers available for parallel execution, the command matlabpool is used in main.m; the example illustrates the behaviour of parfor both before and after the workers are initiated.
+
+The example is run in batch mode with the command ``sbatch run_slurm.sh``  The submission file is::
 
   #!/bin/bash
 
-  #SBATCH --partition=devel
   #SBATCH --nodes=1
-  #SBATCH --ntasks-per-node=48
-  #SBATCH --time=00:10:00
-  #SBATCH --job-name=QiskitTest
+  #SBATCH --ntasks-per-node=16
+  #SBATCH --time=00:05:00
+  #SBATCH --job-name=matlab_test
+  #SBATCH --partition=devel
+
 
   module purge
-  module load Anaconda3/2022.05
-  
-  source activate $DATA/qiskit-env
-  
-  python (your python script here)
+  module load MATLAB
+
+  matlab -nodisplay -nosplash < main.m > run.log
+
+Notice once again how MATLAB is instructed to not load the interactive window. The ``ntasks-per-node`` SLURM resource value is set to 16 to request 16 cores for this job.
+
+Note: do not turn java off when lauching MATLAB (i.e. do not invoke matlab -nojvm); matlabpool uses the Java Virtual Machine.
+
+After the job finishes, the CPU times spent executed the loops in main.m can be found in timings.dat, showing a clear speed-up of the execution in parallel.
+
+
+
+
   
