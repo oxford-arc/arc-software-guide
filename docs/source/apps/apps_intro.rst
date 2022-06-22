@@ -7,4 +7,5 @@ The guides in this section provide information on running specific software appl
 
    arc_cfx
    arc_fluent
+   arc_matlab
    arc_qiskit
