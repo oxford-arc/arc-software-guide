@@ -5,6 +5,7 @@ The guides in this section provide information on running specific software appl
 
 .. toctree::
 
+   arc_abaqus
    arc_cfx
    arc_fluent
    arc_gromacs
