@@ -56,11 +56,30 @@ In this example, the MATLAB program ``main.m`` sets a linear system with the rig
 Submission scripts should contain the following line to run the Matlab script::
 
  matlab -nodisplay -nosplash < main.m > run.log
- 
+
 The flag ``-nodisplay`` instructs Matlab to run without the GUI, while ``-nosplash`` prevents the display of the Matlab logo.
 The < redirection operator ensures that Matlab runs the script ``main.m`` while the > operator re-directs the standard output
 (normally to the terminal) to ``run.log`` file.
+
+For example for the ``seq`` example above, the contents of the SLURM submission script ``run_slurm.sh`` is::
+
+  #!/bin/bash
+
+  #SBATCH --nodes=1
+  #SBATCH --time=00:05:00
+  #SBATCH --job-name=matlab_test
+  #SBATCH --partition=devel
+
+  module purge
+  module load MATLAB
+
+  matlab -nodisplay -nosplash < main.m > run.log
+
+ To submit this to the scheduler::
  
+   sbatch run_slurm.sh
+   
+
 
 **Example Virtual Environment Build**::
 
