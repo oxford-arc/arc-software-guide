@@ -202,5 +202,42 @@ Finally, the use of ``mcc`` can be avoided altogether and Matlab can be run dire
  
 However, deployed executables do not require Matlab licenses to run, which can make an important economy, especially in the case of a large number of concurrent processes (such as a parameter sweep).
 
+Multi-threaded MEX programming
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Yet another way to exploit multi-core systems is via multi-threaded Mex programming.  Mex (Matlab EXecutable) files are dynamically linked subroutines compiled from C, C++ or Fortran source code that can be run from within Matlab in the same way as M-files or built-in functions.  These guidelines assume knowledge of serial Mex programming and provide an example of how to augment serial execution with multi-threading through OpenMP.  Coupled with OpenMP multi-threading, Mex files become a powerful method to accelerate key parts of a Matlab program.
+
+The main reason to write Mex files in C or Fortran (thus abandoning the high-level abstracted Matlab programming) is to gain speed of execution in computationally intensive operations that otherwise become a bottleneck in an application.  Typically, this is done to replace a function that is identified through profiling as being slow and/or called a large number of times.  Nevertheless, this programming effort is rewarded to various degrees, with the greatest relative benefits normally met when a Mex replaces a Matlab script (M-file).  At the other extreme, Matlab operations that rely on performance libraries like FFTW (e.g. fftn) or BLAS/LAPACK (e.g. solution of a dense linear systems, A\b), which are highly optimised have nothing or very little to benefit from Mex programming.  The best source for learning Mex programming is the Mathworks webpages.
+
+The functionality necessary for building Mex files is provided by the Matlab C, C++ or Fortran APIs.  The main component of a Mex source code is the external gateway function mexFunction, which manages the transfer of data between Mex files and the Matlab environment.  This can be combined with C or Fortran routines or any external library in a manner similar to any other source code.  (Note: the API provides a Fortran gateway function too but practice shows it is trickier to compile pure Fortran Mex code than pure C or C++; the easiest way forward for Fortran programmers is to use the C gateway function to invoke the Fortran routines, which are compiled separately using a Fortran compiler.)  The Mex gateway function is compiled using the Matlab mex utility, which invokes a backend compiler (such as gcc) and manages the linking stage with the Matlab Mex API libraries.  The compiler and compiler flags are configurable and the options can be stored in an options file.
+
+An example can be found in the ``/apps/common/examples/matlab/mex`` directory which you can copy to your own area as follows::
+
+  cp -r /apps/common/examples/matlab $DATA/
+  cd $DATA/matlab/mex
+
+This re-implements the BLAS axpy function, which adds the input matrix y to the input matrix x multiplied by the scalar a.  This example is purely illustrative and its utility does not stretch beyond this guide.  Matlab uses the threaded MKL implementation of axpy directly and this function is chosen for this example only because it is very simple to program and to understand.
+
+The directory contains the C files ``axpy.c`` (which contains the gateway function) and ``axpy_kernel.c`` (which performs the a*x+y operation).  The main function ``axpy.c`` contains various checks on the input data and the function ``axpy_kernel.c`` contains OpenMP directive for threading the loop over the array index.  The directory also contains the Mex option files ``mexOpts.sh`` that is modified to use the Intel C compiler and to trigger AVX and SSE vectorisation.  Lastly, a simple ``makefile`` is also provided.
+
+To generate the Mex file, use the commands::
+
+  module load matlab/R2021b intel/2020a
+  make
+  
+This generates the file ``axpy.mexa64`` which can be run directly from Matlab.  To test the function axpy thus generated, you can load an interactive session and start Matlab.  At the Matlab prompt, enter the commands::
+
+  M = 60000; N = 30000;
+  x = rand(M,N); y = rand(M,N); a = rand();
+  tic; z = axpy(a, x,y, 1); toc;
+  tic; z = axpy(a, x,y, 2); toc;
+  tic; z = axpy(a, x,y, 4); toc;
+  
+The first two lines generate some data sets to work on.  The third line and after run the newly built function axpy using a, x and y as arguments as well as the number of OpenMP threads to use in the computation.  The threading is done in the computational function ``axpy_kernel.c`` and its effect can be seen in a reduction in the computational time when going from 2 threads to 4. Remember this is illustrative, a decrease of computational time is unlikely beyond 8 threads (there are several reasons for this).
+
+The accuracy of the results can be checked against Matlab's own operations with the command::
+
+  norm(z - (a*x + y), 'fro')
+
+which should produce a number of the order of machine eps.
   
