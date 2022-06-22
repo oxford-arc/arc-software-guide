@@ -134,3 +134,72 @@ Note: do not turn java off when lauching MATLAB (i.e. do not invoke ``matlab -no
 
 After the job finishes, the CPU times spent executed the loops in ``main.m`` can be found in ``timings.dat`` showing a clear speed-up of the execution in parallel.
 
+Exploiting trivial parallelism
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+An easy way to exploit multi-core systems is to split the workflow into parts that can be processed completely independently.  The typical example in this category is a parameter sweep, where the same Matlab script is run a large number of times using different inputs; these runs are indepent from each other and can be carried out concurrently.  Thus, the entire workflow can be scheduled in jobs that group 8 independent runs to match the 8 cores available per compute node.  This strategy is best coupled with the use of the Matlab mcc compiler in order to avoid an excessive use of licenses.
+
+A simple example is found in the the ``/apps/common/examples/matlab/mcc`` directory which you can copy to your own area as follows::
+
+  cp -r /apps/common/examples/matlab $DATA/
+  cd $DATA/matlab/mcc
+
+The file ``oscillator.m`` is a Matlab script that computes the solution of a damped oscillator of unit mass (using the Matlab ode45 solver) and outputs the maximum oscillation in that solution.  The script is prepared for use as a standalone deployed executable using the Matlab function isdeployed.
+
+To deploy the script as a standalone application, start an interactive compute session, load the modules for Matlab and for the Intel-compilers, e.g.::
+
+  srun -p interactive --pty /bin/bash
+  module load MATLAB/R2021b intel/2020a
+ 
+Then, compile the script using mcc and the command::
+
+  cd $DATA/matlab/mcc
+  mcc -v \
+    -R -nojvm \
+    -R -singleCompThread \
+    -f ./mbuildopts.sh \
+    -m oscillator.m
+ 
+
+This command makes use of the options in the file ``mbuildopts.sh`` provided alongside the Matlab script and customised for the Intel compilers. If no option file is passed through the option -f, mcc uses the default options file, which uses the Gnu compilers gcc and g++; in principle, using the Intel compilers can lead to a faster executable.
+
+The deployed executable is compiled to run using a single thread via the option -singleCompThread.  This is important as a number of process are to run concurrently on the same multi-core system.
+
+The mcc compilation creates an executable called oscillator.  In addition to this, the process generates the files mccExcludedFiles.log and readme.txt, which can be safely discarded.  Also, the wrapper script ``run_oscillator.sh`` is generated; this can be used to launch the executable oscillator into execution as it ensures the correct environment (paths to shared libraries and other environment variables) is set before execution.  The ARC Matlab module updates all the necessary variables, and the executable oscillator can be launched directly, so using ``run_oscillator.sh`` is unecessary.
+
+The submission script ``run_slurm.sh`` gives an example of how the deployed executable can be used to launch concurrent processes within the same job.  On the clusters, the script requests a single compute node ``#SBATCH --nodes=1`` ``#SBATCH --ntasks-per-node=8`` so that 8 cores are available for processing.  8 separate processes are started with different parameters, such that the 8 processes compute a parameter sweep.  The contents of ``run_slurm.sh`` is as follows::
+
+  #!/bin/bash
+
+  #SBATCH --nodes=1
+  #SBATCH --ntasks-per-node=8
+  #SBATCH --partition=devel
+  #SBATCH --time=00:10:00
+  #SBATCH --job-name=oscillator
+
+  module purge
+  module load MATLAB/R2021b intel/2020a
+
+
+  # start 8 processes in the background
+  ./oscillator 0.01 0.3 > result1 &
+  ./oscillator 0.02 0.3 > result2 &
+  ./oscillator 0.03 0.3 > result3 &
+  ./oscillator 0.04 0.3 > result4 &
+  ./oscillator 0.05 0.3 > result5 &
+  ./oscillator 0.06 0.3 > result6 &
+  ./oscillator 0.07 0.3 > result7 &
+  ./oscillator 0.08 0.3 > result8 &
+
+  # wait for all processes to finish (this is important!)
+  wait
+
+With the run parameters (representing the damping coefficient and the stiffness) passed on as command line arguments.  The processes are started in the background (using the symbol &), such that the second process can start before the first finishes, and so on.  At the end of the script, a synchronisation point is necessary, which is implemented using a "wait" loop which "listens" for any processes called oscillator; without this synchronisation, the job launches the ``oscillator`` processes into background execution and finishes, without waiting for the processes to complete.  
+
+Each process prints the result (maximum oscillation) to the standard output; there is now way to "return" a numeric result from a standalone executable.  It is easy to preserve the results after the job runs by redirecting the output to the files result*.
+
+Finally, the use of ``mcc`` can be avoided altogether and Matlab can be run directly.  For example, the first processing line in the script could be::
+
+  matlab -nojvm -singleCompThread -r "oscillator(0.01, 0.3); exit" > result1 &
+ 
+However, deployed executables do not require Matlab licenses to run, which can make an important economy, especially in the case of a large number of concurrent processes (such as a parameter sweep).
