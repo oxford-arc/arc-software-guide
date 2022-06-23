@@ -17,9 +17,9 @@ The guide shows how to
 - prepare a TensorFlow Anaconda virtual environment and
 - submit a test TensorFlow job.
 
-You have two options:
+To use tensorflow you can either use the pre-installed modules or build your own Python virtual environment.
 
-1) You may use the pre-installed versions of Tensorflow:: 
+**Using the pre-installed versions of Tensorflow**:: 
 
    module spider Tensorflow 
 
@@ -34,9 +34,7 @@ And load the appropriate version. For example::
 
 The above will load Tensorflow 2.4.1 into your environment, and the package will be available from within Python.
 
-2) You can setup your own Python virtual environment.
-
-** Setting up your own environment (Python 3)**
+**Setting up your own virtual environment (Python 3)**
 
 Tensorflow is best run on the HTC systems which have GPU nodes. The following commands show how you can set up an Anaconda virtual environment
 for TensorFlow. Note: this method will only work on HTC nodes, and the environment build process should be run from an interactive session...::
@@ -74,6 +72,7 @@ A bash script for submission to GPU nodes will be something like this::
 
   python -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_s um(tf.random_normal([1000, 1000])))"
 
+The job diagnostic information is useful if you need to contact ARC support if you have problems running your job - so please include it.
 
 .. warning::
     You cannot run TensorFlow in GPU mode directly from the login nodes. This will result in errors - as these systems have no GPUs available.
