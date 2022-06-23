@@ -52,7 +52,10 @@ The example submission script below is suitable for running on the ARC cluster. 
   abaqus fetch job=s4b.inp 
 
   abaqus input=s4b job=test cpus=${SLURM_NTASKS} interactive
- 
-Please note: The line ``. abaqus.sh`` in the above script is **important**, it ensures that Abaqus is configured correctly for the ARC environment by creating a file
-named ``abaqus_v6.env`` in the job directory. It also creates a scratch directory for temporary Abaqus files. The example above also loads the ``iimpi/2020a`` module
-which we use to override the older MPI libraries supplied.  
+
+.. note::
+    The line ``. abaqus.sh`` in the above script is **important**, it ensures that Abaqus is configured correctly for the ARC environment by creating a file
+    named ``abaqus_v6.env`` in the job directory. 
+    
+    It also creates a scratch directory for temporary Abaqus files. The example above also loads the ``iimpi/2020a`` module
+    which we use to override the older MPI libraries supplied.  
