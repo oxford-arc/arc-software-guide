@@ -6,6 +6,7 @@ ATK
 
 
 **Introduction**
+
 Atomistix ToolKit (ATK) is a commercial computational chemistry software for atomic scale modelling, commercialised by QuantumWise.  
 ATK can run in parallel on ARC-C cluster using MPI.
 
