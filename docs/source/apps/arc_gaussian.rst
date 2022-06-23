@@ -21,9 +21,11 @@ The guide shows how to:
 
         Gaussian/16.C.01
  
-The modules with the suffix ``-ARCUS-B`` are the built from the legacy ARCUS-B system, using PGI 16.5 compiler and Atlas. The other modules are built natively on ARC.
- 
-Note: While the use of Gaussian is free for University researchers, the ARC team has to enable users to run Gaussian on an individual basis; if you are planning to run Gaussian, let the ARC team know, otherwise you will see the message permission denied when tryiing to run Gaussian commands in a submission script. 
+.. note::
+   The modules with the suffix ``-ARCUS-B`` are the built from the legacy ARCUS-B system, using PGI 16.5 compiler and Atlas. The other modules are built natively on ARC.
+   
+   While the use of Gaussian is free for University researchers, the ARC team has to enable users to run Gaussian on an individual basis; if you are planning to run  
+   Gaussian, you need to request access via this form: https://www.arc.ox.ac.uk/restricted-licence-software-applications otherwise you will see the message permission    denied when attempting to run Gaussian commands. 
 
 
 **Gaussian on the ARC systems**
