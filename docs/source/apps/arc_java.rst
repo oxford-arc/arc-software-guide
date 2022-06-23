@@ -30,7 +30,7 @@ choose to develop their own codes.
 Java applications can benefit from faster execution on modern multi-core machines through using multiple execution threads, and Java provides built-in
 support for multithreaded programming.  A multithreaded program contains two or more threads (each defining a separate path of execution) that can run concurrently.
 Multi-threaded programming in Java is beyond the scope of this guide and users are invited to start with one of the numerous web tutorials available on the matter,
-e.g. [this one.](http://docs.oracle.com/javase/tutorial/essential/concurrency/index.html)
+e.g. http://docs.oracle.com/javase/tutorial/essential/concurrency/index.html
 
 
 **Example submission script**::
