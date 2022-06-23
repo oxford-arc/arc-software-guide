@@ -11,9 +11,11 @@ The steps to run an Abaqus job are:
 - create a submission script;
 - submit the job.
 
-**Important Note**
 
-Abaqus is **only** available on the ARC legacy partition. This partition provides support for applications which do not support the main ARC nodes which run CentOS 8.
+.. note::
+    Abaqus is **only** available on the ARC legacy partition. 
+    
+    This partition provides support for applications which do not support the main ARC nodes which run CentOS 8.
 
 **Module Information**::
  
