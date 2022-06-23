@@ -19,7 +19,7 @@ The guide shows how to
 
 You have two options:
 
-1) You may use the pre-installed versions of Tensorflow::
+1) You may use the pre-installed versions of Tensorflow:: 
 
    module spider Tensorflow 
 
@@ -28,7 +28,7 @@ You have two options:
         TensorFlow/2.3.1-foss-2020a-Python-3.8.2
         TensorFlow/2.4.1-fosscuda-2020b
 
-And load the appropriate version. For example::
+And load the appropriate version. For example:: 
 
         module load TensorFlow/2.4.1-fosscuda-2020b
 
@@ -74,5 +74,8 @@ A bash script for submission to GPU nodes will be something like this::
 
   python -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_s um(tf.random_normal([1000, 1000])))"
 
+
 .. warning::
-  You cannot run TensorFlow in GPU mode directly from the login nodes. This will result in errors - as these systems have no GPUs available.
+    You cannot run TensorFlow in GPU mode directly from the login nodes. This will result in errors - as these systems have no GPUs available.
+  
+  
