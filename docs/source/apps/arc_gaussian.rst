@@ -2,8 +2,13 @@ Gaussian
 --------
 
 **Introduction**
-Gaussian is a commercial computational chemistry software for modelling electronic structures. Gaussian provides state-of-the-art capabilities for electronic structure modeling. Gaussian 16 is licensed for a wide variety of computer systems. All versions of Gaussian 16 contain every scientific/modeling feature, and none imposes any artificial limitations on calculations other than
-your computing resources and patience. 
+
+Gaussian is a commercial computational chemistry software for modelling electronic structures. Gaussian provides state-of-the-art capabilities for electronic structure modeling. Gaussian 16 is licensed for a wide variety of computer systems. All versions of Gaussian 16 contain every scientific/modeling feature, and none imposes any artificial limitations on calculations other than your computing resources and patience. 
+
+The guide shows how to:
+
+- prepare a Gaussian job submission script and
+- submit and run a Gaussian job.
 
 **Module information**::
 
@@ -16,15 +21,10 @@ your computing resources and patience.
 
         Gaussian/16.C.01
  
-The modules with the suffix ``-ARCUS-B`` are the build from the legacy ARCUS-B system, using PGI 16.5 compiler and Atlas. The other modules are built natively on ARC.
+The modules with the suffix ``-ARCUS-B`` are the built from the legacy ARCUS-B system, using PGI 16.5 compiler and Atlas. The other modules are built natively on ARC.
  
 Note: While the use of Gaussian is free for University researchers, the ARC team has to enable users to run Gaussian on an individual basis; if you are planning to run Gaussian, let the ARC team know, otherwise you will see the message permission denied when tryiing to run Gaussian commands in a submission script. 
 
-The guide shows how to
-
-- prepare a Gaussian job submission script and
-- submit and run a Gaussian job.
- 
 
 **Gaussian on the ARC systems**
 
