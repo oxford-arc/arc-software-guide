@@ -50,5 +50,5 @@ e.g. http://docs.oracle.com/javase/tutorial/essential/concurrency/index.html
   myApplication -threads ${SLURM_NTASKS} -input myAppInput.txt -output myAppOutput.txt
 
  
-In the above example, "myApplication", "myAppinput" and "myAppOutput" should be appropriate names for your Java application.
+In the above example, ``myApplication`` ``myAppinput`` and ``myAppOutput`` should be substituted for the appropriate names of your Java application and data files.
  
