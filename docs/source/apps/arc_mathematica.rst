@@ -3,11 +3,11 @@ Mathematica
 
 **Introduction**
  
-MATLAB is a numerical computing and programming environment with a broad range of functionality (matrix manipulation, numerical linear algebra, general-purpose graphics, etc.).  Additionally, specialised application areas (e.g. bioinformatics or financial derivatives) are served by a large number of optional toolboxes
+Mathematica is a computational software program used in many scientific, engineering, mathematical and computing fields.
 
-Matlab is installed on the ARC clusters along with all the toolboxes covered by the Oxford University Concurrent license.
+Mathematica is installed on the ARC clusters and is covered by the Oxford University Concurrent license.
 
-The purpose of this example-based tutorial is to guide the user through a few aspects of running efficient Matlab jobs on the ARC resources.  These aspects are
+The purpose of this example-based tutorial is to guide the user through a few aspects of running efficient Mathematica jobs on the ARC resources.  These aspects are:
 
 - using the Mathematica module,
 - running Mathematica scripts non-interactively from batch jobs
