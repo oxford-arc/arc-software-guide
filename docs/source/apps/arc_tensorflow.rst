@@ -74,7 +74,7 @@ A bash script for submission to GPU nodes will be something like this::
 
 The job diagnostic information is useful if you need to contact ARC support if you have problems running your job - so please include it.
 
-.. warning::
-    You cannot run TensorFlow in GPU mode directly from the login nodes. This will result in errors - as these systems have no GPUs available.
+.. note::
+    You cannot run TensorFlow in GPU mode directly from the login nodes. This will result in errors - as these systems have no GPUs available, and they are restricted     in memory.
   
   
