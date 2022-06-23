@@ -41,7 +41,7 @@ Here is an example of a submission script GROMACS job on ARC::
 
   mpirun gmx_mpi mdrun -s nsteps800.tpr -deffnm nc2-cubic-md -ntomp 1 -dlb yes -noconfout -npme 64 
 
-Also, here is an example of using a GPU for GROMACS on the htc cluster::  
+Also, here is an example of using GROMACS with GPU support on the HTC cluster::  
 
   #!/bin/bash
 
