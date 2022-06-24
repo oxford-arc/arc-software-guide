@@ -60,7 +60,7 @@ A bash script for submission to GPU nodes will be something like this::
   #SBATCH --ntasks-per-node=1
   #SBATCH --time=00:10:00
   #SBATCH --job-name=tensor
-  #SBATCH --partition=htc
+  #SBATCH --cluster=htc
   #SBATCH --gres=gpu:1
 
   # Useful job diagnostics
