@@ -72,7 +72,8 @@ A bash script for submission to GPU nodes will be something like this::
 
   python -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_s um(tf.random_normal([1000, 1000])))"
 
-The job diagnostic information is useful if you need to contact ARC support if you have problems running your job - so please include it.
+.. note::
+    The job diagnostic information is useful if you need to contact ARC support if you have problems running your job - so please include it.
 
 .. warning::
     You cannot run TensorFlow in GPU mode directly from the login nodes. This will result in errors - as these systems have no GPUs available, and they are restricted     in memory.
