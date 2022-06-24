@@ -31,18 +31,25 @@ The above will load LAMMPS into your environment, and the package will be availa
 
 **Setting up your own virtual environment (Python 3)**
 
-We have a build script which you can use to build LAMMPS with most of the packages, and its own Anaconda 3 environment.
-
-The script will create the following directories::
-  
-  $DATA/LAMMPS-env    (Python environment and installation location)
-  $DATA/LAMMPS-build  (Build files)
-  
-To use this::
+We have a set of build scripts which you can use to build LAMMPS with most of the packages, and its own Anaconda 3 environment. To obtain a copy of these scripts::
 
   cd $DATA
   mkdir scripts ; cd scripts
   cp /apps/common/examples/LAMMPS/2022.06/* .
+
+By default our build script will create the following directories::
+  
+  $DATA/LAMMPS-env    (Python environment and installation location)
+  $DATA/LAMMPS-build  (Build files)
+  
+If you would like to use different directories, you will need to change the ``$DATA/scripts/LAMMPS-config.sh`` file. Specifically the following two lines::
+
+  export LAMMPS_INSTALL=$DATA/LAMMPS-env
+  export LAMMPS_BUILD=$DATA/LAMMPS-build
+  
+To run the build of LAMMPS::
+
+  cd $DATA/scripts
   sh LAMMPS-build.sh
   
 Once the build completes you can test the build as follows::
