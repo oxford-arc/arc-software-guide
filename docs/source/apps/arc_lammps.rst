@@ -42,8 +42,22 @@ To use this::
 
   cd $DATA
   mkdir scripts ; cd scripts
-  cp /apps/common/examples/LAMMPS/* .
+  cp /apps/common/examples/LAMMPS/2022.06/* .
   sh LAMMPS-build.sh
+  
+Once the build completes you can test the build as follows::
+
+   source $DATA/scripts/LAMMPS-config.sh
+   python
+   >>> import lammps
+   >>> lmp = lammps.lammps()
+       LAMMPS (18 Sep 2020)
+       using 1 OpenMP thread(s) per MPI task
+   >>>
+   
+If you need to change the packages installed you can edit the build script ``$DATA/scripts/LAMMPS-build.sh`` and re-run it.
+
+
   
 
   
