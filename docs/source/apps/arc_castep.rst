@@ -8,7 +8,7 @@ with functionality including geometry optimization molecular dynamics, phonons, 
 
 .. warning::
    
-   While the use of CASTEP is free for University researchers, you still require a licence to run it. Licensing information can ve found here: http://www.castep.org/CASTEP/GettingCASTEP
+   While the use of CASTEP is free for University researchers, you still require a licence to run it. Licensing information can be found here: http://www.castep.org/CASTEP/GettingCASTEP
    
    Once you have a valid licence, you need to request access via this form: https://www.arc.ox.ac.uk/restricted-licence-software-applications to request access on ARC.
 
