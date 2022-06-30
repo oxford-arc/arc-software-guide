@@ -21,9 +21,9 @@ The purpose of this example-based tutorial is to guide the user through a few as
  
  module spider matlab
 
- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -----------------------------------------------------------------------------------------------
   MATLAB:
- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -----------------------------------------------------------------------------------------------
      Versions:
         MATLAB/R2019b
         MATLAB/R2020a
@@ -31,8 +31,7 @@ The purpose of this example-based tutorial is to guide the user through a few as
         MATLAB/R2021b
 
 
-Non-interactive Matlab Sessions
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**Non-interactive Matlab Sessions**
 
 During code development on standard machines Matlab is usually run in interactive mode, in this way making full use of its integrated environment. 
 By contrast, given the "batch processing" nature of supercomputing resources, the preferred mode of operation for Matlab on our systems is non-interactive. 
@@ -81,9 +80,6 @@ To submit this to the scheduler::
    sbatch run_slurm.sh
    
 
-Running Matlab on parallel hardware
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 **Overview of parallel computing in Matlab**
 
 Matlab was developed for a long time as a product for single-processor computing, partly because distributed parallelism was incompatible with Matlab's original design principles and partly because the potential market was perceived as too small to justify major development efforts.  However, the advent of multi-core CPUs and the changing nature of Matlab, from the original educational "matrix laboratory" to a complex technical computing environment, prompted a revision of this situation. Matlab now benefits from running on modern parallel hardware in at least two ways.
@@ -95,11 +91,11 @@ Second, users can exploit parallel processing through a series of explicit progr
 - using the Matlab toolbox Parallel Computing Toolbox;
 - trivial parallelism exploited through independent Matlab processes;
 - multi-threaded MEX programming.
-- Matlab has two toolboxes (licensed separately from the main distribution) that enable explicit parallel programming: the Parallel Computing Toolbox and the Distributed Computing Server.  The Parallel Computing Toolbox is designed for programming  multi-core architectures, while the Distributed Computing Server extends the Matlab's functionality to large resources, such as clusters.
+- Matlab has two toolboxes that enable explicit parallel programming: the **Parallel Computing Toolbox** and the **Parallel Server**.  The **Parallel Computing Toolbox** is designed for programming  multi-core architectures, while the **Parallel Server** extends the Matlab's functionality to large resources, such as clusters.
 
-The functionality of the Parallel Computing Toolbox is extended from single cluster node processing to distributed processing across multiple nodes by the Distributed Computing Server.  To learn more about the product, please visit the Distributed Computing Server webpage.
+The functionality of the Parallel Computing Toolbox is extended from single cluster node processing to distributed processing across multiple nodes by the Parallel Server.  
 
-The University has licenses for the Parallel Computing Toolbox and users are encouraged to use it in their jobs run on the ARC hardware.  However, neither the University nor ARC have licenses for the Distributed Computing Engine.  If you need to use this product, please contact the ARC staff to make your interest known.
+The University has licenses for the Parallel Computing Toolbox and users are encouraged to use it in their jobs run on the ARC hardware.  
 
 **Using the Parallel Computing Toolbox**
 
@@ -134,8 +130,7 @@ Note: do not turn java off when lauching MATLAB (i.e. do not invoke ``matlab -no
 
 After the job finishes, the CPU times spent executed the loops in ``main.m`` can be found in ``timings.dat`` showing a clear speed-up of the execution in parallel.
 
-Exploiting trivial parallelism
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**Exploiting trivial parallelism**
 
 An easy way to exploit multi-core systems is to split the workflow into parts that can be processed completely independently.  The typical example in this category is a parameter sweep, where the same Matlab script is run a large number of times using different inputs; these runs are indepent from each other and can be carried out concurrently.  Thus, the entire workflow can be scheduled in jobs that group 8 independent runs to match the 8 cores available per compute node.  This strategy is best coupled with the use of the Matlab mcc compiler in order to avoid an excessive use of licenses.
 
