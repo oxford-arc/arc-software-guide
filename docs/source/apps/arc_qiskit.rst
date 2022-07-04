@@ -24,6 +24,8 @@ If you need to use a newer version of Qiskit than that installed centrally on th
 
 We provide below an example virtual environment build for version 0.37.0 of Qiskit with an appropriate submission script. If you require a different version, specify the version in the variable ```QUISKIT_VER`` You can find available version numbers here: https://pypi.org/project/qiskit/#history
 
+**Virtual Environment Build Steps**::
+
  srun -p interactive --pty /bin/bash
  
  module purge
