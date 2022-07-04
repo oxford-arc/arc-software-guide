@@ -20,16 +20,20 @@ Qiskit [quiss-kit] is an open-source SDK for working with quantum computers at t
 
 If you need to use a newer version of Qiskit than that installed centrally on the cluster via modules, you may build a Python virtual environment and install it locally in your $DATA area.
 
-**Example Virtual Environment Build**::
+**Example Virtual Environment Build**
+
+We provide below an example virtual environment build for version 0.37.0 of Qiskit with an appropriate submission script. If you require a different version, specify the version in the variable ```QUISKIT_VER`` You can find available version numbers here: https://pypi.org/project/qiskit/#history
 
  srun -p interactive --pty /bin/bash
  
  module purge
  module load Anaconda3/2022.05
- conda create -y --prefix $DATA/qiskit-0.37.0-env --copy python=3.9
- source activate $DATA/qiskit-0.37.0-env
  
- pip install qiskit==0.37.0
+ export QISKIT_VER=0.37.0
+ conda create -y --prefix $DATA/qiskit-$QISKIT_VER-env --copy python=3.9
+ source activate $DATA/qiskit-$QISKIT_VER-env
+ 
+ pip install qiskit==$QISKIT_VER
 
 
 **Example Submission Script**
@@ -48,7 +52,8 @@ The example submission script below is suitable for running on the ARC cluster :
   module purge
   module load Anaconda3/2022.05
   
-  source activate $DATA/qiskit-0.37.0-env
+  export QISKIT_VER=0.37.0
+  source activate $DATA/qiskit-$QISKIT_VER-env
   
   python (your python script here)
   
