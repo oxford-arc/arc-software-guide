@@ -26,10 +26,10 @@ If you need to use a newer version of Qiskit than that installed centrally on th
  
  module purge
  module load Anaconda3/2022.05
- conda create -y --prefix $DATA/qiskit-env --copy python=3.9
- source activate $DATA/qiskit-env
+ conda create -y --prefix $DATA/qiskit-0.37.0-env --copy python=3.9
+ source activate $DATA/qiskit-0.37.0-env
  
- pip install qiskit
+ pip install qiskit==0.37.0
 
 
 **Example Submission Script**
@@ -48,7 +48,7 @@ The example submission script below is suitable for running on the ARC cluster :
   module purge
   module load Anaconda3/2022.05
   
-  source activate $DATA/qiskit-env
+  source activate $DATA/qiskit-0.37.0-env
   
   python (your python script here)
   
