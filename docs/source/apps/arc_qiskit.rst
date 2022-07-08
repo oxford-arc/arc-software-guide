@@ -61,5 +61,5 @@ The example submission script below is suitable for running on the ARC cluster :
   
 .. warning::
    
-   If you activate the virtual environment in the submission script, ensure that when you submit your job that no virtual environment is active. i.e. run ``conda deactivate`
+   If you activate the virtual environment in the submission script, ensure that when you submit your job that no virtual environment is active. i.e. run ``conda deactivate``
   
