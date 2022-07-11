@@ -53,12 +53,12 @@ An example submission script would look as follows - create a file named ``run-v
   module use /apps/common/private/modules
   module load VASP/6.3.2-foss2020a
 
-  mpirun -np $SLURM_JOB_NUM_NODES vasp_std
+  mpirun vasp_std
   
 The script requires two nodes (48 cores per node) and launches VASP taking the input from the file INCAR
 
 .. note::
-   To parallelisation correctly in the ``INCAR`` file, use ``NCORE`` instead of ``NPAR``, and ``NCORE`` must be set to the same value of ``--ntasks-per-node`` in your SLURM job 
+   VASP parallelisation is dependent on the simulation you are running see: `VASP Performance Issues <https://www.vasp.at/wiki/index.php/Performance_issues,_try_NCORE,_KPAR,_ALGO,_LREAL`_ for more information. 
 
 To launch into execution, issue the command::
 
