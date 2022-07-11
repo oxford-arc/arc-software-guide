@@ -58,7 +58,7 @@ An example submission script would look as follows - create a file named ``run-v
 The script requires two nodes (48 cores per node) and launches VASP taking the input from the file INCAR
 
 .. note::
-   VASP parallelisation is dependent on the simulation you are running see: `VASP Performance Issues <https://www.vasp.at/wiki/index.php/Performance_issues,_try_NCORE,_KPAR,_ALGO,_LREAL`_ for more information. 
+   VASP parallelisation is dependent on the simulation you are running see: `VASP Performance Issues <https://www.vasp.at/wiki/index.php/Category:Parallelization`_ for more information. 
 
 To launch into execution, issue the command::
 
