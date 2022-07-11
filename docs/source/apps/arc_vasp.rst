@@ -35,7 +35,7 @@ The guide shows how to:
 
 **Running a VASP job**
 
-Here is an example of how to run the Crambin example (part of the CASTEP benchmarks http://www.castep.org/CASTEP/Crambin ) on a cluster node.
+This example assumes you have the VASP input files in the same directory as the submission script.
 
 An example submission script would look as follows - create a file named ``run-vasp.sh`` containing::
 
