@@ -22,7 +22,7 @@ The guide shows how to:
         QuantumESPRESSO/6.7-foss-2020b
         QuantumESPRESSO/6.7-intel-2020a
 
-**Running a VASP job**
+**Running a Quantum ESPRESSO job**
 
 This example assumes you have the QE input file ``scf.in`` in the same directory as the submission script.
 
