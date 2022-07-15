@@ -127,5 +127,5 @@ Loading the above will define ``EBROOTBOOST`` - the variable name is always ``EB
    ls $EBROOTBOOST
    easybuild  include  lib  lib64
 
-So if you need to specify the Boost location to your build, you can supply for example: $EBROOTBOOST/incude for the header files and $EBROOTBOOST/lib64 for the library files. 
+So if you need to specify the Boost location to your build, you can supply for example: ``$EBROOTBOOST/include`` for the header files and ``$EBROOTBOOST/lib64`` for the library files. 
 
