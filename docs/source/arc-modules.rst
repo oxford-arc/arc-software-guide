@@ -112,3 +112,20 @@ A module can be "unloaded" with the unload option, for example::
 
   module unload MATLAB/2020b 
  
+Building software against installed modules
+-------------------------------------------
+
+If you need to compile your own software but would like to use an ARC built module for its libraries/headers. You need to make use of the ``EBROOT`` environment variable which is defined when you load the module. For example: if you need to build against the ``Boost`` libraries you first need to load the module::
+
+   module load Boost/1.79.0-GCC-11.3.0
+   
+Loading the above will define ``EBROOTBOOST`` - this is always EBROOT followed by the main module name - this environment variable will contain the path to the Boost software for this specific module::
+
+   echo $EBROOTBOOST
+   /apps/system/easybuild/software/Boost/1.79.0-GCC-11.3.0
+   
+   ls $EBROOTBOOST
+   easybuild  include  lib  lib64
+
+So if you need to specify the Boost location to your build, you can supply for example: $EBROOTBOOST/incude for the header files and $EBROOTBOOST/lib64 for the library files. 
+
