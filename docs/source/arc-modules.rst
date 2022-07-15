@@ -119,7 +119,7 @@ If you need to compile your own software but would like to use an ARC built modu
 
    module load Boost/1.79.0-GCC-11.3.0
    
-Loading the above will define ``EBROOTBOOST`` - this is always EBROOT followed by the main module name - this environment variable will contain the path to the Boost software for this specific module::
+Loading the above will define ``EBROOTBOOST`` - the variable name is always ``EBROOT`` followed by the main module name - this environment variable will contain the path to the Boost software for this specific module::
 
    echo $EBROOTBOOST
    /apps/system/easybuild/software/Boost/1.79.0-GCC-11.3.0
