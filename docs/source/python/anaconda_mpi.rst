@@ -30,7 +30,7 @@ Now that we have an activated Anaconda virtual environment we can download and i
   
   cd mpi4py-3.1.3
   python setup.py build --mpicc=`which mpicc` 
-  python setup.py install --user 
+  python setup.py install 
   python setup.py clean
  
 
