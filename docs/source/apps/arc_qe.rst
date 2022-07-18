@@ -21,6 +21,9 @@ The guide shows how to:
         QuantumESPRESSO/6.6-intel-2020a
         QuantumESPRESSO/6.7-foss-2020b
         QuantumESPRESSO/6.7-intel-2020a
+        QuantumESPRESSO/7.1-foss-2022a
+        QuantumESPRESSO/7.1-intel-2022a
+
 
 **Running a Quantum ESPRESSO job**
 
