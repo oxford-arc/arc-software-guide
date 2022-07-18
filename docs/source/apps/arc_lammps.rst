@@ -60,7 +60,7 @@ Once the build completes you can test the LAMMPS build by submitting the test jo
 
   sbatch LAMMPS-test.sh
   
-The text in the generated SLURM output file ``slurm-nnnnnn.out`` should include the following type of information::
+The output in the generated SLURM file ``slurm-nnnnnn.out`` should include the following information::
 
    Testing Python interface...(quick)
    LAMMPS (23 Jun 2022)
