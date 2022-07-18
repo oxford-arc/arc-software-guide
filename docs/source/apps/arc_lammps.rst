@@ -67,15 +67,17 @@ The text in the generated SLURM output file ``slurm-nnnnnn.out`` should include 
      using 1 OpenMP thread(s) per MPI task
    Total wall time: 0:00:00
    
- Followed by::
+Followed by::
 
     Testing dipole example run...
     LAMMPS (23 Jun 2022)
        using 1 OpenMP thread(s) per MPI task
     WARNING: Atom style hybrid defines both, per-type and per-atom masses; both must be set, but only per-atom masses will be used (src/atom_vec_hybrid.cpp:133)
+    
 ...
 ...
 ...::
+
     Lattice spacing in x,y,z = 1.6903085 1.6903085 1.6903085
     Created orthogonal box = (0 0 -0.84515425) to (16.903085 16.903085 0.84515425)
     6 by 8 by 1 MPI processor grid
@@ -86,11 +88,14 @@ The text in the generated SLURM output file ``slurm-nnnnnn.out`` should include 
 ...
 ...
 ...::
+
     Performance: 23142333.912 tau/day, 53570.217 timesteps/s
     99.3% CPU use with 48 MPI tasks x 1 OpenMP threads
+    
 ...
 ...
 ...::
+
     Total # of neighbors = 1650
     Ave neighs/atom = 8.25
     Neighbor list builds = 684
