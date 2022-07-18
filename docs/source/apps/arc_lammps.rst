@@ -39,7 +39,7 @@ We have a set of build scripts which you can use to build LAMMPS with most of th
 
   cd $DATA
   mkdir scripts ; cd scripts
-  cp -r /apps/common/examples/LAMMPS/2022.07/* .
+  cp -r /apps/common/examples/LAMMPS/2022.06/* .
 
 By default our build script will create the following directories::
   
