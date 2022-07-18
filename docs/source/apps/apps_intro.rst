@@ -12,6 +12,7 @@ The guides in this section provide information on running specific software appl
    arc_gaussian
    arc_gromacs
    arc_java
+   arc_lammps
    arc_mathematica
    arc_matlab
    arc_qe
