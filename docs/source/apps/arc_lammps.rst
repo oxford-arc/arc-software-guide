@@ -60,7 +60,7 @@ Once the build completes you can test the build by subitting the test job in the
 
   submit LAMMPS-test.sh
   
-The output in the generated SLURM output file ``slurm-nnnnnn.out`` should include::
+The text in the generated SLURM output file ``slurm-nnnnnn.out`` should include the following type of information::
 
    Testing Python interface...(quick)
    LAMMPS (23 Jun 2022)
@@ -96,9 +96,7 @@ The output in the generated SLURM output file ``slurm-nnnnnn.out`` should includ
     Neighbor list builds = 684
     Dangerous builds = 0
     Total wall time: 0:00:00
-
-
-  
+ 
   
 .. note::   
    If you need to change the packages installed you can edit the build script ``$DATA/scripts/LAMMPS-build.sh`` and re-run it.
