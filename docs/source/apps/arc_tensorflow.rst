@@ -27,6 +27,10 @@ To use tensorflow you can either use the pre-installed modules or build your own
         TensorFlow/2.1.0-foss-2019b-Python-3.7.4
         TensorFlow/2.3.1-foss-2020a-Python-3.8.2
         TensorFlow/2.4.1-fosscuda-2020b
+        TensorFlow/2.5.0-fosscuda-2020b
+        TensorFlow/2.5.3-foss-2021a-CUDA-11.3.1
+        TensorFlow/2.6.0-foss-2021a-CUDA-11.3.1
+        TensorFlow/2.7.1-foss-2021b-CUDA-11.4.1
 
 And load the appropriate version. For example:: 
 
