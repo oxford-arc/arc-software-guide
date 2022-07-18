@@ -29,6 +29,7 @@ The purpose of this example-based tutorial is to guide the user through a few as
         MATLAB/R2020a
         MATLAB/R2020b
         MATLAB/R2021b
+        MATLAB/R2022a
 
 
 **Non-interactive Matlab Sessions**
