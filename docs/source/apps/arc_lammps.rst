@@ -58,6 +58,7 @@ To run the build of LAMMPS::
   
 Once the build completes you can test the LAMMPS build by submitting the test job in the ``scripts`` folder as follows::
 
+  cd $DATA/scripts
   sbatch LAMMPS-test.sh
   
 The output in the generated SLURM file ``slurm-nnnnnn.out`` should include the following information::
