@@ -88,9 +88,6 @@ This example uses the input data found in HemeLB's ``examples/bifurcation/bifurc
   
 The following is a version for a locally built version::
 
-.. note::
-   You need to explicitly include the modules that HemeLB requires in this script (the ARC build module loads these automatically)
-
   #! /bin/bash
 
   #SBATCH --nodes=2
@@ -108,4 +105,8 @@ The following is a version for a locally built version::
   export LD_LIBRARY_PATH=$HEME_HOME:$LD_LIBRARY_PATH
   
   mpirun hemelb -in  input.xml -out output
+  
+.. note::
+   You need to explicitly include the modules that HemeLB requires in this script (the ARC build module loads these automatically)
+
   
