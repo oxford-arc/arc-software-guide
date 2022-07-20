@@ -10,7 +10,7 @@ to model cerebral bloodflow and vascular remodelling in retinas , but is now bei
 The guide shows how to
 
 - run HemeLB using a pre-compiled module;
-- build HemeLB yourself;
+- build a version of HemeLB;
 - submit a test HemeLB job.
 
 To use HemeLB you can either use the pre-installed modules or build your own verion in your project ``$DATA`` area.
