@@ -13,7 +13,7 @@ ab initio methods. It can also treat environmental and relativistic effects.
   module spider orca 
   
   ----------------------------------------------------------------------------
-  Java:
+  ORCA:
   ----------------------------------------------------------------------------
       Versions:
         ORCA/4.2.1-gompi-2019b
