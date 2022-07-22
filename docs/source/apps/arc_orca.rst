@@ -30,7 +30,7 @@ ab initio methods. It can also treat environmental and relativistic effects.
   #SBATCH --ntasks-per-node=48
   #SBATCH --time=12:00:00
   #SBATCH --partition=short
-  #SBATCH --job-name=OrcaTest
+  #SBATCH --job-name=ORCA-Test
 
   module load ORCA/5.0.3-gompi-2021b
 
@@ -39,7 +39,7 @@ ab initio methods. It can also treat environmental and relativistic effects.
   $EBROOTORCA/orca input.inp &> output.out
 
 .. note::  
-  In the above example script, ``input.inp`` should be substituted for the appropriate names of your input file, and the number of nodes and tasks per
+  In the above example script ``input.inp`` should be substituted for the appropriate name of your input file, and the number of nodes and tasks per
   node should be set accordingly.
   
  
