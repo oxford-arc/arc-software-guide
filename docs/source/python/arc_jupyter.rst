@@ -1,6 +1,10 @@
 Using Jupyter Notebooks on ARC
 ------------------------------
 
+The easiest way to run Jupyter notebooks is by using the `ARC Graphical Nodes <https://arc-user-guide.readthedocs.io/en/latest/connecting-to-arc.html#connecting-using-arc-graphical-nodes>`_   
+
+If you need to run on a local browser, you can follow the instructions below:
+
 **Interactive Notebook example**
  
 The following example shows how to connect to a Jupyter notebook session running on ARC. The example shows the best practice method of running
