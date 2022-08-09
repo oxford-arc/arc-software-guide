@@ -14,10 +14,10 @@ already defined when a Linux shell is open but the environment can be customised
 By loading the module for a certain installed application, the environment variables that are relevant for that application are automatically defined or modified.
 
 The ARC/HTC software environment comprises a mixture of commercial applications, software built using the EasyBuild framework and software built using our own local
-build recipes. We use the environment modules system (via the ``module`` command) to load applications into the environment on ARC/HTC.
+build recipes. You should use the environment modules system (via the ``module`` command) to load applications into your environment on ARC/HTC.
 
-However. because the EasyBuild framework adds many new module components into the module list - the best way to search for an application you require
-is by using the ``module spider`` command. 
+Because the EasyBuild framework adds many new module components into the module list - the best way to search for an application you require on the system.
+is by using the ``module spider`` command. If you wish to see a list of existing ARC modules online, you can find it here:  `ARC Module List <https://arc-module-list.readthedocs.io/en/latest/`_
 
 .. note::
    The ARC cluster login nodes reference a **different** set of modules than the main cluster, so to be sure that the module (or module version) you require is available for use on ARC you should **always** search for modules in an interactive session on a compute node. e.g::
