@@ -46,15 +46,16 @@ So, for example, to search for the GROMACS application::
         GROMACS/2020.4-foss-2020a-PLUMED-2.6.2
         GROMACS/2020.4-foss-2020a
 
-Please note, module spider is NOT case-sensitive for searching, so::
+.. note::
+   ``module spider`` is NOT case-sensitive for searching, so::
 
-  module spider GROMACS
-  module spider gromacs
-  module spider Gromacs
+     module spider GROMACS
+     module spider gromacs
+     module spider Gromacs
   
-... are all equivalent. However, when loading module using module load you must use the correct case, for example::
+   ...are all equivalent. However, when loading module using module load you must use the correct case, for example::
 
- [software@arc-c304 ~]$ module load GROMACS/2020.4-foss-2020a
+     [software@arc-c304 ~]$ module load GROMACS/2020.4-foss-2020a
 
  
 If the software name you are using in "module spider" returns too many options you can use ::
