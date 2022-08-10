@@ -52,8 +52,9 @@ Preparing and Running An Example
 
 Preparation
 
-Log in to one of the ARC clusters, create a directory in which to do some work and go to it.  The sequence of commands is::
+Log in to one of the ARC clusters and ensure you are running on an interactive node (this is important!), create a directory in which to do some work and go to it.  The sequence of commands is::
 
+  srun -p interactive --pty /bin/bash
   cd $DATA
   mkdir examples
   cd examples
