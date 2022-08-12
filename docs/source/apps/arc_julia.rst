@@ -40,5 +40,5 @@ support for multithreaded programming.  A multithreaded program contains two or 
   module load Julia/1.6.2-linux-x86_64
   julia -p ${SLURM_TASKS_PER_NODE} -t ${SLURM_CPUS_PER_TASK} myInput.jl
    
-In the above example, ``myInput.jl`` should be substituted for the appropriate names of your Java application and data files.
+In the above example, ``myInput.jl`` should be substituted for the appropriate names of your Java application and data files. The values of ``-p`` (number of worker processes) and ``-t`` (number of threads), are derived from the the values of ``ntasks-per-node`` and ``cpus-per-task`` in the submission script.
  
