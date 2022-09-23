@@ -22,6 +22,8 @@ To use LAMMPS you can either use the pre-installed modules or build your own Pyt
 
         LAMMPS/3Mar2020-foss-2020a-Python-3.8.2-kokkos-QUIP
         LAMMPS/3Mar2020-foss-2020a-Python-3.8.2-kokkos
+        LAMMPS/23Jun2022-foss-2021b-kokkos-CUDA-11.4.1
+        LAMMPS/23Jun2022-foss-2021b-kokkos
 
 And load the appropriate version. For example:: 
 
