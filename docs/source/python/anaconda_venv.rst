@@ -1,6 +1,15 @@
 Creating your own virtual environment
 -------------------------------------
 
+.. note::
+  You must create conda environments from an interactive session. So before starting please ensure you are executing commands on a    
+  compute node by running::
+  
+      srun -p interactive --pty /bin/bash
+      
+  Running conda installations on the login nodes will result in memory errors and other compatibility issues.
+
+
 First you should decide which version of Python you wish to use, 2 or 3. There are Anaconda modules available for both versions, the current Anaconda
 versions can be found by typing::
 
@@ -29,7 +38,7 @@ Python 2::
 
 Python 3::
 
-  conda create --prefix $CONPREFIX --copy python=3.8
+  conda create --prefix $CONPREFIX 
 
 .. note::
   Please be aware of messages from ``conda`` which instruct you to run ``conda init`` - this command will add lines to your ``~/.bashrc`` file which can in **certain**   
