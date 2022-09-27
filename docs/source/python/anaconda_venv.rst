@@ -2,12 +2,13 @@ Creating your own virtual environment
 -------------------------------------
 
 .. note::
-  You must create conda environments from an interactive session. So before starting please ensure you are executing commands on a    
-  compute node by running::
+  You must create conda environments from a SLURM interactive session. So, before starting please ensure you have an active interactive 
+  session by running::
   
       srun -p interactive --pty /bin/bash
       
-  Running conda installations on the login nodes will result in memory errors and other compatibility issues.
+  Running conda installations interactively on the login nodes will result in memory errors and other compatibility issues so is not 
+  supported.
 
 
 First you should decide which version of Python you wish to use, 2 or 3. There are Anaconda modules available for both versions, the current Anaconda
