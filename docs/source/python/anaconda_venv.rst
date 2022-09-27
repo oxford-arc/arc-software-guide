@@ -7,16 +7,15 @@ Creating your own virtual environment
   
       srun -p interactive --pty /bin/bash
       
-  Running conda installations interactively on the login nodes will result in memory errors and other compatibility issues so is not 
-  supported.
+  Running conda installations interactively on the login nodes will result in memory errors and other compatibility issues.
 
 
-First you should decide which version of Python you wish to use, 2 or 3. There are Anaconda modules available for both versions, the current Anaconda
-versions can be found by typing::
+You should decide which version of Python you wish to use, 2 or 3. There are Anaconda modules available for both versions, the current 
+Anaconda versions can be found by typing::
 
-module spider anaconda
+   module spider anaconda
 
-To load the version of Anaconda you want, in this example version 2019.03, use one of the following commands:
+To load the version of Anaconda you want, in this example we are using the latest version, use one of the following commands:
 
 Python 2::
 
