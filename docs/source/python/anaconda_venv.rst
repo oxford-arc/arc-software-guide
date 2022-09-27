@@ -2,8 +2,8 @@ Creating your own virtual environment
 -------------------------------------
 
 .. note::
-  You must create conda environments from a SLURM interactive session. So, before starting please ensure you have an active interactive 
-  session by running::
+  You must create your conda environments from a SLURM interactive session. So, ensure you have an active interactive session by 
+  running::
   
       srun -p interactive --pty /bin/bash
       
