@@ -4,7 +4,7 @@ Installing your own software
 Licensed Software (Commercial or Restricted Use)
 ------------------------------------------------
 
-There are a number of licensed commercial or restricted use applicationsl already installed on ARC. See our `Restricted Licence Software Applications Form <https://www.arc.ox.ac.uk/restricted-licence-software-applications>`_
+There are a number of licensed commercial or restricted use applications already installed on ARC. See our `Restricted Licence Software Applications Form <https://www.arc.ox.ac.uk/restricted-licence-software-applications>`_
 for a list.
 
 
