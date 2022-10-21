@@ -16,6 +16,6 @@ We can help you install new applications of this type by hosting them centrally 
   Do not attempt to run package managers such as ``apt`` or ``yum`` on the ARC systems these will **not** work as they will (by default) attempt to install code into
   protected system directories which you do not have permission to write to. 
   
-  If you have such requirements, contact the ARC team: `support@arc.ox.ac.uk<mailto://support.arc.ox.ac.uk>`_
+  If you have such requirements, contact the ARC team via support@arc.ox.ac.uk
     
   
