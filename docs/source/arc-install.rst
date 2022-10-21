@@ -1,5 +1,5 @@
-Installing your own software
-============================
+Installing new software applications
+====================================
 
 Licensed Software (Commercial or Restricted Use)
 ------------------------------------------------
@@ -18,4 +18,12 @@ We can help you install new applications of this type by hosting them centrally 
   
   If you have such requirements, contact the ARC team via support@arc.ox.ac.uk
     
-  
+Open Source Software
+--------------------
+
+ARC uses the _`EasyBuild framework<http://easybuild.io`_ to manage central application software installations on the clusters. 
+
+If the package you require is in `this list<https://docs.easybuild.io/en/latest/version-specific/Supported_software.html>`_ we should be able to install this for you reasonably quickly. Use the `ARC Software Installation Request Form <https://www.arc.ox.ac.uk/arc-software-request-page>`_ to request this.
+
+You can also install software in your own ``$DATA`` area using the Easybuild toolchains (compilers and libraries) to satisfy any dependencies that the application may have. If you have any problems contact a member of the ARC team via support@arc.ox.ac.uk
+
