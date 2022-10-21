@@ -9,6 +9,7 @@ and also provides template submission scripts for some of the most popular appli
 .. toctree::
 
    arc-modules
+   arc-install
    arc-serial
    arc-compiling
    arc-legacy
