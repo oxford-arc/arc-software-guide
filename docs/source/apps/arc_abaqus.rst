@@ -13,7 +13,7 @@ The steps to run an Abaqus job are:
 
 
 .. note::
-    Abaqus is **only** available on the ARC legacy partition. The **legacy** partition provides support for applications which do not support the main ARC nodes which run CentOS 8.
+    Abaqus is **only** available on the ARC legacy partition. The **legacy** partition provides support for applications which do not support the main ARC nodes which run CentOS 8. There are a maximum of 6 nodes in the legacy partition. 
     
     The only supported version on ARC is **Abaqus 2021** This is due to the Intel MPI and compiler support provided by the vendor.
 
