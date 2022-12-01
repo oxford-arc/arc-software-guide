@@ -71,14 +71,14 @@ or::
 Conda Package Cache
 -------------------
 
-By default Anaconda will *cache* all packages installed using ``conda install`` into a directory in your ``$HOME`` area named ``~/.conda/pkgs`` before installing them into your virtual environment. Over time this has the potential to put you over quota in ``$HOME``.
+By default Anaconda will *cache* all packages installed using ``conda install`` into a directory in your ``$HOME`` area named ``~/.conda/pkgs`` before installing them into your virtual environment. Over time this has the potential to put you over quota in ``$HOME``
 
 If you find yourself over quota in ``$HOME`` check how much space is being used in ``~/.conda/pkgs`` ::
   
   cd ~/.conda
   du -sh pkgs
   
-The ``du`` command above may take some time to run. When complete, the command will show how much space is in use in ``pkgs` for example ::
+The ``du`` command above may take some time to run. When complete, the command will show how much space is in use in ``pkgs`` for example ::
 
   12G     pkgs
   
