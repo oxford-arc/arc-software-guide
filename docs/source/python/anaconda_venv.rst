@@ -72,11 +72,11 @@ If you find yourself over quota in ``$HOME`` check how much space is being used 
   cd ~/.conda
   du -sh pkgs
   
-The ``du`` command above lay take some time to run. When complete the command will show how much spage is in use in ``pkgs` for example ::
+The ``du`` command above may take some time to run. When complete, the command will show how much space is in use in ``pkgs` for example ::
 
   12G     pkgs
   
-In this case 12GB of space is being used by downloaded packages. To tidy up run the following commands ::
+In this case 12GB of space is being used by downloaded packages. To tidy up, run the following commands ::
 
    module load Anaconda3
    conda clean --packages --tarballs
