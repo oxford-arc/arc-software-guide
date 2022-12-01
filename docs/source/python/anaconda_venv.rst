@@ -60,6 +60,28 @@ version consistency in the virtual environment. For example::
 or::
 
   pip install numpy
+  
+
+Conda Package Cache
+-------------------
+
+By default Anaconda will *cache* all packages installed using ``conda install`` into a directory in your ``$HOME`` area named ``~/.conda/pkgs`` before installing them into your virtual environment. Over time this has the potential to put you over quota in ``$HOME``.
+
+If you find yourself over quota in ``$HOME`` check how much space is being used in ``~/.conda/pkgs`` ::
+  
+  cd ~/.conda
+  du -sh pkgs
+  
+The ``du`` command above lay take some time to run. When complete the command will show how much spage is in use in ``pkgs` for example ::
+
+  12G     pkgs
+  
+In this case 12GB of space is being used by downloaded packages. To tidy up run the following commands ::
+
+   module load Anaconda3
+   conda clean --packages --tarballs
+   
+You can repeat the ``du`` command above to check that the space has been freed.
 
 Using Anaconda from within a submission script
 ----------------------------------------------
