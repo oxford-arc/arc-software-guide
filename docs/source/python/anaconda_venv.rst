@@ -63,9 +63,9 @@ or::
   
 .. warning::
   
-  In the above examples we use the ``--prefix`` option to conda create. This is to ensure that the conda virtual environment is placed in ``$DATA``. If you ommit this 
-  there is a risk that your environment will be placed in the default location which is ``$HOME/.conda/envs`` this will very likely over time cause you to go over 
-  quota in your ``$HOME`` area with unexpected results for job submission etc.
+  In the above examples we use the ``--prefix`` option to ``conda create`` This is to ensure that the conda virtual environment is placed in ``$DATA``. If you ommit
+  this there is a risk that your environment will be placed in the default location which is ``$HOME/.conda/envs`` this will very likely over time cause you to go over 
+  quota in your ``$HOME`` area which will cause problems running jobs.
   
 
 Conda Package Cache
