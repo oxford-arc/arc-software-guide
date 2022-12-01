@@ -67,6 +67,33 @@ or::
   this there is a risk that your environment will be placed in the default location which is ``$HOME/.conda/envs`` this will very likely over time cause you to go over 
   quota in your ``$HOME`` area which will cause problems running jobs.
   
+Conda Build Scripts
+-------------------
+
+For ease of use, rather than running the conda commands from the command line, we recommend creating a small script to create the environment, such that you can re-
+build the environment in future, if required. For example, you could create a file named ``build_env.sh`` with the following contents ::
+
+ !# /bin/bash
+ 
+ # Load the version of  anaconda you need 
+ module load Anaconda3
+
+ # Create an environment in $DATA and give it an appropriate name 
+ export CONPREFIX=$DATA/envname
+ conda create --prefix $CONPREFIX
+
+ # Activate your environment 
+ source activate $CONPREFIX
+
+ # Install pacakages
+ conda install <packagename>
+ ..
+ ..
+ 
+You could then run this script with ::
+  
+  sh ./build_env.sh
+   
 
 Conda Package Cache
 -------------------
