@@ -75,7 +75,7 @@ build the environment in future, if required. For example, you could create a fi
 
  !# /bin/bash
  
- # Load the version of  anaconda you need 
+ # Load the version of Anaconda you need 
  module load Anaconda3
 
  # Create an environment in $DATA and give it an appropriate name 
@@ -85,7 +85,7 @@ build the environment in future, if required. For example, you could create a fi
  # Activate your environment 
  source activate $CONPREFIX
 
- # Install pacakages
+ # Install packages...
  conda install <packagename>
  ..
  ..
@@ -98,7 +98,8 @@ You could then run this script with ::
 Conda Package Cache
 -------------------
 
-By default Anaconda will *cache* all packages installed using ``conda install`` into a directory in your ``$HOME`` area named ``~/.conda/pkgs`` before installing them into your virtual environment. Over time this has the potential to put you over quota in ``$HOME``
+By default Anaconda will *cache* all packages installed using ``conda install`` into a directory in your ``$HOME`` area named ``~/.conda/pkgs`` before installing them 
+into your virtual environment. Over time this has the potential to put you over quota in ``$HOME``
 
 If you find yourself over quota in ``$HOME`` check how much space is being used in ``~/.conda/pkgs`` ::
   
