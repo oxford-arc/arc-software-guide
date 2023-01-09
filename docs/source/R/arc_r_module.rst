@@ -36,3 +36,5 @@ The following is an example of a typical R submission script for ARC::
   
   Rscript --no-restore --no-save r_script.R
   
+The script above requests a single node and 8 cores. You will need to ensure your R script is written using R parallel libraries in order to make use of these CPU 
+resources.
