@@ -17,3 +17,21 @@ You can install R libraries in an R library repository within your storage area 
  
 Please note: Some R libraries depend on the existence of non-R applications or other shared binaries. Attempting to install an R library
 with binary dependencies may fail. In this case please contact the ARC team and we will install the dependencies for you centrally. 
+
+Typical R submission script
+===========================
+
+The following is an example of a typical R submission script for ARC::
+
+  #!/bin/bash
+  #SBATCH --nodes=1
+  #SBATCH --ntasks-per-node=1
+  #SBATCH --cpus-per-task=8
+  #SBATCH --time=100:00:00
+  #SBATCH --job-name=Rtest
+  
+  module purge
+  module load  R/4.1.2-foss-2021b-ARC
+  
+  Rscript --no-restore --no-save your_r_script.R
+  
