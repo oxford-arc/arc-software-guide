@@ -27,11 +27,12 @@ The following is an example of a typical R submission script for ARC::
   #SBATCH --nodes=1
   #SBATCH --ntasks-per-node=1
   #SBATCH --cpus-per-task=8
-  #SBATCH --time=100:00:00
+  #SBATCH --partition=short
+  #SBATCH --time=12:00:00
   #SBATCH --job-name=Rtest
   
   module purge
   module load  R/4.1.2-foss-2021b-ARC
   
-  Rscript --no-restore --no-save your_r_script.R
+  Rscript --no-restore --no-save r_script.R
   
