@@ -13,50 +13,73 @@ The steps to run an Abaqus job are:
 
 
 .. note::
-    Abaqus is **only** available on the ARC legacy partition. The **legacy** partition provides support for applications which do not support the main ARC nodes which run CentOS 8. There are a maximum of 6 nodes in the legacy partition. 
-    
-    The only supported version on ARC is **Abaqus 2021** This is due to the Intel MPI and compiler support provided by the vendor.
+    The only supported version on ARC is the latest version **Abaqus 2022** This is due to the Intel MPI and compiler support provided by the vendor.
 
 **Module Information**::
- 
-  module use /apps/common/legacy/modules
-  
-  module spider abaqus
+   
+  module spider Abaqus
 
-  --------------------------------------------------------------------------
-    ABAQUS:
-  --------------------------------------------------------------------------
-     Versions:
-        ABAQUS/2021
+  -----------------------------------------------------------------------------
+  Abaqus: Abaqus/2022
+  -----------------------------------------------------------------------------
+    Description:
+      Finite Element Analysis software for modeling, visualization and best-in-class implicit and explicit dynamics FEA.
+
 
 
 **Example Submission Script**
  
-The example submission script below is suitable for running on the ARC cluster. This example is customised to ensure Abaqus runs on the **legacy** partition::
+The example submission scripts below are suitable for running on the ARC cluster::
   
   #!/bin/bash
 
-  #SBATCH --partition=legacy
+  #SBATCH --clusters=arc
+  #SBATCH --partition=devel
   #SBATCH --nodes=2
   #SBATCH --ntasks-per-node=48
-  #SBATCH --time=12:00:00
-  #SBATCH --job-name=AbaqusTest
+  #SBATCH --time=00:10:00
+  #SBATCH --job-name=AbaqusStandard
 
-  module use /apps/common/legacy/modules
-
-  module load Abaqus/2021
-  module load iimpi/2020a
+  module purge
+  module load Abaqus/2022
 
   . abaqus.sh
 
-  # Fetch an example input file for testing...
-  abaqus fetch job=s4b.inp 
+  abaqus fetch job=s4b.inp
+  abaqus job=s4b  \
+         input=s4b \
+         cpus=${SLURM_NTASKS} \
+         interactive
 
-  abaqus input=s4b job=test cpus=${SLURM_NTASKS} interactive
+The above is an Abaqus/Standard job running in hybrid MPI mode. The following example runs an Abaqus/Explicit simulation::
+
+ #!/bin/bash
+
+ #SBATCH --clusters=arc
+ #SBATCH --partition=devel
+ #SBATCH --nodes=2
+ #SBATCH --ntasks-per-node=48
+ #SBATCH --time=00:10:00
+ #SBATCH --job-name=AbaqusExplicit
+
+ module purge
+ module load Abaqus/2022
+
+ . abaqus.sh
+
+ abaqus fetch job=knee_bolster
+ abaqus fetch job=knee_bolster_ef1
+ abaqus fetch job=knee_bolster_ef2
+ abaqus fetch job=knee_bolster_ef3
+
+ abaqus job=knee_bolster  \
+        input=knee_bolster \
+        cpus=${SLURM_NTASKS} \
+        interactive
+
 
 .. note::
-    The line ``. abaqus.sh`` in the above script is **important**, it ensures that Abaqus is configured correctly for the ARC environment by creating a file
+    The line ``. abaqus.sh`` in the above scripts is **important**, it ensures that Abaqus is configured correctly for the ARC environment by creating a file
     named ``abaqus_v6.env`` in the job directory. 
     
-    It also creates a scratch directory for temporary Abaqus files. The example above also loads the ``iimpi/2020a`` module
-    which we use to override the older MPI libraries supplied.  
+    It also creates a scratch directory for temporary Abaqus files, and ensures the Intel MPI library is used.
