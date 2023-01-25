@@ -83,3 +83,10 @@ The above is an Abaqus/Standard job running in hybrid MPI mode. The following ex
     named ``abaqus_v6.env`` in the job directory. 
     
     It also creates a scratch directory for temporary Abaqus files, and ensures the Intel MPI library is used.
+    
+    If you wish to make use of user defined Fortran functions, you should add the line::
+        
+        module load iccifort/2020.1.217
+    
+    To your submission script after the Abaqus module load. The ``abaqus.sh`` sccript also sets up the environment/options for the ifort compiler.
+    
