@@ -31,7 +31,7 @@ Importing from MATLAB GUI
 
 To import using the graphical interface:
 
-From the MATLAB Home tab select the ``Parallel`` menu and click ``Create and Manage Clusters....`` The **Cluster Profile Manager** window will open:
+From the MATLAB Home tab select the ``Parallel`` menu and click ``Create and Manage Clusters...`` The **Cluster Profile Manager** window will open:
 
 
 .. image:: ../images/arc-cluster1.png
