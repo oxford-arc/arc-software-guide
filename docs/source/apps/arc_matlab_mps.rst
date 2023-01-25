@@ -31,7 +31,7 @@ Importing from MATLAB GUI
 
 To import using the graphical interface:
 
-From the MATLAB Home tab select the ```Parallel``` menu and click ```Create and Manage Clusters....``` The **Cluster Profile Manager** window will open:
+From the MATLAB Home tab select the ``Parallel`` menu and click ``Create and Manage Clusters....`` The **Cluster Profile Manager** window will open:
 
 
 .. image:: ../images/arc-cluster1.png
@@ -39,10 +39,10 @@ From the MATLAB Home tab select the ```Parallel``` menu and click ```Create and 
    :alt: Cluster Window
   
   
-Select ```Import``` and from within the ```Import Profiles from file``` window navigate to the ```arc_cluster.mlsettings``` or ```htc_cluster.mlsettings``` files shown
-above and select ```Open```
+Select ``Import`` and from within the ``Import Profiles from file`` window navigate to the ``arc_cluster.mlsettings`` or ``htc_cluster.mlsettings`` files shown
+above and select ``Open``
 
-Select the resulting ```arc_cluster``` or ```htc_cluster``` profile and click ```Set as Default```. 
+Select the resulting ``arc_cluster`` or ``htc_cluster`` profile and click ``Set as Default``. 
 
 The Cluster Profile Manager window should now look like this: 
 
