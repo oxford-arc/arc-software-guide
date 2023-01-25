@@ -23,7 +23,7 @@ Import using MATLAB functions
 
 Run these functions from a MATLAB session::
 
-   arc_profile = parallel.importProfile ('/apps/common/commercial/MATLAB/R2022b/toolbox_local/R2021a/arc_cluster.mlsettings');
+   arc_profile = parallel.importProfile ('/apps/common/commercial/MATLAB/R2022b/cluster/arc_cluster.mlsettings');
    parallel.defaultClusterProfile ('arc_cluster');
 
 Importing from MATLAB GUI
