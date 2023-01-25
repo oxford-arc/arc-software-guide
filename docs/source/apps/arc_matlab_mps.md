@@ -28,7 +28,7 @@ Importing from MATLAB GUI
 
 To import using the graphical interface:
 
-From the Home tab select the ```Parallel``` menu and click ``Create and Manage Clusters....``` The Cluster Profile Manager window will open:
+From the MATLAB Home tab select the ```Parallel``` menu and click ```Create and Manage Clusters....``` The Cluster Profile Manager window will open:
 
 
 MATLAB Cluster Profile Manager screenshot
