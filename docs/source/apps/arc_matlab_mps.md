@@ -10,7 +10,7 @@ You need to import the ARC or HTC cluster profile into your MATLAB environment a
 
 This only needs doing once. The imported profile will be saved in your MATLAB settings directory.
 
-Importing the profile can be done either by calling MATLAB functions or via the graphical interface. The profiles are stored here ::
+Importing the profile can be done either by calling MATLAB functions or via the graphical interface. The profiles are stored here::
 
   /apps/common/commercial/MATLAB/R2022b/cluster/arc_cluster.mlsettings
   /apps/common/commercial/MATLAB/R2022b/cluster/htc_cluster.mlsettings
@@ -18,10 +18,10 @@ Importing the profile can be done either by calling MATLAB functions or via the 
 Import using MATLAB functions
 =============================
 
-Run these functions from a MATLAB session:
+Run these functions from a MATLAB session::
 
-arc_profile = parallel.importProfile ('/apps/common/commercial/MATLAB/R2022b/toolbox_local/R2021a/arc_cluster.mlsettings');
-parallel.defaultClusterProfile ('arc_cluster');
+   arc_profile = parallel.importProfile ('/apps/common/commercial/MATLAB/R2022b/toolbox_local/R2021a/arc_cluster.mlsettings');
+   parallel.defaultClusterProfile ('arc_cluster');
 
 Importing from MATLAB GUI
 =========================
