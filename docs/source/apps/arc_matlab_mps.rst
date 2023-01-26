@@ -2,7 +2,8 @@ Submitting jobs using the MATLAB Parallel Server
 ================================================
 
 MATLAB Parallel Server (MPS) allows you to create and use parallel pools that can scale to many CPUs more than in a single node. Currently MPS jobs must be submitted 
-from a GUI or command line MATLAB session running on one of the ARC Graphical (NX) nodes. 
+from a GUI or command line MATLAB session running on one of the ARC Graphical (NX) nodes or a session on an interactive node. You **must not** run MPS from a cluster 
+login node.
 
 We have generated a basic cluster profile definition file for each cluster ARC and HTC. 
 
