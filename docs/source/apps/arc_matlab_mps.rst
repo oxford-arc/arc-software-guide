@@ -68,3 +68,55 @@ To test the loaded profile, click the ``Validate`` button and the validation pro
    :width: 800
    :alt: Cluster Validation
    
+
+Full MPS Example
+================
+
+In this example we are going to use the ``arc_short`` partition. So, follow the instructions above to load the file named ``arc_short.mlsettings``
+
+Once this is loaded. From the MATLAB GUI click ``New Script`` and paste the following script into the editor::
+
+  %
+  % ARC Parallel MATLAB example
+  %
+  % Either have arc-short cluster profile set as default in GUI or uncomment the 
+  % following two lines:
+  %
+  %parprof = parallel.importProfile("/apps/common/commercial/MATLAB/mps_profiles/R2022b/arc_short.mlsettings")
+  %parallel.defaultProfile(parprof)
+
+
+  primeNumbers = primes(uint64(2^20));
+  compositeNumbers = primeNumbers.*primeNumbers(randperm(numel(primeNumbers)));
+  factors = zeros(numel(primeNumbers),2);
+
+  % Create parallel pool
+  %
+  poolObj=parpool('arc_short',96);
+
+  numWorkers = [1 24 48 72 96];
+  tCluster = zeros(size(numWorkers));
+
+  for w = 1:numel(numWorkers)
+      tic;
+      parfor (idx = 1:numel(compositeNumbers), numWorkers(w))
+          factors(idx,:) = factor(compositeNumbers(idx));
+      end
+      tCluster(w) = toc;
+  end
+
+  % Shutdown parallel pool.
+  delete(poolObj);
+
+  f = figure;
+  figure(f);
+  hold on
+  speedup = tCluster(1)./tCluster;
+  plot(numWorkers, speedup);
+  title('Speedup with the number of workers');
+  xlabel('Number of workers');
+  xticks(numWorkers(2:end));
+  ylabel('Speedup');
+  
+Once you have done this, click "Run" from the Editor.
+
