@@ -5,6 +5,20 @@ MATLAB Parallel Server (MPS) allows you to create and use parallel pools that ca
 from a GUI or command line MATLAB session running on one of the  `ARC Graphical (NX) nodes <https://arc-user-guide.readthedocs.io/en/latest/connecting-to-arc.html#accessing-the-graphical-nodes-via-a-web-browser>`_ or a session on an interactive node. You **must not** run MPS from a cluster 
 login node.
 
+**Starting MATLAB from an NX node**
+
+If you are using the `ARC Graphical (NX) nodes <https://arc-user-guide.readthedocs.io/en/latest/connecting-to-arc.html#accessing-the-graphical-nodes-via-a-web-browser>`_ to run MATLAB. You need to ensure you select which cluster you wish to use, HTC or ARC.
+
+Open the ``Konsole`` and load both the MATLAB and the cluster definition module::
+
+   module load MATLAB/R2022b cluster/arc
+   
+   or
+   
+   module load MATLAB/R2022b cluster/htc
+   
+You can then type ``matlab`` at the command line to start MATLAB.
+
 We have generated some basic cluster profile definition files for each cluster ARC and HTC, these act as a starting point for your own profiles which can support 
 custom resource requirements. 
 
