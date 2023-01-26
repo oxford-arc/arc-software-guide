@@ -46,8 +46,8 @@ Select the resulting ``arc_cluster`` or ``htc_cluster`` profile and click ``Set 
 
 The Cluster Profile Manager window should now look like this: 
 
-
-MATLAB Cluster Profile Manager screenshot after
-
+.. image:: ../images/arc-cluster2.png
+   :width: 800
+   :alt: Cluster Imported
 
 After you exit MATLAB, your default cluster profile is saved for future use.
