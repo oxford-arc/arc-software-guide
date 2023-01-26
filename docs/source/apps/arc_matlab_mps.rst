@@ -30,20 +30,9 @@ The profiles are configured for specific partitions or resources, as follows:
 | medium             | arc_medium.mlsettings | htc_medium.mlsettings |     
 +--------------------+-----------------------+-----------------------+
 
-  
 
-Import using MATLAB functions
-=============================
-
-Run these functions from a MATLAB session::
-
-   arc_profile = parallel.importProfile ('/apps/common/commercial/MATLAB/mps_profiles/R2022b/arc_devel.mlsettings');
-   parallel.defaultClusterProfile ('arc_devel');
-   
-The above could be used as part of a MATLAB script. See example at the bottom of this page.
-
-Importing directly from MATLAB GUI
-==================================
+Importing cluster profile directly from MATLAB GUI
+==================================================
 
 For these examples we will use the ``arc_devel`` profile.
 
@@ -77,6 +66,16 @@ To test the loaded profile, click the ``Validate`` button and the validation pro
    :width: 800
    :alt: Cluster Validation
    
+   
+Import using MATLAB functions
+=============================
+
+Instead of selecting and activating the cluster profile from the GUI you can run these functions from a command line MATLAB session::
+
+   arc_profile = parallel.importProfile ('/apps/common/commercial/MATLAB/mps_profiles/R2022b/arc_devel.mlsettings');
+   parallel.defaultClusterProfile ('arc_devel');
+   
+The above could be used as part of a MATLAB script. See next example...
 
 Full MPS Example
 ================
