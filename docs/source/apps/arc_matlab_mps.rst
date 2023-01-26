@@ -126,9 +126,15 @@ Once this is loaded. From the MATLAB GUI click ``New Script`` and paste the foll
   xticks(numWorkers(2:end));
   ylabel('Speedup');
   
-Once you have done this, click "Run" from the Editor. The script will start a job in the ARC short queue, and use this as a MATLAB worker pool. If the job is able to run immediately (remember it may be queued for a while if the cluster is busy) - the run time is around 5 minutes and you should be presented with the following plot when it completes:
+Once you have done this, click ``Run`` from the Editor. The script will start a job in the ARC short queue, and use this as a MATLAB worker pool. 
+
+If the job is able to run immediately the run time is around 5 minutes and you should be presented with the following plot when it completes:
 
 .. image:: ../images/arc-cluster4.png
    :width: 400
    :alt: Cluster Speedup
 
+.. note::
+   When you create the parallel pool with ``parpool()`` a batch job is submitted to SLURM. Your MATLAB script will only continue once this job is scheduled by SLURM
+   and is in the RUNNING state. This is why we recommend running MATLAB from the graphical (NX) machines where you can disconnect your session without terminating your
+   client MATLAB session.
