@@ -1,5 +1,5 @@
-Submitting jobs using the MATLAB Parallel Server
-================================================
+MATLAB Parallel Server
+----------------------
 
 MATLAB Parallel Server (MPS) allows you to create and use parallel pools that can scale to many CPUs more than in a single node. Currently MPS jobs must be submitted 
 from a GUI or command line MATLAB session running on one of the  `ARC Graphical (NX) nodes <https://arc-user-guide.readthedocs.io/en/latest/connecting-to-arc.html#accessing-the-graphical-nodes-via-a-web-browser>`_ or a session on an interactive node. You **must not** run MPS from a cluster 
@@ -7,8 +7,7 @@ login node.
 
 We have generated a basic cluster profile definition file for each cluster ARC and HTC. 
 
-Importing cluster profiles
-==========================
+**Importing cluster profiles**
 
 You need to import the ARC or HTC cluster profile into your MATLAB environment and set it as the default before you can submit MPS jobs. 
 
@@ -31,8 +30,7 @@ The profiles are configured for specific partitions or resources, as follows:
 +--------------------+-----------------------+-----------------------+
 
 
-Importing cluster profiles directly from the MATLAB GUI
-=======================================================
+**Importing cluster profiles directly from the MATLAB GUI**
 
 For these examples we will use the ``arc_devel`` profile.
 
@@ -67,8 +65,7 @@ To test the loaded profile, click the ``Validate`` button and the validation pro
    :alt: Cluster Validation
    
    
-Import using MATLAB functions
-=============================
+**Import using MATLAB functions**
 
 Instead of selecting and activating the cluster profile from the GUI you can run these functions from a command line MATLAB session::
 
@@ -77,8 +74,7 @@ Instead of selecting and activating the cluster profile from the GUI you can run
    
 The above could be used as part of a MATLAB script. See next example...
 
-Full MPS Example
-================
+**Full MPS Example**
 
 In this example we are going to use the ``arc_short`` partition. So, follow the instructions above to load the file named ``arc_short.mlsettings``
 
