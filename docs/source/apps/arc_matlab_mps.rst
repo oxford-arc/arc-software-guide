@@ -31,8 +31,8 @@ The profiles are configured for specific partitions or resources, as follows:
 +--------------------+-----------------------+-----------------------+
 
 
-Importing cluster profile directly from MATLAB GUI
-==================================================
+Importing cluster profiles directly from the MATLAB GUI
+=======================================================
 
 For these examples we will use the ``arc_devel`` profile.
 
