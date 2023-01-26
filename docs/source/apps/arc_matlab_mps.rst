@@ -6,8 +6,8 @@ from a GUI or command line MATLAB session running on one of the ARC Graphical (N
 
 We have generated a basic cluster profile definition file for each cluster ARC and HTC. 
 
-Importing the cluster profile
-=============================
+Importing cluster profiles
+==========================
 
 You need to import the ARC or HTC cluster profile into your MATLAB environment and set it as the default before you can submit MPS jobs. 
 
@@ -15,19 +15,21 @@ This only needs doing once. The imported profile will be saved in your MATLAB se
 
 Importing the profile can be done either by calling MATLAB functions or via the graphical interface. The profiles are stored here::
 
-  /apps/common/commercial/MATLAB/R2022b/cluster/arc_cluster.mlsettings
-  /apps/common/commercial/MATLAB/R2022b/cluster/htc_cluster.mlsettings
+  /apps/common/commercial/MATLAB/R2022b/cluster/arc_devel.mlsettings
+  /apps/common/commercial/MATLAB/R2022b/cluster/htc_devel.mlsettings
 
 Import using MATLAB functions
 =============================
 
 Run these functions from a MATLAB session::
 
-   arc_profile = parallel.importProfile ('/apps/common/commercial/MATLAB/R2022b/cluster/arc_cluster.mlsettings');
-   parallel.defaultClusterProfile ('arc_cluster');
+   arc_profile = parallel.importProfile ('/apps/common/commercial/MATLAB/R2022b/cluster/arc_devel.mlsettings');
+   parallel.defaultClusterProfile ('arc_devel');
 
 Importing from MATLAB GUI
 =========================
+
+For these examples we will use the ``arc_devel`` profile.
 
 To import using the graphical interface:
 
@@ -39,10 +41,10 @@ From the MATLAB Home tab select the ``Parallel`` menu and click ``Create and Man
    :alt: Cluster Window
   
   
-Select ``Import`` and from within the ``Import Profiles from file`` window navigate to the ``arc_cluster.mlsettings`` or ``htc_cluster.mlsettings`` files shown
+Select ``Import`` and from within the ``Import Profiles from file`` window navigate to the ``arc_devel.mlsettings`` file described
 above and select ``Open``
 
-Select the resulting ``arc_cluster`` or ``htc_cluster`` profile and click ``Set as Default``. 
+Select the resulting ``arc_devel`` profile and click ``Set as Default``. 
 
 The Cluster Profile Manager window should now look like this: 
 
