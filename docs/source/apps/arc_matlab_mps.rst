@@ -5,7 +5,8 @@ MATLAB Parallel Server (MPS) allows you to create and use parallel pools that ca
 from a GUI or command line MATLAB session running on one of the  `ARC Graphical (NX) nodes <https://arc-user-guide.readthedocs.io/en/latest/connecting-to-arc.html#accessing-the-graphical-nodes-via-a-web-browser>`_ or a session on an interactive node. You **must not** run MPS from a cluster 
 login node.
 
-We have generated a basic cluster profile definition file for each cluster ARC and HTC. 
+We have generated some basic cluster profile definition files for each cluster ARC and HTC, these act as a starting point for your own profiles which can support 
+custom resource requirements. 
 
 **Importing cluster profiles**
 
