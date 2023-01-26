@@ -121,6 +121,6 @@ Once this is loaded. From the MATLAB GUI click ``New Script`` and paste the foll
 Once you have done this, click "Run" from the Editor. The script will start a job in the ARC short queue, and use this as a MATLAB worker pool. If the job is able to run immediately (remember it may be queued for a while if the cluster is busy) - the run time is around 5 minutes and you should be presented with the following plot when it completes:
 
 .. image:: ../images/arc-cluster4.png
-   :width: 300
+   :width: 400
    :alt: Cluster Speedup
 
