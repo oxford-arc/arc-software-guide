@@ -39,9 +39,11 @@ Run these functions from a MATLAB session::
 
    arc_profile = parallel.importProfile ('/apps/common/commercial/MATLAB/mps_profiles/R2022b/arc_devel.mlsettings');
    parallel.defaultClusterProfile ('arc_devel');
+   
+The above could be used as part of a MATLAB script. See example at the bottom of this page.
 
-Importing from MATLAB GUI
-=========================
+Importing directly from MATLAB GUI
+==================================
 
 For these examples we will use the ``arc_devel`` profile.
 
