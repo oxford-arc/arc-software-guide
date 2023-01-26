@@ -136,5 +136,5 @@ If the job is able to run immediately the run time is around 5 minutes and you s
 
 .. note::
    When you create the parallel pool with ``parpool()`` a batch job is submitted to SLURM. Your MATLAB script will only continue once this job is scheduled by SLURM
-   and is in the RUNNING state. This is why we recommend running MATLAB from the graphical (NX) machines where you can disconnect your session without terminating your
+   and is in the RUNNING state. This is why we recommend running MATLAB from the `ARC Graphical (NX) nodes <https://arc-user-guide.readthedocs.io/en/latest/connecting-to-arc.html#accessing-the-graphical-nodes-via-a-web-browser>`_ where you can disconnect your session without terminating your
    client MATLAB session.
