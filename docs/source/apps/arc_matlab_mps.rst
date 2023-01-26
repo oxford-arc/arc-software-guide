@@ -19,10 +19,10 @@ Open the ``Konsole`` and load both the MATLAB and the cluster definition module:
    
 You can then type ``matlab`` at the command line to start MATLAB.
 
+**Importing cluster profiles**
+
 We have generated some basic cluster profile definition files for each cluster ARC and HTC, these act as a starting point for your own profiles which can support 
 custom resource requirements. 
-
-**Importing cluster profiles**
 
 You need to import the ARC or HTC cluster profile into your MATLAB environment and set it as the default before you can submit MPS jobs. 
 
