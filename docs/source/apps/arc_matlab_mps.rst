@@ -50,4 +50,12 @@ The Cluster Profile Manager window should now look like this:
    :width: 800
    :alt: Cluster Imported
 
-After you exit MATLAB, your default cluster profile is saved for future use.
+.. note::
+   After you exit MATLAB, your default cluster profile is saved for future use.
+   
+To test the loaded profile, click the ``Validate`` button, and then click ``Validate`` at the bottom of the ``Validation`` window. Once the process completes the screen should look as follows:
+
+.. image:: ../images/arc-cluster3.png
+   :width: 800
+   :alt: Cluster Validation
+   
