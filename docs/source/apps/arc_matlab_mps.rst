@@ -20,10 +20,17 @@ Importing the profile can be done either by calling MATLAB functions or via the 
 
 The profiles are configured for specific partitions or resources, as follows:
 
-**devel partition**::
++--------------------+-----------------------+-----------------------+
+| Partition/Resource | ARC                   | HTC                   |
++--------------------+-----------------------+-----------------------+
+| devel              | arc_devel.mlsettings  | htc_devel.mlsettings  |
++--------------------+-----------------------+-----------------------+
+| short              | arc_short.mlsettings  | htc_short.mlsettings  |
++--------------------+-----------------------+-----------------------+
+| medium             | arc_medium.mlsettings | htc_medium.mlsettings |     
++--------------------+-----------------------+-----------------------+
 
-  /apps/common/commercial/MATLAB/mps_profiles/R2022b/arc_devel.mlsettings
-  /apps/common/commercial/MATLAB/mps_profiles/R2022b/htc_devel.mlsettings
+  
 
 Import using MATLAB functions
 =============================
