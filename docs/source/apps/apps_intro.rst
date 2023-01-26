@@ -17,6 +17,7 @@ The guides in this section provide information on running specific software appl
    arc_lammps
    arc_mathematica
    arc_matlab
+   arc_matlab_mps
    arc_orca
    arc_qe
    arc_qiskit
