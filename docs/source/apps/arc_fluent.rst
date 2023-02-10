@@ -54,7 +54,7 @@ In order to pre/post process your data you can run FLUENT on the interactive nod
 .. note::
    If required, you may the resources in the above ``srun`` request. e.g. memory requirements.
   
-Once you have been given an allocation you can then start FLUENT with the GUI::
+Once you have been given a resource allocation and a command shell on the interactive node, you can start FLUENT with the GUI::
 
    module purge
    module load fluent/2021R2
