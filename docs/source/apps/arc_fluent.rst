@@ -52,7 +52,7 @@ In order to pre/post process your data you can run FLUENT on the interactive nod
   srun -p interactive --x11 --nodes=1 --ntasks-per-node=48 --mem=128GB --pty /bin/bash
   
 .. note::
-   You can change the resources in the above ``srun`` request.
+   If required, you may the resources in the above ``srun`` request. e.g. memory requirements.
   
 Once you have been given an allocation you can then start FLUENT with the GUI::
 
