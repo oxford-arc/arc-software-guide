@@ -45,6 +45,23 @@ the ARC supplied OpenMPI libraries instead of those supplied by ANSYS::
 
   rm ${NODELIST}
 
- 
+**Running FLUENT interactively (for pre/post processing only)**
+
+In order to pre/post process your data you can run FLUENT on the interactive nodes via an X11 GUI session as follows::
+
+  srun -p interactive --x11 --nodes=1 --ntasks-per-node=48 --mem=128GB --pty /bin/bash
+  
+.. note::
+   You can change the resources in the above ``srun`` request.
+  
+Once you have been given an allocation you can then start FLUENT with the GUI::
+
+   module purge
+   module load fluent/2021R2
+   fluent -pshmem -t${SLURM_NTASKS}
+   
+  
+
+
 
  
