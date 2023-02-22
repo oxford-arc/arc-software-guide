@@ -17,7 +17,7 @@ the Jupyter session on an interactive node.
 1) First we need to log in to an ARC login node, for this example we are using ``arc-login.arc.ox.ac.uk`` and start an interactive session using
 the standard ``srun`` command::
 
-  srun --nodes=1 --ntasks-per-node=4 --partition=interactive --pty /bin/bash
+  srun --nodes=1 --ntasks-per-node=1 --cpus-per-task=4 --partition=interactive --pty /bin/bash
  
 Once the ``srun`` allocation is started on the interactive node (for example: ``arc-c304``) you will get a command prompt and can load the Anaconda module
 and start Jupyter with the options shown below::
