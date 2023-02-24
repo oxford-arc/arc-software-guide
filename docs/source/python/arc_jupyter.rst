@@ -22,7 +22,7 @@ the standard ``srun`` command::
 Once the ``srun`` allocation is started on the interactive node (for example: ``arc-c304``) you will get a command prompt and can load the Anaconda module
 and start Jupyter with the options shown below::
 
-  module load Anaconda3/2021.11
+  module load Anaconda3/2022.05
   jupyter notebook --no-browser --ip=*
   
 .. note::
