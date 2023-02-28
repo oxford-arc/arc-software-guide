@@ -6,6 +6,7 @@ The guides in this section provide information on running specific software appl
 .. toctree::
 
    arc_abaqus
+   arc_apptainer
    arc_castep
    arc_cfx
    arc_fluent
