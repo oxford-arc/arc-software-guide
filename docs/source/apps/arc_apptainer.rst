@@ -81,8 +81,8 @@ We have already built this container image, and you can run it on ARC as follows
 
 You can bind directories from the ARC environment into your container. 
 
-For example to bind your ARC ``$DATA`` directory into the container as ``/arc_data`` - and set the environment variable ``$DATA`` to point to ``/arc_data`` you can 
-use the following options::
+For example to bind your ARC ``$DATA`` directory into the container as ``/arc_data`` - and set the environment variable ``$DATA`` inside the container to point to 
+``/arc_data`` you can use the following options::
 
    singularity run -B $DATA:/arc_data --env DATA=/arc_data /apps/common/examples/singularity/containers/bind_test.simg
 
