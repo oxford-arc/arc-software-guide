@@ -57,5 +57,5 @@ Also, here is an example of using GROMACS with GPU support on the HTC cluster::
   module purge 
   module load GROMACS/2020.4-fosscuda-2019b 
 
-  mpirun gmx_mpi mdrun -s nsteps800.tpr -deffnm nc2-cubic-md -ntomp 1 -dlb yes -noconfout -npme 64
+  mpirun gmx_mpi mdrun -s nsteps800.tpr -deffnm nc2-cubic-md -ntomp ${SLURM_CPUS_PER_TASK} -dlb yes -noconfout -npme 64
  
