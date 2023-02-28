@@ -36,11 +36,13 @@ statistical language::
 
 To build an image from the above definition file, you need to run singularity on your own workstation (a machine where you have ``sudo`` rights) - you cannot build singularity images on the ARC machines.
 
+**Running a basic container**
+
 So, assuming you have saved the above file as ``r_test.def``, from your linux workstation you should run::
 
    sudo singularity build /tmp/r_test.simg r_test.def
    
-Once the build has completed, you will find that it has built the image file /tmp/r_test.simg
+Once the build has completed, you will find that it has built the image file ``/tmp/r_test.simg``
 
 To test this on your workstation run::
 
@@ -70,11 +72,5 @@ To test this on your workstation run::
       
 The image file ``r_test.def`` generated in the above example, may be copied to the ARC systems and run in the same way.
 
-
-
-
-
-
-**Running a basic container**
 
 **Directory Binding**
