@@ -72,17 +72,24 @@ To test this on your workstation run::
       
 The image file ``r_test.def`` generated in the above example, may be copied to the ARC systems and run in the same way.
 
+We have already built this container image, and you can run it on ARC as follows::
+
+   singularity run /apps/common/examples/singularity/containers/r_test.simg
+
 
 **Directory Binding**
 
-You can bind directories from the ARC environment into your container. For example to provide ``$DATA`` in ``/arc_data`` you can use::
+You can bind directories from the ARC environment into your container. 
+
+For example to bind your ARC ``$DATA`` directory into the container as ``/arc_data`` - and set the environment variable ``$DATA`` to point to ``/arc_data`` you can 
+use the following options::
 
    singularity run -B $DATA:/arc_data --env DATA=/arc_data /apps/common/examples/singularity/containers/bind_test.simg
 
 .. note::
    By default Singularity is aware of ``$HOME`` so you do not need to bind this directory.
    
-To test the above, you can build a Singularity image, with the following definition::
+The container image ``bind_test.simg`` used in the above example, was built using the following definition file::
 
   Bootstrap: docker
   From: ubuntu:22.04
@@ -97,8 +104,6 @@ To test the above, you can build a Singularity image, with the following definit
      echo "If you've mounted $DATA it contains:"
      ls $DATA
      
-If you build the above image as ``bind_test.simg`` and run the above example you should see both your ``$HOME`` and ``$DATA`` directories listed.
-
 
 
 
