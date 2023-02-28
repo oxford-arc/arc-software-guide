@@ -1,5 +1,5 @@
-Using Singularity (Apptainer) on ARC
-------------------------------------
+Apptainer (Singularity)
+-----------------------
 
 .. note::
   This guide is designed to help you get started using Singularity containers on ARC. It is not designed to be a full tutorial for how to use Singularity. 
