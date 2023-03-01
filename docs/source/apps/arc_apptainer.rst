@@ -104,7 +104,7 @@ The container image ``bind_test.simg`` used in the above example, was built usin
      echo "If you've mounted $DATA it contains:"
      ls $DATA
      
-** Using Singularity with MPI code **
+**Using Singularity with MPI code**
 
 To use a container with MPI requires that the container has been build with MPI support as part of its definition. Preferably the MPI type should match that being used 
 on the host system (ARC).
