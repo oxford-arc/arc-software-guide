@@ -104,6 +104,76 @@ The container image ``bind_test.simg`` used in the above example, was built usin
      echo "If you've mounted $DATA it contains:"
      ls $DATA
      
+** Using Singularity with MPI code **
+
+To use a container with MPI requires that the container has been build with MPI support as part of its definition. Preferably the MPI type should match that being used 
+on the host system (ARC).
+
+To run an MPI container on ARC you simply need to run singularity from the ``mpirun`` wrapper. For example the following will run a pre-built MPI test container on ARC::
+
+   #!/bin/bash
+
+   #SBATCH --nodes=2
+   #SBATCH --ntasks-per-node=4
+   #SBATCH --cpus-per-task=2
+   #SBATCH --time=00:10:00
+   #SBATCH --partition=devel
+
+   module load OpenMPI/4.1.4-GCC-12.2.0
+
+   mpirun  singularity run /apps/common/examples/singularity/containers/mpi_test.simg
+   
+Once submitted with the ``sbatch`` command the output from the above script should look something like the following::
+
+   Hello world from processor arc-c302, rank 0 out of 8 processors
+   Hello world from processor arc-c302, rank 1 out of 8 processors
+   Hello world from processor arc-c302, rank 2 out of 8 processors
+   Hello world from processor arc-c302, rank 3 out of 8 processors
+   Hello world from processor arc-c303, rank 7 out of 8 processors
+   Hello world from processor arc-c303, rank 6 out of 8 processors
+   Hello world from processor arc-c303, rank 4 out of 8 processors
+   Hello world from processor arc-c303, rank 5 out of 8 processors
+
+The same container also has another command ``mpisize`` which is useful for debugging MPI resources. This may be run as follows::
+
+   #!/bin/bash
+
+   #SBATCH --nodes=2
+   #SBATCH --ntasks-per-node=4
+   #SBATCH --cpus-per-task=2
+   #SBATCH --time=00:10:00
+   #SBATCH --partition=devel
+
+   module load OpenMPI/4.1.4-GCC-12.2.0
+
+   mpirun --map-by numa:pe=${SLURM_CPUS_PER_TASK} singularity exec /apps/common/examples/singularity/containers/mpi_test.simg  /opt/mpisize
+   
+Here we are using the ``exec`` singularity command to run a specific program ``/opt/mpisize`` inside the container. We also add some options to ``mpirun`` to ensure
+the CPU thread binding is correct.
+
+The output from the above script should look something like the following::
+
+   Allocated core list { 0 1 }
+   Allocated core list { 4 5 }
+   Allocated core list { 2 3 }
+   Allocated core list { 6 7 }
+   Allocated core list { 6 7 }
+   Allocated core list { 0 1 }
+   Allocated core list { 4 5 }
+   Allocated core list { 2 3 }
+   I am MPI task 0, the total MPI Size is 8, and there are 2 core(s) allocated to *this* MPI task.
+   I am MPI task 1, the total MPI Size is 8, and there are 2 core(s) allocated to *this* MPI task.
+   I am MPI task 3, the total MPI Size is 8, and there are 2 core(s) allocated to *this* MPI task.
+   I am MPI task 2, the total MPI Size is 8, and there are 2 core(s) allocated to *this* MPI task.
+   I am MPI task 5, the total MPI Size is 8, and there are 2 core(s) allocated to *this* MPI task.
+   I am MPI task 6, the total MPI Size is 8, and there are 2 core(s) allocated to *this* MPI task.
+   I am MPI task 4, the total MPI Size is 8, and there are 2 core(s) allocated to *this* MPI task.
+   I am MPI task 7, the total MPI Size is 8, and there are 2 core(s) allocated to *this* MPI task.
+   
+  
+
+
+     
 
 
 
