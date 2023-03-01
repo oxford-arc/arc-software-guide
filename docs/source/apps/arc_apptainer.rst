@@ -106,10 +106,11 @@ The container image ``bind_test.simg`` used in the above example, was built usin
      
 **Using Singularity with MPI code**
 
-To use a container with MPI requires that the container has been build with MPI support as part of its definition. Preferably the MPI type should match that being used 
-on the host system (ARC).
+To use singularity with MPI requires that the container image has been built with MPI support as part of its definition. Preferably the MPI type should match that 
+being used on the host system (ARC).
 
-To run an MPI container on ARC you simply need to run singularity from the ``mpirun`` wrapper. For example the following will run a pre-built MPI test container on ARC::
+To run an MPI container on ARC you simply need to run singularity from the ``mpirun`` wrapper. For example the following will run a pre-built MPI test container on 
+ARC::
 
    #!/bin/bash
 
@@ -121,7 +122,7 @@ To run an MPI container on ARC you simply need to run singularity from the ``mpi
 
    module load OpenMPI/4.1.4-GCC-12.2.0
 
-   mpirun  singularity run /apps/common/examples/singularity/containers/mpi_test.simg
+   mpirun singularity run /apps/common/examples/singularity/containers/mpi_test.simg
    
 Once submitted with the ``sbatch`` command the output from the above script should look something like the following::
 
