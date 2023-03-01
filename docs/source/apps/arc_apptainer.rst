@@ -172,8 +172,45 @@ The output from the above script should look something like the following::
    I am MPI task 7, the total MPI Size is 8, and there are 2 core(s) allocated to *this* MPI task.
    
 
+**Using GPUs with containers**
+
+Singularity containers may be used with GPU nodes. For this the ``--nv`` flag is used. The ``--nv`` flag will:
+
+ - Ensure that the /dev/nvidiaX device entries are available inside the container, so that the GPU cards in the host are accessible.
+
+ - Locate and bind the basic CUDA libraries from the host into the container, so that they are available to the container, and match the kernel GPU driver on the host.
+
+ - Set the LD_LIBRARY_PATH inside the container so that the bound-in version of the CUDA libraries are used by applications run inside the container.
+
+As an interactive example, we can run the following from ``hpc-login`` on an interactive GPU node::
+   
+    srun -p interactive --gres=gpu:1 --pty /bin/bash
+    srun: GPU gres requested, checking settings/requirements...
+    srun: job 2072540 queued and waiting for resources
+    srun: job 2072540 has been allocated resources
+    
+    singularity exec --nv /apps/common/examples/singularity/containers/tensorflow-20.02-tf1-py3.sif python -c 'import tensorflow as tf; print("Num GPUs Available: 
+    ",len(tf.config.experimental.list_physical_devices("GPU")))'
+    
+    2023-03-01 15:26:22.464915: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.2
+    2023-03-01 15:26:28.437732: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcuda.so.1
+    2023-03-01 15:26:28.456277: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 0 with properties:
+    name: Tesla V100-SXM2-16GB major: 7 minor: 0 memoryClockRate(GHz): 1.53
+    pciBusID: 0000:1d:00.0
+    2023-03-01 15:26:28.456302: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.2
+    2023-03-01 15:26:28.695652: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+    2023-03-01 15:26:28.824502: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10
+    2023-03-01 15:26:29.101684: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10
+    2023-03-01 15:26:29.294168: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10
+    2023-03-01 15:26:29.390364: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10
+    2023-03-01 15:26:29.727534: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+    2023-03-01 15:26:29.728266: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1767] Adding visible gpu devices: 0
+    Num GPUs Available:  1
 
 
+
+
+  
      
 
 
