@@ -7,7 +7,7 @@ Apptainer (Singularity)
   
 **Building a basic container**
 
-The following Singularity definition file configures and builds a container image based on Ubuntu which simply provides the an executable installation of the R 
+The following Singularity definition file configures and builds a container image based on Ubuntu which simply provides an executable installation of the R 
 statistical language::
 
   Bootstrap: docker
