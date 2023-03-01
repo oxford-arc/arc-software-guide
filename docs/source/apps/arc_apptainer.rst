@@ -171,7 +171,7 @@ The output from the above script should look something like the following::
    I am MPI task 4, the total MPI Size is 8, and there are 2 core(s) allocated to *this* MPI task.
    I am MPI task 7, the total MPI Size is 8, and there are 2 core(s) allocated to *this* MPI task.
    
-  
+
 
 
      
