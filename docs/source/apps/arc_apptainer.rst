@@ -5,7 +5,7 @@ Apptainer (Singularity)
   This guide is designed to help you get started using Singularity containers on ARC. It is not designed to be a full tutorial for how to use Singularity. 
   However, a set of basic tutorials can be found here: `Singularity Basics - Video Tutorial <https://www.youtube.com/playlist?list=PL052H4iYGzysewYEelldGPOgKRJkxd5zp>`_ 
   
-  Also Singularity is now known as Apptainer - so on later versions of operating system (e.g. Ubuntu 20.04 onwards) you will need to use the command ``apptainer`` 
+  Singularity is now known as Apptainer - so on later versions of operating system (e.g. Ubuntu 20.04 onwards) you will need to use the command ``apptainer`` 
   rather than ``singularity``
   
 **Building a basic container**
