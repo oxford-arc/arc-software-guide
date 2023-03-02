@@ -5,8 +5,8 @@ Apptainer (Singularity)
   This guide is designed to help you get started using Singularity containers on ARC. It is not designed to be a full tutorial for how to use Singularity. 
   However, a set of basic tutorials can be found here: `Singularity Basics - Video Tutorial <https://www.youtube.com/playlist?list=PL052H4iYGzysewYEelldGPOgKRJkxd5zp>`_ 
   
-  Singularity is now known as Apptainer - so on later versions of operating system (e.g. Ubuntu 20.04 onwards) you will need to use the command ``apptainer`` 
-  rather than ``singularity``
+  Singularity is now known as Apptainer - so on later versions of workstation operating system (e.g. Ubuntu 20.04 onwards) you will need to install ``apptainer`` and 
+  use the command ``apptainer`` rather than ``singularity`` in the examples below.
   
 **Building a basic container**
 
@@ -37,7 +37,8 @@ statistical language::
      export LC_ALL=en_US.UTF-8
      R
 
-To build an image from the above definition file, you need to run singularity on your own workstation (a machine where you have ``sudo`` rights) - you cannot build singularity images on the ARC machines.
+To build an image from the above definition file, you need to run ``singularity`` (or ``apptainer``) on your own workstation (a machine where you have ``sudo`` rights) 
+- you cannot build singularity images on the ARC machines.
 
 **Running a basic container**
 
