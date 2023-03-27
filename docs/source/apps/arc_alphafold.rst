@@ -14,6 +14,8 @@ It regularly achieves accuracy competitive with experiment.
         AlphaFold/2.0.0-fosscuda-2020b
         AlphaFold/2.1.1-fosscuda-2020b
         AlphaFold/2.2.2-foss-2021a-CUDA-11.3.1
+        AlphaFold/2.3.0-foss-2021b-CUDA-11.4.1
+
 
 **Database**
 
