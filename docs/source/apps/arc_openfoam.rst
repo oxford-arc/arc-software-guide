@@ -8,11 +8,11 @@ to solid dynamics and electromagnetics.
 
 **Module Information**::
  
- module spider OpenFOAM
+   module spider OpenFOAM
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  OpenFOAM:
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   -----------------------------------------------------------------------------------------------------------------
+   OpenFOAM
+   -----------------------------------------------------------------------------------------------------------------
     Description:
       OpenFOAM is a free, open source CFD software package. OpenFOAM has an extensive range of features to solve anything from complex fluid flows involving chemical reactions, turbulence and heat transfer,
       to solid dynamics and electromagnetics.
@@ -37,6 +37,7 @@ to solid dynamics and electromagnetics.
         OpenFOAM-ESI
  
 
+..note::
 If you need to use a version of OpenFOAM earlier than version 6 then you will have to use the "legacy" software partition.
 
 **Example Submission Script**
