@@ -40,7 +40,8 @@ If you need to use a version of OpenFOAM earlier than version 6 then you will ha
 **Example Submission Script**
  
 The example submission script below is suitable for running on the ARC cluster. This example is customised to enable OpenFOAM to use
-4 CPU cores with the standard $FOAM_TUTORIALS/incompressible/simpleFoam/pitzDaily tutorial files::
+4 CPU cores with the standard ``$FOAM_TUTORIALS/incompressible/simpleFoam/pitzDaily`` tutorial files, this being run on the ``devel``
+partition of ARC::
 
    #!/bin/bash
 
