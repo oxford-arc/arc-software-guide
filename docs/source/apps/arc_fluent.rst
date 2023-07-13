@@ -16,8 +16,7 @@ ANSYS FLUENT software contains the broad physical modeling capabilities needed t
          fluent/2021R2
  
 
-If you need to use a version of FLUENT earlier than R2021R2 then you will have to use the "legacy" software partition.
-Infomation on legacy applications can be found here.
+If you need to use a version of FLUENT older than R2021R2 then you will have to use the "legacy" software partition.
 
 **Example Submission Script**
  
