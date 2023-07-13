@@ -37,7 +37,7 @@ to solid dynamics and electromagnetics.
         OpenFOAM-ESI
  
 
-..note::
+.. note:: 
 If you need to use a version of OpenFOAM earlier than version 6 then you will have to use the "legacy" software partition.
 
 **Example Submission Script**
