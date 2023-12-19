@@ -9,8 +9,8 @@ You can find these using the command::
 
   module spider PyTorch
 
-those with CUDA designations need to be run on the HTC cluster in order to benefit from GPU accelleration. 
-Be aware that you should load the module you intend to use on an interactive session, and it will inform you of the GPU compute capability it has been built for. 
+Those modules with CUDA designations need to be run on the HTC cluster in order to benefit from GPU accelleration. 
+Please be aware that you should load the module you intend to use on an interactive session, and it will inform you of the GPU compute capability it has been built for. 
 This will ensure that you can specify the correct GPU type in your submission script.
 
 For example (from htc-login)::
@@ -18,8 +18,9 @@ For example (from htc-login)::
   srun -p interactive --pty /bin/bash
   
   module load PyTorch/1.12.0-foss-2022a-CUDA-11.7.0
-  Note: This PyTorch module supports GPUs with compute capability features up to 8.6 (e.g. V100, A100, RTX8000) it will not work with newer GPU generations. 
-  Please ensure you have requested the correct GPU generation. See https://arc-user-guide.readthedocs.io/en/latest/job-scheduling.html#gpu-resources
+  Note: This PyTorch module supports GPUs with compute capability features up to 8.6 (e.g. V100, A100, RTX8000)
+  it will not work with newer GPU generations. Please ensure you have requested the correct GPU generation. 
+  See https://arc-user-guide.readthedocs.io/en/latest/job-scheduling.html#gpu-resources
 
 The above message indicates that this module was built for NVidia compute capability 8.6 so if run on newer GPUs such as A100 and H100 it will error and fall-back to CPU operation.
 
