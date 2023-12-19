@@ -33,18 +33,18 @@ A base install of PyTorch would be installed with the following script::
 
   #! /bin/bash
   #
-  # Run this script from an interactive session with GPU (for testing)
+  # Run this script from an interactive session:
   #
-  # srun -p interactive --gres=gpu:1 --pty /bin/bash
+  # srun -p interactive --pty /bin/bash
   #
   #
   # It will create a PyTorch 2.0.1 environment GPU enabled with CUDA 11.7
   #
-
   module load Anaconda3/2022.10
-
+  # Change the following to specify the location for the environment:
+  #
   export CONPREFIX=$DATA/arc_pytorch
-
+  #
   conda create --prefix $CONPREFIX
   conda activate $CONPREFIX
   #
@@ -52,3 +52,23 @@ A base install of PyTorch would be installed with the following script::
   #
   conda install pytorch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 pytorch-cuda=11.7 -c pytorch -c nvidia
   #
+
+You can add more packages to this script and then execute it, assuming you have saved the file as ``arc_env_build.sh``::
+ 
+   [user@htc-login01 ~]$ srun -i interactive --pty /bin/bash
+   srun: CPU resource required, checking settings/requirements...
+   [user@htc-g040 ~]$ sh ./arc_env_build.sh
+
+To use the environment from a batch submission script, after the resource definition ``#SBATCH`` lines add::
+
+   module load Anaconda3/2022.10
+   export CONPREFIX=$DATA/arc_pytorch
+   conda activate $CONPREFIX
+
+  ...your python command here...
+
+
+
+
+  
+
