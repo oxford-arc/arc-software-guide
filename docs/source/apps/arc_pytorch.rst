@@ -1,9 +1,15 @@
 PyTorch
 -------
 
-** Using PyTorch modules **
+**Using PyTorch environment modules**
 
-There are many PyTorch modules already installed on ARC - those with CUDA designations need to be run on the HTC cluster in order to benefit from GPU accelleration. 
+There are many PyTorch modules already installed on ARC.
+
+You can find these using the command::
+
+  module spider PyTorch
+
+those with CUDA designations need to be run on the HTC cluster in order to benefit from GPU accelleration. 
 Be aware that you should load the module you intend to use on an interactive session, and it will inform you of the GPU compute capability it has been built for. 
 This will ensure that you can specify the correct GPU type in your submission script.
 
