@@ -9,7 +9,7 @@ You can find these using the command::
 
   module spider PyTorch
 
-Those modules with CUDA designations need to be run on the HTC cluster in order to benefit from GPU accelleration. 
+Those modules with a CUDA suffix need to be run on the HTC cluster in order to benefit from GPU accelleration. 
 Please be aware that you should load the module you intend to use on an interactive session, and it will inform you of the GPU compute capability it has been built for. 
 This will ensure that you can specify the correct GPU type in your submission script.
 
@@ -53,7 +53,7 @@ A base install of PyTorch would be installed with the following script::
   conda install pytorch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 pytorch-cuda=11.7 -c pytorch -c nvidia
   #
 
-You can add more packages to this script and then execute it, assuming you have saved the file as ``arc_env_build.sh``::
+You can add more packages to this script. You can then execute the script from an interactive session - e.g. assuming you have saved the file as ``arc_env_build.sh``::
  
    [user@htc-login01 ~]$ srun -i interactive --pty /bin/bash
    srun: CPU resource required, checking settings/requirements...
@@ -67,6 +67,9 @@ To use the environment from a batch submission script, after the resource defini
 
   ...your python command here...
 
+..note..:
+
+  You MUST deactivate any active conda environment from your shell BEFORE running the ``sbatch`` command to submit your job - otherwise your job may fail. 
 
 
 
