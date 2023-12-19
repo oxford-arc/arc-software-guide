@@ -22,6 +22,7 @@ The guides in this section provide information on running specific software appl
    arc_matlab_mps
    arc_openfoam
    arc_orca
+   arc_pytorch
    arc_qe
    arc_qiskit
    arc_stata
