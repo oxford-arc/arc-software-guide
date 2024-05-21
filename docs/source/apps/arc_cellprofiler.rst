@@ -39,7 +39,7 @@ The following example SLURM submission script runs CellProfiler in batch (headle
 have downloaded the Fruit Fly cells example `ExampleFly <https://cellprofiler.org/examples>` and are submitting this from the extracted
 directory. i.e. the directory containing the ''ExampleFly.cppipe'' piprline file and ''images'' directory. 
 
-For example creating a file named ``run_slurm.sh``
+For example creating a file named ``run_slurm.sh``:: 
 
   #!/bin/bash
 
