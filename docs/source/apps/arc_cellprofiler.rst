@@ -23,7 +23,7 @@ CellProfiler is a free, open-source software for quantitative analysis of biolog
 
 In order to use the CellProfler application in GUI mode, connect to a graphical NX node using these instructions: `Connecting to ARC NX nodes <https://arc-user-guide.readthedocs.io/en/latest/connecting-to-arc.html#connecting-using-arc-graphical-nodes>`_
 
-Once connected to an NX desktop session, open a Konsole window and type::
+Once connected to an NX desktop session, open a Konsole window, use ``cd`` to change directory to where your pipeline and image files are located and then type::
 
   module purge
   module use /apps/common/containers/modules
@@ -37,7 +37,7 @@ The CellProfiler application will then start interactively with full GUI access.
 
 The following example SLURM submission script runs CellProfiler in batch (headless) mode. In this case, it assumes you
 have downloaded the Fruit Fly cells example `ExampleFly <https://cellprofiler.org/examples>`_ and are submitting this from the extracted
-directory. i.e. the directory containing the ''ExampleFly.cppipe'' piprline file and ''images'' directory. 
+directory. i.e. the directory containing the ``ExampleFly.cppipe`` piprline file and ``images`` directory (the script creates an ``output`` directory). 
 
 For example creating a file named ``run_slurm.sh``:: 
 
