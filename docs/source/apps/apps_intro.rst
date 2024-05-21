@@ -9,6 +9,7 @@ The guides in this section provide information on running specific software appl
    arc_alphafold
    arc_apptainer
    arc_castep
+   arc_cellprofiler
    arc_cfx
    arc_fluent
    arc_gaussian
