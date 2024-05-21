@@ -36,7 +36,7 @@ The CellProfiler application will then start interactively with full GUI access.
 **Non-interactive batch CellProfiler jobs**
 
 The following example SLURM submission script runs CellProfiler in batch (headless) mode. In this case, it assumes you
-have downloaded the Fruit Fly cells example `ExampleFly <https://cellprofiler.org/examples>` and are submitting this from the extracted
+have downloaded the Fruit Fly cells example `ExampleFly <https://cellprofiler.org/examples>`_ and are submitting this from the extracted
 directory. i.e. the directory containing the ''ExampleFly.cppipe'' piprline file and ''images'' directory. 
 
 For example creating a file named ``run_slurm.sh``:: 
