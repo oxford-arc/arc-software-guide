@@ -54,6 +54,7 @@ For example creating a file named ``run_slurm.sh``::
   module use /apps/common/containers/modules
   module load CellProfiler/4.2.6
 
+  mkdir -p output
   cellprofiler -p ExampleFly.cppipe -c -r -i images -o output
 
 To submit this to the scheduler::
