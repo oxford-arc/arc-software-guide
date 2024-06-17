@@ -72,7 +72,7 @@ For example for the ``seq`` example above, the contents of the SLURM submission 
   #SBATCH --partition=devel
 
   module purge
-  module load MATLAB
+  module load MATLAB/R2021b
 
   matlab -nodisplay -nosplash < main.m > run.log
 
