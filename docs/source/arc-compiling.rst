@@ -162,6 +162,7 @@ The submission script should look like this for a foss toolchain build::
  #SBATCH --time=00:10:00
  #SBATCH --nodes=2
  #SBATCH --ntasks-per-node=8
+ #SBATCH --constraint="[scratch:weka|scratch:gpfs]"
  #SBATCH --mail-type=BEGIN,END
  #SBATCH --mail-user=my.name@email.com
 
@@ -176,7 +177,8 @@ or for an ``intel`` toolchain build::
  #SBATCH --job-name=myprog 
  #SBATCH --time=00:10:00 
  #SBATCH --nodes=2 
- #SBATCH --ntasks-per-node=8 
+ #SBATCH --ntasks-per-node=8
+ #SBATCH --constraint="[scratch:weka|scratch:gpfs]"
  #SBATCH --mail-type=BEGIN,END 
  #SBATCH --mail-user=my.name@email.com
 
@@ -184,12 +186,21 @@ or for an ``intel`` toolchain build::
 
  mpirun ./cluster_myprog
  
-
 In this example, SLURM is instructed to allocate 2 nodes ``--nodes=2`` for 10 minutes ``--time=00:10:00``  Also, the run is scheduled for 8 MPI processes per node; this maps each MPI process to a physical core, leading to a (generally) optimal run configuration.
 
 N.B. In ARC there are 48 cores per node but in this example we are only using 8 cores per node.
 
 The command line ``mpirun ./cluster_myprog`` runs the executable ``cluster_myprog`` built with the approprate toolchain MPI library.  
+
+.. note::
+  Specifying the scratch file system type is especially important if you are running a multi-node (MPI) code. If you do not specify a scratch constraint, then you might be allocated nodes with different scratch file systems which could cause problems for your job, even if you do not use scratch.
+
+  The options are::
+
+  --constraint="[scratch:weka|scratch:gpfs]"   - Use either WEKA or GPFS scratch
+  --constraint="[scratch:weka]"                - Use WEKA scratch ONLY
+  --constraint="[scratch:gpfs]"                - Use GPFS scratch **not recommended**
+
 
 Running the application
 -----------------------
