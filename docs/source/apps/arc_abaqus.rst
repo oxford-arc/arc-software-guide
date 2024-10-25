@@ -42,8 +42,9 @@ The example submission scripts below are suitable for running on the ARC cluster
 
   module purge
   module load Abaqus/2022
+  module load iimpi/2020a
 
-  . abaqus.sh
+  . abaqus_arcmpi.sh
 
   abaqus fetch job=s4b.inp
   abaqus job=s4b  \
@@ -64,8 +65,10 @@ The above is an Abaqus/Standard job running in hybrid MPI mode. The following ex
 
  module purge
  module load Abaqus/2022
+ module load iimpi/2020a
 
- . abaqus.sh
+
+ . abaqus_arcmpi.sh
 
  abaqus fetch job=knee_bolster
  abaqus fetch job=knee_bolster_ef1
@@ -79,8 +82,8 @@ The above is an Abaqus/Standard job running in hybrid MPI mode. The following ex
 
 
 .. note::
-    The line ``. abaqus.sh`` in the above scripts is **important**, it ensures that Abaqus is configured correctly for the ARC environment by creating a file
-    named ``abaqus_v6.env`` in the job directory. 
+    The line ``. abaqus_arcmpi.sh`` in the above scripts is **important**, it ensures that Abaqus is configured correctly for the ARC environment by creating a file
+    named ``abaqus_v6.env`` in the job directory. Note the is a space between the ``.`` and ``abaqus_arcmpi.sh``
     
     It also creates a scratch directory for temporary Abaqus files, and ensures the Intel MPI library is used.
     
