@@ -83,7 +83,7 @@ The above is an Abaqus/Standard job running in hybrid MPI mode. The following ex
 
 .. note::
     The line ``. abaqus_arcmpi.sh`` in the above scripts is **important**, it ensures that Abaqus is configured correctly for the ARC environment by creating a file
-    named ``abaqus_v6.env`` in the job directory. Note the is a space between the ``.`` and ``abaqus_arcmpi.sh``
+    named ``abaqus_v6.env`` in the job directory. Note: there is a space between the ``.`` and ``abaqus_arcmpi.sh``
     
     It also creates a scratch directory for temporary Abaqus files, and ensures the Intel MPI library is used.
     
