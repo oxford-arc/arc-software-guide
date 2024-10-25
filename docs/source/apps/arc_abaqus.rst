@@ -91,5 +91,5 @@ The above is an Abaqus/Standard job running in hybrid MPI mode. The following ex
         
         module load iccifort/2020.1.217
     
-    To your submission script after the Abaqus module load. The ``abaqus.sh`` sccript also sets up the environment/options for the ifort compiler.
+    To your submission script after the Abaqus module load. The ``abaqus_arcmpi.sh`` sccript also sets up the environment/options for the ifort compiler.
     
