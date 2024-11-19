@@ -3,7 +3,7 @@
 # -- Project information
 
 project = 'ARC Software Guide'
-# copyright = '2021'
+copyright = '2021–2024'
 
 author = 'The ARC Team'
 
@@ -37,5 +37,14 @@ epub_show_urls = 'footnote'
 
 # -- ARC Customisations
 
-html_show_copyright = False
+html_logo = 'images/arc_logo-wide-white.svg'
+
+# -- Add ARC theme overrides...
+# This will be found in source/_static (as defined above)
+html_static_path = ['_static']
+html_css_files = [
+    'css/arc_theme.css',
+]
+
+#html_show_copyright = False
 html_show_sphinx = False
