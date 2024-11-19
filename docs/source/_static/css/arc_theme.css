@@ -2,7 +2,7 @@
     max-width: 1200px !important;
 }
 
-.wy-side-nav-search {
+.wy-side-nav-search, .wy-nav-top, .rst-content a {
     background-color: #002147;
 }
 
