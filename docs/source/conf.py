@@ -18,6 +18,7 @@ extensions = [
     'sphinx.ext.autosummary',
     'sphinx.ext.intersphinx',
     'sphinx.ext.autosectionlabel',
+    "sphinx_favicon",
 ]
 
 intersphinx_mapping = {
@@ -33,6 +34,7 @@ templates_path = ['_templates']
 # -- Options for HTML output
 
 html_theme = 'sphinx_rtd_theme'
+html_favicon = 'favicon.ico'
 html_theme_options = {
     'version_selector': False,
     'language_selector': False,
@@ -47,6 +49,13 @@ html_logo = 'images/arc_logo-wide-white.svg'
 html_static_path = ['_static']
 html_css_files = [
     'css/arc_theme.css',
+]
+favicons = [
+    {"href": "arc_icon.svg"},
+    {"href": "favicon16.png"},
+    {"href": "favicon32.png"},
+    {"href": "favicon96.png"},
+    {"href": "favicon160.png"},
 ]
 
 #html_show_copyright = False
