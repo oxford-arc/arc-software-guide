@@ -1,13 +1,13 @@
-.wy-nav-content {
-    max-width: 1200px !important;
-}
-
 .wy-side-nav-search, .wy-nav-top {
     background-color: #002147;
 }
 
 .rst-content a {
     color: #002147;
+}
+
+img.logo {
+    max-width: 80% !important;
 }
 
 .wy-side-nav-search>a, .wy-side-nav-search .wy-dropdown>a {
