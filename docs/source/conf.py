@@ -3,12 +3,11 @@
 # -- Project information
 
 project = 'ARC Software Guide'
-copyright = '2021–2024'
-
+copyright = u'2021–2024 — The University of Oxford'
 author = 'The ARC Team'
 
-release = '0.1'
-version = '0.1.0'
+release = ''
+version = ''
 
 # -- General configuration
 
@@ -18,6 +17,7 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.autosummary',
     'sphinx.ext.intersphinx',
+    'sphinx.ext.autosectionlabel',
 ]
 
 intersphinx_mapping = {
@@ -26,14 +26,17 @@ intersphinx_mapping = {
 }
 intersphinx_disabled_domains = ['std']
 
+pygments_style = 'sphinx'
+
 templates_path = ['_templates']
 
 # -- Options for HTML output
 
 html_theme = 'sphinx_rtd_theme'
-
-# -- Options for EPUB output
-epub_show_urls = 'footnote'
+html_theme_options = {
+    'version_selector': False,
+    'language_selector': False,
+}
 
 # -- ARC Customisations
 
@@ -48,3 +51,6 @@ html_css_files = [
 
 #html_show_copyright = False
 html_show_sphinx = False
+
+# -- Options for EPUB output
+epub_show_urls = 'footnote'
