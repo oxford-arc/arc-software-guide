@@ -1,7 +1,9 @@
 Using R-Studio on ARC
 ---------------------
  
-You can use the R-Studio IDE on ARC via an interactive ``X11`` session. This means you will need to connect to ARC via a client running an ``X11`` server such
+You can use the R-Studio IDE on ARC via an interactive ``X11`` session or on the NX Nodes. 
+The latest version of Rstudio is available on the NX nodes. 
+This means you will need to connect to ARC via a client running an ``X11`` server such
 as MobaXterm for Windows, or XQuartz for Mac.
  
 It is necessary to make your SSH connection to the ARC login node with the -X option in order to forward ``X11`` graphics back to your desktop machine - for example::
