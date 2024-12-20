@@ -3,7 +3,7 @@ Using Rmpi on ARC
 
 Example Rmpi script for SLURM
  
-The following is a brief example of how to run an Rmpi script on SLURM. This example uses the latest R version R/4.1.2-foss-2021b
+The following is a brief example of how to run an Rmpi script on SLURM. This example uses the latest R version R/4.4.0-gfbf-2023a
  
 Create the following script and save it as ``Rmpi-test.R``::
  
@@ -40,7 +40,7 @@ Now create a submission script called ``submit.sh`` containing the following lin
   #SBATCH --output=rmpi.out
   #SBATCH --partition=devel
 
-  module load R/4.1.2-foss-2021b
+  module load R/4.4.0-gfbf-2023a
   mpirun -np 1 R --vanilla -f Rmpi-test.R
   rm *.log
  
@@ -57,7 +57,7 @@ submission directory, this should contain the following output::
 
   $ cat rmpi.out
 
-  R version 4.1.2 (2021-11-01) -- "Bird Hippie"
+  R version 
   Copyright (C) 2021 The R Foundation for Statistical Computing
   Platform: x86_64-pc-linux-gnu (64-bit)
 
