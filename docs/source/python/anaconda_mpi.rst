@@ -11,24 +11,22 @@ From the login node, start an interactive session on a compute node - this is im
 First load the appropriate modules and create your virtual environment::
 
   module purge
-  module load foss/2020a
-  module load Anaconda3/2020.11
+  module load foss/2024a
+  module load Anaconda3/2024.02-1
 
-In this example we are using Anaconda3 2020.11 and using OpenMPI 4.0.3 which comes as part of the ``foss/2020a`` toolchain. 
-
-Note: At present we do not recommend using the ``foss/2021b`` toolchain due to an incompatibility between OpenMPI 4.1.x and ``mpi4py``.
+In this example we are using Anaconda3 2020.11 and using OpenMPI 4.0.3 which comes as part of the ``foss/2024a`` toolchain. 
 
 Next we build our virtual environment, and activate it (if you already have your own environment you could use this instead, and simply activate it)::
 
-  conda create --prefix $DATA/mpienv --copy python=3.8 
+  conda create --prefix $DATA/mpienv 
   source activate $DATA/mpienv
 
 Now that we have an activated Anaconda virtual environment we can download and install ``mpi4py``, in this case version 3.1.3::
 
-  wget https://bitbucket.org/mpi4py/mpi4py/downloads/mpi4py-3.1.3.tar.gz
-  tar -zxf mpi4py-3.1.3.tar.gz
+  wget https://bitbucket.org/mpi4py/mpi4py/downloads/mpi4py-3.1.4.tar.gz
+  tar -zxf mpi4py-3.1.4.tar.gz
   
-  cd mpi4py-3.1.3
+  cd mpi4py-3.1.4
   python setup.py build --mpicc=`which mpicc` 
   python setup.py install 
   python setup.py clean
@@ -73,8 +71,9 @@ the example submission script is as follows, it should be located in the same di
   #SBATCH --time=00:10:00
 
   module purge
-  module load Anaconda3/2020.11
-  module load foss/2020a
+  module load Anaconda3/2024.02-1
+
+  module load foss/2024a
 
   source activate $DATA/mpienv
 
