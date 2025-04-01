@@ -4,11 +4,15 @@ Using MPI with Anaconda
 The ``mpi4py`` package bundled with, or installed by Anaconda may not work correctly on the ARC cluster. 
 The ``mpi4py`` code should be linked to an ARC compiled MPI library on the system - in order to do this in your virtual environment run the following commands:
 
-From the login node, start an interactive session on a compute node - this is important for testing later::
+From the login node, start an interactive session on a compute node - this is important for testing later:
+
+.. code-block:: bash
 
   srun --nodes=1 --ntasks-per-node=4 --partition=interactive --pty /bin/bash
 
-First load the appropriate modules and create your virtual environment::
+First load the appropriate modules and create your virtual environment:
+
+.. code-block:: bash
 
   module purge
   module load foss/2024a
@@ -16,12 +20,16 @@ First load the appropriate modules and create your virtual environment::
 
 In this example we are using Anaconda3 2020.11 and using OpenMPI 4.0.3 which comes as part of the ``foss/2024a`` toolchain. 
 
-Next we build our virtual environment, and activate it (if you already have your own environment you could use this instead, and simply activate it)::
+Next we build our virtual environment, and activate it (if you already have your own environment you could use this instead, and simply activate it):
+
+.. code-block:: bash
 
   conda create --prefix $DATA/mpienv 
   source activate $DATA/mpienv
 
-Now that we have an activated Anaconda virtual environment we can download and install ``mpi4py``, in this case version 3.1.3::
+Now that we have an activated Anaconda virtual environment we can download and install ``mpi4py``, in this case version 3.1.3:
+
+.. code-block:: shell
 
   wget https://bitbucket.org/mpi4py/mpi4py/downloads/mpi4py-3.1.4.tar.gz
   tar -zxf mpi4py-3.1.4.tar.gz
@@ -41,7 +49,9 @@ Now that we have an activated Anaconda virtual environment we can download and i
 
 Assuming the build above completes successfully we can now test the ``mpi4py`` installation.
 
-First create a file called mpihello.py containing the following Python code::
+First create a file called mpihello.py containing the following Python code:
+
+.. code-block:: python
 
   from mpi4py import MPI
   comm = MPI.COMM_WORLD
@@ -49,11 +59,15 @@ First create a file called mpihello.py containing the following Python code::
   print("hello world")
   print(("name:",name,"my rank is",comm.rank))
 
-As we are connected to an interactive node, and have four cores allocated (as per the original ``srun`` command) we can test this code as follows::
+As we are connected to an interactive node, and have four cores allocated (as per the original ``srun`` command) we can test this code as follows:
+
+.. code-block:: shell
 
   mpirun python mpihello.py
  
-Note: we must run Python with the ``mpirun`` wrapper in order to execute MPI code. The output from the above command should be::
+Note: we must run Python with the ``mpirun`` wrapper in order to execute MPI code. The output from the above command should be:
+
+.. code-block:: shell
 
   hello world
   ('name:', 'arc-c304', 'my rank is', 0)
@@ -67,7 +81,9 @@ Note: we must run Python with the ``mpirun`` wrapper in order to execute MPI cod
 In the above each allocated core has run the code and outputted the string "hello world" and given its hostname and MPI rank.
 
 For a more real world example, we will take the same hello world code and run it in a batch script on multiple nodes in the development partition,
-the example submission script is as follows, it should be located in the same directory as ``mpihello.py`` and named ``runmpi.sh`` ::
+the example submission script is as follows, it should be located in the same directory as ``mpihello.py`` and named ``runmpi.sh``:
+
+.. code-block:: bash
 
   #!/bin/bash
 
@@ -92,11 +108,15 @@ Note: There is no need to specify the number of tasks to the ``mpirun`` command.
 Here you can see we have asked for two development nodes, with four MPI tasks on each node (a total of eight MPI tasks). Note we have also loaded BOTH the
 Anaconda3 and foss/2020a modules as used in the mpi4py build.
 
-To submit the job, use the SLURM sbatch command::
+To submit the job, use the SLURM sbatch command:
+
+.. code-block: shell
 
   sbatch runmpi.sh
 
-Once the  job completes, the SLURM output file should contain the following information from the job::
+Once the  job completes, the SLURM output file should contain the following information from the job:
+
+.. code-block:: shell
 
   hello world
   ('name:', 'arc-c303', 'my rank is', 4)
