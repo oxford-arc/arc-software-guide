@@ -36,8 +36,8 @@ Now that we have an activated Anaconda virtual environment we can download and i
  ``/path/to/your/conda/env/compiler_compat/ld:``
  This is a known issue with Anaconda and newer GCC versions. To fix this, run::
   cd /path/to/your/conda/env/compiler_compat/ && mv ld ld.bak
-  Ensure you change the path in the above examples to the full path of your Anaconda environment.
-  Once you have done this, execute the build stages again.
+ Ensure you change the path in the above examples to the full path of your Anaconda environment.
+ Once you have done this, execute the build stages again.
 
 Assuming the build above completes successfully we can now test the ``mpi4py`` installation.
 
