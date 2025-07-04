@@ -1,5 +1,5 @@
-VSCode
-------
+Visual Studio Code 
+------------------
 
 **Introduction**
 
