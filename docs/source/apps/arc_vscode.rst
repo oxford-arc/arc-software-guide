@@ -1,9 +1,9 @@
-Visual Studio Code 
-------------------
+Visual Studio Code (VS Code)
+----------------------------
 
 **Introduction**
 
-Visual Studio Code (VS Code) is a free, open-source, and highly customizable code editor developed by Microsoft. 
+VS Code is a free, open-source, and highly customizable code editor developed by Microsoft. 
 It's known for being lightweight and fast, yet powerful, offering features like debugging, syntax highlighting, intelligent code completion, and Git integration. 
 VS Code runs on Windows, macOS, and Linux, and is also available as a web-based editor. 
 
