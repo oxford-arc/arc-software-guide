@@ -7,7 +7,7 @@ Visual Studio Code (VS Code) is a free, open-source, and highly customizable cod
 It's known for being lightweight and fast, yet powerful, offering features like debugging, syntax highlighting, intelligent code completion, and Git integration. 
 VS Code runs on Windows, macOS, and Linux, and is also available as a web-based editor. 
 
-The guide shows how to create a VSCode tunnel on the ARC service in order to access and interact with your ARC storage.
+The guide shows how to create a VSCode connection tunnel to access and interact with ARC storage and compute resources.
 
 .. warning::
   Please do not use the **Remote SSH** feature of VS Code to connect to the ARC/HTC login nodes for interactive work. This puts unecessary resource load on machines
