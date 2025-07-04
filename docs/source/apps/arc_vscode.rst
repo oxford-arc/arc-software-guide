@@ -9,10 +9,14 @@ VS Code runs on Windows, macOS, and Linux, and is also available as a web-based 
 
 The guide shows how to create a VSCode tunnel on the ARC service in order to access and interact with your ARC storage.
 
+.. warn::
+  Please do not use the **Remote SSH** feature of VS Code to connect to the ARC/HTC login nodes for interactive work. This puts unecessary resource load on these machines
+  which are not designed for such workloads.
+
 
 **Creating a VS Code tunnel**
 
-First, you need to log in to one of the ARC or HTC login nodes. You must do this from an normal SSH session. 
+First, you need to log in to one of the ARC or HTC login nodes. You should do this from a basic SSH session (i.e. from the a client such as PuTTY or from a terminal command line) 
 
 Once you have logged in, you can create a VS Code tunnel using the following command::
 
