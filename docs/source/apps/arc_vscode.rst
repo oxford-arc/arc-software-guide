@@ -12,12 +12,15 @@ The guide shows how to create a VSCode tunnel on the ARC service in order to acc
 
 **Creating a VS Code tunnel**
 
-First, you need to log in to one of the ARC or HTC login nodes. You must do this from an normal SSH session. Once you have logged in, you can create a VSCode tunnel using the following command::
+First, you need to log in to one of the ARC or HTC login nodes. You must do this from an normal SSH session. 
+
+Once you have logged in, you can create a VS Code tunnel using the following command::
 
   srun --partition=interactive --nodes=1 --cpus-per-task=4 --mem-per-cpu=4G --time=04:00:00 --pty /apps/common/commercial/VSCode/latest/code tunnel
 
-You will then be prompted to select whether to use a **Microsoft Account** or **GitHub Account** to log into Visual Studio Code. You should select your preference and then follow the 
-instructions. An example transcript is shown below::
+You will then be prompted to select whether to use a **Microsoft Account** or **GitHub Account** to log into Visual Studio Code. You should select your preference and then follow the instructions. 
+
+An example transcript is shown below::
 
   [teaching70@arc-login03 ~]$ srun --partition=interactive --nodes=1 --cpus-per-task=4 --mem-per-cpu=4G --time=04:00:00 --pty /apps/common/commercial/VSCode/latest/code tunnel
   srun: job 10115727 queued and waiting for resources
@@ -33,11 +36,10 @@ instructions. An example transcript is shown below::
   To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code GW4C46F5A to authenticate.
 
 
-Once you have verified your account using the web browser, you will be given a link to access the tunnel via the web. You will also be able to access the tunnel directly from within 
-the VSCode application - where it can be found under the **Tunnels** section of **Remote Explorer**
+Once you have verified your account using the web browser, you will be given a link to access the tunnel via the web. You will also be able to access the tunnel directly from within the VS Code application - where it can be found under the **Tunnels** section of **Remote Explorer**
 
 .. note::
-   You should ensure you request the required resources for your interactive session in the ``srun`` command shown above. This includes requesting GPU resources if required.
+   You should ensure you request the required resources for the interactive session in the ``srun`` command shown above. This includes requesting GPU resources if required.
                                      
                                      
 
