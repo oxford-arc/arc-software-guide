@@ -11,7 +11,7 @@ The guide shows how to create a VSCode connection tunnel to access and interact 
 
 .. warning::
   Please do not use the **Remote SSH** feature of VS Code to connect to the ARC/HTC login nodes for interactive work. This puts unecessary resource load on machines
-  which are not configured for such workloads.
+  which are not configured for such workloads so will slow down your processing considerably.
 
 
 **Creating a VS Code tunnel**
