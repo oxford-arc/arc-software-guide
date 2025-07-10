@@ -22,7 +22,11 @@ Once you have logged in, you can create a VS Code tunnel using the following com
 
   srun --partition=interactive --nodes=1 --cpus-per-task=4 --mem-per-cpu=4G --time=04:00:00 --pty /apps/common/commercial/VSCode/latest/code tunnel
 
-You will then be prompted to select whether to use a **Microsoft Account** or **GitHub Account** to log into Visual Studio Code. You should select your preference and then follow the instructions. 
+.. note::
+   You should ensure you request the required resources for the interactive session. The resources in the ``srun`` command shown above are for a basic CPU session. For example 
+   you may request GPU resources if required.
+
+Once the session has been allocated resources, you will be prompted to select whether to use a **Microsoft Account** or **GitHub Account** to log into Visual Studio Code. You should select your preference and then follow the instructions. 
 
 An example transcript is shown below::
 
@@ -39,11 +43,15 @@ An example transcript is shown below::
   ✔ How would you like to log in to Visual Studio Code? · Microsoft Account
   To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code GW4C46F5A to authenticate.
 
+.. warning::
+  The tunnel is running within an interactive resource allocation via the SSH session. Therefore please do not close this SSH session until you have completed working in
+  VS Code, otherwise your connection to the tunnel will be lost. 
 
 Once you have verified your account using the web browser, you will be given a link to access the tunnel via the web. You will also be able to access the tunnel directly from within the VS Code application - where it can be found under the **Tunnels** section of **Remote Explorer**
 
-.. note::
-   You should ensure you request the required resources for the interactive session in the ``srun`` command shown above. This includes requesting GPU resources if required.
+
+
+
                                      
                                      
 
