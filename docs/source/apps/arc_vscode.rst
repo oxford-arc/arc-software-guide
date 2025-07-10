@@ -44,7 +44,7 @@ An example transcript is shown below::
   To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code GW4C46F5A to authenticate.
 
 .. warning::
-  The tunnel is running within an interactive resource allocation via the SSH session. Therefore please do not close this SSH session until you have completed working in
+  The tunnel is running within an interactive resource allocation via the SSH session. Please do not close this SSH session until you have completed working in
   VS Code, otherwise your connection to the tunnel will be lost. 
 
 Once you have verified your account using the web browser, you will be given a link to access the tunnel via the web. You will also be able to access the tunnel directly from within the VS Code application - where it can be found under the **Tunnels** section of **Remote Explorer**
