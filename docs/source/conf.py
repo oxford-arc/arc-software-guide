@@ -3,7 +3,7 @@
 # -- Project information
 
 project = 'ARC Software Guide'
-copyright = u'2021–2024 — The University of Oxford'
+copyright = u'2021–%Y — The University of Oxford'
 author = 'The ARC Team'
 
 release = ''
@@ -19,6 +19,7 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.autosectionlabel',
     "sphinx_favicon",
+    "sphinx_rtd_dark_mode",
 ]
 
 intersphinx_mapping = {
@@ -39,6 +40,9 @@ html_theme_options = {
     'version_selector': False,
     'language_selector': False,
 }
+
+# user starts in light mode
+default_dark_mode = False
 
 # -- ARC Customisations
 
