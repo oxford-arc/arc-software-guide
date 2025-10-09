@@ -2,7 +2,6 @@ Using R-Studio on ARC
 ---------------------
  
 You can use the R-Studio IDE on ARC via an interactive ``X11`` session or on the NX Nodes. 
-The latest version of Rstudio (corresponding to R/4.4.0)  is available on the NX nodes. 
 This means you will need to connect to ARC via a client running an ``X11`` server such
 as MobaXterm for Windows, or XQuartz for Mac.
  
@@ -28,14 +27,14 @@ To run R-Studio you will need to load the appropriate module::
 The above command returns the available versions of R-Studio, for example::
  
   ----------------------------------------------------------------------------------------------------------------------------------------------
-  RStudio: RStudio/2022.02-R-4.2.1-ARC
+  RStudio: RStudio/2025.09-R-4.4.2-ARC
   ----------------------------------------------------------------------------------------------------------------------------------------------
  
-In the above case, loading the module ``RStudio/2022.02-R.4.2.1-ARC`` will load version 2022.2 of RStudio along with R version 4.2.1 with added ARC libraries.
+In the above case, loading the module ``RStudio/2025.09-R-4.4.2-ARC`` will load version 2025.9 of RStudio along with R version 4.4.2 with added ARC libraries.
  
 So to begin using the application you will need to type::
  
-  module load RStudio/2022.02-R.4.2.1-ARC
+  module load RStudio/2025.09-R-4.4.2-ARC
   rstudio
  
 After a short delay, the R-Studio window should appear on your desktop display.
