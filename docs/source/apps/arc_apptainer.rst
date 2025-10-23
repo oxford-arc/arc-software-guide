@@ -124,9 +124,11 @@ ARC::
    #SBATCH --time=00:10:00
    #SBATCH --partition=devel
 
-   module load OpenMPI/4.1.4-GCC-12.2.0
+   module load OpenMPI/5.0.3-GCC-13.3.0 
 
-   mpirun singularity run /apps/common/examples/singularity/containers/mpi_test.simg
+   export PMIX_MCA_psec=native
+
+   mpirun singularity run /apps/common/examples/singularity/containers/mpi-test-2024a.sif
    
 Once submitted with the ``sbatch`` command the output from the above script should look something like the following::
 
@@ -149,9 +151,11 @@ The same container also has another command ``mpisize`` which is useful for debu
    #SBATCH --time=00:10:00
    #SBATCH --partition=devel
 
-   module load OpenMPI/4.1.4-GCC-12.2.0
+   module load OpenMPI/5.0.3-GCC-13.3.0
 
-   mpirun --map-by numa:pe=${SLURM_CPUS_PER_TASK} singularity exec /apps/common/examples/singularity/containers/mpi_test.simg  /opt/mpisize
+   export PMIX_MCA_psec=native
+
+   mpirun --map-by numa:pe=${SLURM_CPUS_PER_TASK} singularity exec /apps/common/examples/singularity/containers/mpi-test-2024a.sif  /opt/mpisize
    
 Here we are using the ``exec`` singularity command to run a specific program ``/opt/mpisize`` inside the container. We also add some options to ``mpirun`` to ensure
 the CPU thread binding is correct.
