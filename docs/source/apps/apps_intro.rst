@@ -29,4 +29,3 @@ The guides in this section provide information on running specific software appl
    arc_stata
    arc_tensorflow
    arc_vasp
-   arc_vscode
