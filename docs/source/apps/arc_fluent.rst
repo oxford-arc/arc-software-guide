@@ -7,13 +7,13 @@ ANSYS FLUENT software contains the broad physical modeling capabilities needed t
 
 **Module Information**::
  
- module spider FLUENT
+ module spider ANSYS
 
  -----------------------------------------------------------------------
    fluent:
  -----------------------------------------------------------------------
       Versions:
-         fluent/2021R2
+         ANSYS/2025R2
  
 
 If you need to use a version of FLUENT older than R2021R2 then you will have to use the "legacy" software partition.
@@ -33,9 +33,10 @@ the ARC supplied OpenMPI libraries instead of those supplied by ANSYS::
   #SBATCH --job-name=FluentTest
 
   module purge
-  module load fluent/2021R2
-  module load OpenMPI/4.0.5-GCC-10.2.0
+  module load ANSYS/2025R2
+  module load OpenMPI/5.0.8-GCC-14.3.0
   export OPENMPI_ROOT=$EBROOTOPENMPI
+
 
   NODELIST="${SLURM_SUBMIT_DIR}/hostlist.${SLURM_JOB_ID}.txt"
   scontrol show hostname ${SLURM_NODELIST} >${NODELIST}
@@ -56,7 +57,7 @@ In order to pre/post process your data you can run FLUENT on the interactive nod
 Once you have been given a resource allocation and a command shell on the interactive node, you can start FLUENT with the GUI::
 
    module purge
-   module load fluent/2021R2
+   module load ANSYS/2025R2
    fluent -pshmem -t${SLURM_NTASKS}
    
   
