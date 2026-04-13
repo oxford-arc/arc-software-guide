@@ -44,7 +44,7 @@ optimization using NEB or dimer method.
 
   mpirun cp2k.popt input.inp 
 
-** Example submission script (version 2026.1 onwards) Hybrid OpenMP/MPI**::
+**Example submission script (version 2026.1 onwards) Hybrid OpenMP/MPI**::
 
   #!/bin/bash
 
