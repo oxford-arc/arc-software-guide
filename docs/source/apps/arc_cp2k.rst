@@ -63,7 +63,7 @@ optimization using NEB or dimer method.
 
 
 .. note::  
-  In the above example scripts ``input.inp`` should be substituted for the appropriate name of your input file, and the number of nodes and tasks per
-  node should be set accordingly. Additionally for the Hybrid OpenMP/MPI example, the CPUs per task value will need to be set. 
+  In the above example scripts ``input.inp`` should be substituted for the appropriate name of your input file, and the number of nodes and ``ntasks-per-node`` should be set
+  accordingly. Additionally for the Hybrid OpenMP/MPI example, the ``cpus-per-task`` value will need to be set. 
   
  
