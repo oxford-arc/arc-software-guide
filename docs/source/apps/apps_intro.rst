@@ -11,6 +11,7 @@ The guides in this section provide information on running specific software appl
    arc_castep
    arc_cellprofiler
    arc_cfx
+   arc_cp2k
    arc_fluent
    arc_gaussian
    arc_gromacs
