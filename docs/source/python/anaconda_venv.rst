@@ -1,8 +1,8 @@
-Creating Python Virtual Environments on ARC/HPC Clusters
-=========================================================
+Creating Python Virtual Environments on ARC Clusters
+====================================================
 
 This guide explains how to create and use Python virtual environments on
-ARC/HPC systems using **Mamba**, **Anaconda 3**, and **Python 3**.
+ARC/HTC systems using **Mamba**, **Anaconda 3**, and **Python 3**.
 
 Legacy **Python 2 / Anaconda 2** instructions are included at the end
 for users who still require them.
