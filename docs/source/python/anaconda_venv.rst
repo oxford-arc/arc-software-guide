@@ -64,7 +64,7 @@ environments in a default location such as:
 This can eventually cause your ``$HOME`` directory to exceed quota
 limits, which may prevent jobs or shell sessions from working correctly.
 
-.. important::
+.. IMPORTANT::
 
    Always create environments under ``$DATA``.
 
