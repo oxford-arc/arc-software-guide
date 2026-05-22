@@ -1,160 +1,443 @@
-Creating your own virtual environment
--------------------------------------
+Creating Python Virtual Environments on ARC/HPC Clusters
+=========================================================
 
-.. note::
-  You must create your conda environments from a SLURM interactive session. So, ensure you have an active interactive session by 
-  running::
-  
-      srun -p interactive --pty /bin/bash
-      
-  Running conda installations interactively on the login nodes will result in memory errors and other compatibility issues.
+This guide explains how to create and use Python virtual environments on
+ARC/HPC systems using **Mamba**, **Anaconda 3**, and **Python 3**.
 
+Legacy **Python 2 / Anaconda 2** instructions are included at the end
+for users who still require them.
 
-You should decide which version of Python you wish to use, 2 or 3. There are Anaconda modules available for both versions, the current 
-Anaconda versions can be found by typing::
+1. Start from a SLURM Interactive Session
+=========================================
 
+You must create Conda or Mamba environments from a SLURM interactive
+session.
+
+Start an interactive shell before installing packages or building
+environments:
+
+.. code-block:: bash
+
+   srun -p interactive --pty /bin/bash
+
+.. warning::
+
+   Do not run Conda or Mamba installations on login nodes.
+
+Package solving and installation may use large amounts of memory and can
+fail on login nodes due to memory limits or compatibility issues.
+
+2. Why Your Virtual Environment Must Be in ``$DATA``
+====================================================
+
+On a multi-user HPC cluster, centrally installed Python, Anaconda, and
+Mamba software is shared by many users and is usually read-only.
+
+If you attempt to install packages into the shared installation, or into
+a location you do not own, you may see errors such as:
+
+.. code-block:: text
+
+   Permission denied
+
+You should therefore create your own virtual environment in your
+``$DATA`` area.
+
+Your ``$DATA`` area:
+
+- is user-writable,
+- is intended for larger software environments and datasets,
+- is more suitable than ``$HOME`` for Conda-style environments.
+
+Conda environments and package caches can become very large over time.
+
+Important
+---------
+
+If you omit the ``--prefix`` option, Conda or Mamba may create
+environments in a default location such as:
+
+.. code-block:: bash
+
+   $HOME/.conda/envs
+
+This can eventually cause your ``$HOME`` directory to exceed quota
+limits, which may prevent jobs or shell sessions from working correctly.
+
+.. important::
+
+   Always create environments under ``$DATA``.
+
+3. Check Available Modules
+==========================
+
+First, check which software modules are available:
+
+.. code-block:: bash
+
+   module spider mamba
    module spider anaconda
 
-To load the version of Anaconda you want, in this example we are using the latest version, use one of the following commands:
+Load the appropriate module provided on your system.
 
-Python 2::
+For example, if a Mamba module is available:
 
-  module load Anaconda2
+.. code-block:: bash
 
-Python 3::
+   module load Mamba
 
-  module load Anaconda3 
+If no separate Mamba module exists, load Anaconda 3:
 
-or one of the specific Anaconda versions shown by ``module spider``. 
+.. code-block:: bash
 
-Once the module is loaded you can use the ``conda`` commands to create a virtual environment in your **$DATA** area. For example to create an environment named
-``myenv`` in **$DATA** we can use the following commands::
+   module load Anaconda3
 
-  export CONPREFIX=$DATA/myenv
+4. Creating a Python 3 Environment with Mamba
+=============================================
 
-Python 2::
+Step 1 — Define the Environment Location
+----------------------------------------
 
-  conda create --prefix $CONPREFIX --copy python=2.7
+Create an environment path in your ``$DATA`` area:
 
-Python 3::
+.. code-block:: bash
 
-  conda create --prefix $CONPREFIX 
+   export CONPREFIX=$DATA/myenv
+
+Step 2 — Create the Environment
+-------------------------------
+
+Example using Python 3.11:
+
+.. code-block:: bash
+
+   mamba create --prefix $CONPREFIX python=3.11
+
+Step 3 — Activate the Environment
+---------------------------------
+
+.. code-block:: bash
+
+   conda activate $CONPREFIX
+
+If ``conda activate`` causes issues in batch scripts, use:
+
+.. code-block:: bash
+
+   source activate $CONPREFIX
+
+Step 4 — Install Packages
+-------------------------
+
+Install packages with Mamba where possible:
+
+.. code-block:: bash
+
+   mamba install numpy
+
+If a package is unavailable through Conda/Mamba, use ``pip``:
+
+.. code-block:: bash
+
+   pip install numpy
 
 .. note::
-  Please be aware of messages from ``conda`` which instruct you to run ``conda init`` - this command will add lines to your ``~/.bashrc`` file which can in **certain**   
-  circumstances cause undesirable behaviour in SLURM batch files. We recommend activating with ``source activate`` if issues occur in batch files.
 
-You can now use (activate) the environment by running one of the following commands::
+   Prefer ``mamba install`` or ``conda install`` whenever possible, as
+   this helps maintain package compatibility.
 
-  source activate $CONPREFIX
+5. Creating a Python 3 Environment with Anaconda 3
+==================================================
 
-or::
+Load the Anaconda 3 module:
 
-  conda activate $CONPREFIX
+.. code-block:: bash
 
-You can then use the ``conda install`` or ``pip`` commands to install packages. We recommend the use of ``conda install`` where possible to maintain package
-version consistency in the virtual environment. For example::
+   module load Anaconda3
 
-  conda install numpy
+Create an environment in ``$DATA``:
 
-or::
+.. code-block:: bash
 
-  pip install numpy
-  
+   export CONPREFIX=$DATA/myenv
+   conda create --prefix $CONPREFIX python=3
+
+Activate the environment:
+
+.. code-block:: bash
+
+   source activate $CONPREFIX
+
+or:
+
+.. code-block:: bash
+
+   conda activate $CONPREFIX
+
+Install packages:
+
+.. code-block:: bash
+
+   conda install numpy
+
+or, if necessary:
+
+.. code-block:: bash
+
+   pip install numpy
+
+6. Notes About ``conda init``
+=============================
+
+Conda may display messages suggesting that you run:
+
+.. code-block:: bash
+
+   conda init
+
 .. warning::
-  
-  In the above examples we use the ``--prefix`` option to ``conda create`` This is to ensure that the conda virtual environment is placed in ``$DATA``. If you ommit
-  this there is a risk that your environment will be placed in the default location which is ``$HOME/.conda/envs`` this will very likely over time cause you to go over 
-  quota in your ``$HOME`` area which will cause problems running jobs.
-  
-Conda Build Scripts
--------------------
 
-For ease of use, rather than running the conda commands from the command line, we recommend creating a small script to create the environment, such that you can re-
-build the environment in future, if required. For example, you could create a file named ``build_env.sh`` with the following contents ::
+   Avoid running ``conda init`` on HPC systems.
 
- !# /bin/bash
- 
- # Load the version of Anaconda you need 
- module load Anaconda3
+``conda init`` modifies your ``~/.bashrc`` file and can sometimes cause
+problems in SLURM batch jobs.
 
- # Create an environment in $DATA and give it an appropriate name 
- export CONPREFIX=$DATA/envname
- conda create --prefix $CONPREFIX
+If activation issues occur in batch scripts, use:
 
- # Activate your environment 
- source activate $CONPREFIX
+.. code-block:: bash
 
- # Install packages...
- conda install <packagename>
- ..
- ..
- 
-You could then run this script with ::
-  
-  sh ./build_env.sh
-   
+   source activate $CONPREFIX
 
-Conda Package Cache
--------------------
+instead.
 
-By default Anaconda will *cache* all packages installed using ``conda install`` into a directory in your ``$HOME`` area named ``~/.conda/pkgs`` before installing them 
-into your virtual environment. Over time this has the potential to put you over quota in ``$HOME``
+7. Recommended Workflow
+=======================
 
-If you find yourself over quota in ``$HOME`` check how much space is being used in ``~/.conda/pkgs`` ::
-  
-  cd ~/.conda
-  du -sh pkgs
-  
-The ``du`` command above may take some time to run. When complete, the command will show how much space is in use in ``pkgs`` - for example ::
+.. code-block:: text
 
-  12G     pkgs
-  
-In this case 12GB of space is being used by downloaded packages. To tidy up, run the following commands ::
+   Login Node
+       │
+       ▼
+   Start Interactive Session
+       │
+       ▼
+   Load Module (Mamba / Anaconda3)
+       │
+       ▼
+   Create Environment in $DATA
+       │
+       ▼
+   Activate Environment
+       │
+       ▼
+   Install Packages
+       │
+       ▼
+   Use Environment in SLURM Jobs
+
+8. Build Script Example
+=======================
+
+For reproducibility, it is often better to create a small build script
+rather than entering commands manually.
+
+Create a file called ``build_env.sh``:
+
+.. code-block:: bash
+
+   #!/bin/bash
+
+   # Start this script from a SLURM interactive session,
+   # not from a login node.
+
+   # Load the required software stack.
+   # Use ONE of the following:
+
+   module load Mamba
+   # module load Anaconda3
+
+   # Define the environment location.
+   export CONPREFIX=$DATA/envname
+
+   # Create the environment.
+   mamba create --prefix $CONPREFIX python=3
+
+   # If using Conda instead:
+   # conda create --prefix $CONPREFIX python=3
+
+   # Activate the environment.
+   source activate $CONPREFIX
+
+   # Install packages.
+   mamba install <packagename>
+
+   # Or, if using Conda:
+   # conda install <packagename>
+
+Run the script from an interactive session:
+
+.. code-block:: bash
+
+   sh ./build_env.sh
+
+9. Package Cache and ``$HOME`` Quota
+====================================
+
+By default, Conda caches packages in:
+
+.. code-block:: bash
+
+   ~/.conda/pkgs
+
+Over time, this directory can become very large and may exceed your
+``$HOME`` quota.
+
+Check disk usage:
+
+.. code-block:: bash
+
+   cd ~/.conda
+   du -sh pkgs
+
+Example output:
+
+.. code-block:: text
+
+   12G    pkgs
+
+Clean cached packages and tarballs:
+
+.. code-block:: bash
 
    module load Anaconda3
    conda clean --packages --tarballs
-   
-You can repeat the ``du`` command above to check that the space has been freed.
 
-Using Anaconda from within a submission script
-----------------------------------------------
+You can re-run:
 
-In order to use your installed virtual environment from a batch script, you will need to load the appropriate Anconda module and activate your environment.
-Using values from the above example (and assuming Python version 3, Anaconda 2020/11)::
+.. code-block:: bash
 
-  # After SBATCH section of script
+   du -sh pkgs
 
-  module load Anaconda3/2020.11
-  source activate $DATA/myenv
+to verify that space has been freed.
 
-  # Your Python commands here...
- 
+10. Using Your Environment in a SLURM Submission Script
+=======================================================
 
-Important Anaconda Information
-------------------------------
- 
+Do not rely on environments activated before running ``sbatch``.
 
-When using Anaconda on the ARC systems, please take note of the following:
+Always load modules and activate environments inside the submission
+script.
 
-- Do not load Anaconda virtual environments automatically on log in from your .bashrc or .bash_profile scripts. These will cause issues to SLURM submitted jobs.
+Example Using Anaconda 3
+------------------------
 
-- Ensure you have deactivated the virtual environment BEFORE submitting a SLURM job using sbatch, otherwise you will have issues with packages from your virtual environment not being found.
+.. code-block:: bash
 
-- You should load all you require from the submission script - as in the submission script example above.
+   # After the SBATCH section
 
-Using Bioconda
---------------
+   module load Anaconda3/2020.11
+   source activate $DATA/myenv
 
-Use the instructions above to create a basic Python Anaconda 2 or 3 virtual environment, then use the following commands
-to ensure the bioconda repostories are enabled::
+   # Run your code
+   python my_script.py
 
-  conda config --add channels defaults
-  conda config --add channels bioconda
-  conda config --add channels conda-forge
- 
+Example Using Mamba
+-------------------
 
-Bioconda packages may then be installed by using the ``conda install`` command, for example to install ``bwa``::
+.. code-block:: bash
 
-  conda install bwa
+   # After the SBATCH section
+
+   module load Mamba
+   source activate $DATA/myenv
+
+   # Run your code
+   python my_script.py
+
+11. Important HPC Usage Guidelines
+==================================
+
+When using Anaconda, Conda, or Mamba on ARC/HPC systems:
+
+- Do not auto-load environments from ``.bashrc`` or ``.bash_profile``.
+- Deactivate environments before submitting jobs with ``sbatch``.
+- Load modules and activate environments inside the batch script.
+- Create environments in ``$DATA``, not in ``$HOME``.
+- Perform installations from interactive compute sessions, not login
+  nodes.
+
+12. Using Bioconda
+==================
+
+First create a basic Python 3 environment using the instructions above.
+
+Then enable the required channels:
+
+.. code-block:: bash
+
+   conda config --add channels defaults
+   conda config --add channels bioconda
+   conda config --add channels conda-forge
+
+Install packages with Mamba or Conda.
+
+Example:
+
+.. code-block:: bash
+
+   mamba install bwa
+
+or:
+
+.. code-block:: bash
+
+   conda install bwa
+
+13. Legacy Python 2 / Anaconda 2 Instructions
+=============================================
+
+.. warning::
+
+   Python 2 is end-of-life and should only be used for legacy software
+   that cannot run under Python 3.
+
+Check available versions:
+
+.. code-block:: bash
+
+   module spider anaconda
+
+Load Anaconda 2 only if required:
+
+.. code-block:: bash
+
+   module load Anaconda2
+
+Create a Python 2.7 environment:
+
+.. code-block:: bash
+
+   export CONPREFIX=$DATA/myenv-py2
+
+   conda create --prefix $CONPREFIX --copy python=2.7
+
+Activate the environment:
+
+.. code-block:: bash
+
+   source activate $CONPREFIX
+
+or:
+
+.. code-block:: bash
+
+   conda activate $CONPREFIX
+
+Install packages:
+
+.. code-block:: bash
+
+   conda install <packagename>
+
+Use these legacy instructions only where Python 2 is unavoidable.
 
