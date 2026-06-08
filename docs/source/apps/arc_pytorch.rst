@@ -88,7 +88,7 @@ SLURM submission script.
 
 To use the environment from a batch submission script, after the your resource definition ``#SBATCH`` lines add::
 
-   module load Anaconda3/2022.10
+   module load Anaconda3/2025.06-1
    export CONPREFIX=$DATA/arc_pytorch
    conda activate $CONPREFIX
 
