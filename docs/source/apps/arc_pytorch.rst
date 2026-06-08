@@ -80,7 +80,7 @@ the following command to ascertain which compute capabilities the environment re
 The above result lets you know that in this case (your output may differ) PyTorch is built for compute capabilities 7.5, 8.0, 8.6, 9.0, 10.0 and 12. The code warns that ARC do not have any CC 12.0 machines. It then provides you with the correct constraint line to add to your
 SLURM submission script.
 
-.. note:
+.. note::
 
   If you rebuild the environment and update PyTorch, you should re-run the ``pytorch-gpu-cc.py`` script above and update the constraints as 
   appropriate in your submission script. 
@@ -94,7 +94,7 @@ To use the environment from a batch submission script, after the your resource d
 
   ...your python command here...
 
-.. note:
+.. note::
 
   You MUST deactivate any active conda environment from your shell BEFORE running the ``sbatch`` command to submit your job - otherwise your job may fail. 
 
