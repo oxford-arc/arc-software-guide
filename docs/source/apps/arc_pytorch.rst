@@ -82,8 +82,8 @@ SLURM submission script.
 
 .. note::
 
-  If you rebuild the environment and update PyTorch, you should re-run the command::
-    python /apps/common/bin/pytorch-gpu-cc.py
+  If you rebuild the environment and update PyTorch, you should re-run the command:
+  ``python /apps/common/bin/pytorch-gpu-cc.py``
   To help you check and update the node constraints in your submission script. 
   
 
