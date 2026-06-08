@@ -38,28 +38,49 @@ A base install of PyTorch would be installed with the following script::
   # srun -p interactive --pty /bin/bash
   #
   #
-  # It will create a PyTorch 2.0.1 environment GPU enabled with CUDA 11.7
+  # It will create a PyTorch 2.11.0 environment GPU enabled with CUDA 13.0
   #
-  module load Anaconda3/2022.10
+  module load Anaconda3/2025.06-1
+  #
   # Change the following to specify the location for the environment:
   #
   export CONPREFIX=$DATA/arc_pytorch
   #
   conda create --prefix $CONPREFIX
   conda activate $CONPREFIX
+  conda install pip
   #
-  # Base PyTorch install
+  # Base PyTorch install (using info from pytorch.org)
   #
-  conda install pytorch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 pytorch-cuda=11.7 -c pytorch -c nvidia
+  pip install torch==2.11.0 torchvision==0.26.0 torchaudio==2.11.0 --index-url https://download.pytorch.org/whl/cu130
   #
+
 
 You can add more packages to this script. You can then execute the script from an interactive session - e.g. assuming you have saved the file as ``arc_env_build.sh``::
  
-   [user@htc-login01 ~]$ srun -i interactive --pty /bin/bash
+   [user@htc-login01 ~]$ srun -p interactive --pty /bin/bash
    srun: CPU resource required, checking settings/requirements...
    [user@htc-g040 ~]$ sh ./arc_env_build.sh
 
-To use the environment from a batch submission script, after the resource definition ``#SBATCH`` lines add::
+To test this environment, you need to create a session on an interactive GPU node. An easy way to to this is as follows::
+
+   [user@htc-login01 ~]$ srun -M htc -p interactive --gres=gpu:1 --pty /bin/bash
+   srun: CPU resource required, checking settings/requirements...
+   [user@htc-g048 ~]$ module load Anaconda3/2025.06-1
+   [user@htc-g048 ~]$ export CONPREFIX=$DATA/arc_pytorch
+   [user@htc-g048 ~]$ conda activate $CONPREFIX
+
+As the PyTorch binary installed by ``pip`` may be build for specific CUDA compute capabilities, when the environment is active you can run 
+the following command to ascertain which compute capabilities the environment requires::
+
+  [user@htc-g048 ~]$ python /apps/common/bin/pytorch-gpu-cc.py
+  GPU resources with following compute capabilities are not present in the ARC cluster: 12.0
+  #SBATCH --constraint="gpu_cc:7.5|gpu_cc:8.0|gpu_cc:8.6|gpu_cc:9.0|gpu_cc:10.0"
+
+The above result lets you know that in this case (your output may differ) PyTorch is built for compute capabilities 7.5, 8.0, 8.6, 9.0, 10.0 and 12. The code warns that ARC do not have any CC 12.0 machines. It then provides you with the correct constraint line to add to your
+SLURM submission script.
+
+To use the environment from a batch submission script, after the your resource definition ``#SBATCH`` lines add::
 
    module load Anaconda3/2022.10
    export CONPREFIX=$DATA/arc_pytorch
