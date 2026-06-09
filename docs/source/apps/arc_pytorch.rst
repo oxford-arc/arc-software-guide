@@ -5,21 +5,25 @@ PyTorch
 
 There are many PyTorch modules already installed on ARC.
 
-You can find these using the command::
+You can find these using the command:
+
+.. code-block::
 
   module spider PyTorch
 
-Those modules with a CUDA suffix need to be run on the HTC cluster in order to benefit from GPU accelleration. 
-Please be aware that you should load the module you intend to use on an interactive session, and it will inform you of the GPU compute capability it has been built for. 
+Those modules with a CUDA suffix need to be run on the HTC cluster in order to benefit from GPU accelleration.
+Please be aware that you should load the module you intend to use on an interactive session, and it will inform you of the GPU compute capability it has been built for.
 This will ensure that you can specify the correct GPU type in your submission script.
 
-For example (from htc-login)::
+For example (from htc-login):
 
-  srun -p interactive --pty /bin/bash
-  
-  module load PyTorch/1.12.0-foss-2022a-CUDA-11.7.0
+.. code-block:: console
+
+  [user@arc-login ~]$ srun -p interactive --pty /bin/bash
+
+  [user@arc-login ~]$ module load PyTorch/1.12.0-foss-2022a-CUDA-11.7.0
   Note: This PyTorch module supports GPUs with compute capability features up to 8.6 (e.g. V100, A100, RTX8000)
-  it will not work with newer GPU generations. Please ensure you have requested the correct GPU generation. 
+  it will not work with newer GPU generations. Please ensure you have requested the correct GPU generation.
   See https://arc-user-guide.readthedocs.io/en/latest/job-scheduling.html#gpu-resources
 
 The above message indicates that this module was built for NVidia compute capability 8.6 so if run on newer GPUs such as A100 and H100 it will error and fall-back to CPU operation.
@@ -29,7 +33,9 @@ The above message indicates that this module was built for NVidia compute capabi
 
 If you need to add other packages to the PyTorch environment you may find it easier to build your own Anaconda environment.
 
-A base install of PyTorch would be installed with the following script::
+A base install of PyTorch would be installed with the following script:
+
+.. code-block:: bash
 
   #! /bin/bash
   #
@@ -56,13 +62,17 @@ A base install of PyTorch would be installed with the following script::
   #
 
 
-You can add more packages to this script. You can then execute the script from an interactive session - e.g. assuming you have saved the file as ``arc_env_build.sh``::
- 
+You can add more packages to this script. You can then execute the script from an interactive session - e.g. assuming you have saved the file as ``arc_env_build.sh``:
+
+.. code-block:: console
+
    [user@htc-login01 ~]$ srun -p interactive --pty /bin/bash
    srun: CPU resource required, checking settings/requirements...
    [user@htc-g040 ~]$ sh ./arc_env_build.sh
 
-To test this environment, you need to create a session on an interactive GPU node. An easy way to to this is as follows::
+To test this environment, you need to create a session on an interactive GPU node. An easy way to to this is as follows:
+
+.. code-block:: console
 
    [user@htc-login01 ~]$ srun -M htc -p interactive --gres=gpu:1 --pty /bin/bash
    srun: CPU resource required, checking settings/requirements...
@@ -70,8 +80,10 @@ To test this environment, you need to create a session on an interactive GPU nod
    [user@htc-g048 ~]$ export CONPREFIX=$DATA/arc_pytorch
    [user@htc-g048 ~]$ conda activate $CONPREFIX
 
-As the PyTorch binary installed by ``pip`` will be built for specific CUDA compute capabilities, when the environment is active you can run 
-the following command to ascertain which compute capabilities the environment requires::
+As the PyTorch binary installed by ``pip`` will be built for specific CUDA compute capabilities, when the environment is active you can run
+the following command to ascertain which compute capabilities the environment requires:
+
+.. code-block:: console
 
   [user@htc-g048 ~]$ python /apps/common/bin/pytorch-gpu-cc.py
   GPU resources with following compute capabilities are not present in the ARC cluster: 12.0
@@ -84,10 +96,12 @@ SLURM submission script.
 
   If you rebuild the environment and update PyTorch, you should re-run the command:
   ``python /apps/common/bin/pytorch-gpu-cc.py``
-  To help you check and update the node constraints in your submission script. 
-  
+  To help you check and update the node constraints in your submission script.
 
-To use the environment from a batch submission script, after the your resource definition ``#SBATCH`` lines add::
+
+To use the environment from a batch submission script, after the your resource definition ``#SBATCH`` lines add:
+
+.. code-block:: bash
 
    module load Anaconda3/2025.06-1
    export CONPREFIX=$DATA/arc_pytorch
@@ -97,9 +111,5 @@ To use the environment from a batch submission script, after the your resource d
 
 .. note::
 
-  You MUST deactivate any active conda environment from your shell BEFORE running the ``sbatch`` command to submit your job - otherwise your job may fail. 
-
-
-
-  
+  You MUST deactivate any active conda environment from your shell BEFORE running the ``sbatch`` command to submit your job - otherwise your job may fail.
 
