@@ -2,7 +2,7 @@ PyTorch
 -------
 
 .. warning::
-  ARC recommend building your own Python virtual environment for newer versions of PyTorch, however we have included the PyTorch 
+  ARC recommend building your own Python virtual environment for recent versions of PyTorch. We have included the PyTorch 
   environment module information below for reference.   
 
 **Using PyTorch environment modules**
