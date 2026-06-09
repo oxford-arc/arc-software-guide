@@ -1,7 +1,7 @@
 PyTorch
 -------
 
-.. warn::
+.. warning::
   ARC recommend using your own Python virtual environment for newer versions of PyTorch, we have included the PyTorch environment module    
   versions for compatibility.   
 
