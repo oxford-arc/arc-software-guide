@@ -101,7 +101,7 @@ To check that PyTorch can use the available GPU, the following command should re
 
 
 As the PyTorch binary installed by ``pip`` will be built for specific CUDA compute capabilities, when the environment is active you can run
-the following command to ascertain which compute capabilities the environment requires:
+the following command to ascertain which compute capabilities the version of PyTorch requires:
 
 .. code-block:: console
 
@@ -109,7 +109,7 @@ the following command to ascertain which compute capabilities the environment re
   GPU resources with following compute capabilities are not present in the ARC cluster: 12.0
   #SBATCH --constraint="gpu_cc:7.5|gpu_cc:8.0|gpu_cc:8.6|gpu_cc:9.0|gpu_cc:10.0"
 
-The above result lets you know that in this case (your output may differ) PyTorch is built for compute capabilities 7.5, 8.0, 8.6, 9.0, 10.0 and 12. The code warns that ARC do not have any CC 12.0 machines. It then provides you with the correct constraint line to add to your
+The above result lets you know that in this case PyTorch is built for compute capabilities 7.5, 8.0, 8.6, 9.0, 10.0 and 12. The code warns that ARC do not have any CC 12.0 machines. It then provides you with the correct constraint line to add to your
 SLURM submission script.
 
 .. note::
