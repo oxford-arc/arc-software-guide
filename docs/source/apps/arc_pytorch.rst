@@ -96,8 +96,8 @@ To check that PyTorch can use the available GPU, the following command should re
 
 .. note::
 
-  If the above command returns ``False`` and you have explicitly requested a GPU buy specifying the appropriate ``--gres`` option
-  to SLURM. You should check that the version of PyTorch in your Python environment is GPU capable. 
+  If the above command returns ``False`` First check that you have explicitly requested a GPU buy specifying the appropriate ``--gres`` 
+  option to SLURM. You should then check that the version of PyTorch in your Python environment is GPU capable. 
 
 
 As the PyTorch binary installed by ``pip`` will be built for specific CUDA compute capabilities, when the environment is active you can run
