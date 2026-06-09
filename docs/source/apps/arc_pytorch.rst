@@ -80,6 +80,22 @@ To test this environment, you need to create a session on an interactive GPU nod
    [user@htc-g048 ~]$ export CONPREFIX=$DATA/arc_pytorch
    [user@htc-g048 ~]$ conda activate $CONPREFIX
 
+You can use the following command to check the PyTorch version::
+   
+   [user@htc-g048 ~]$ python -c 'import torch; print(torch.__version__)'
+   2.11.0+cu130
+
+To check that PyTorch can use the available GPU, the following command should return ``True``::
+
+   [user@htc-g048 ~]$ python -c 'import torch; print(torch.cuda.is_available())'
+   True
+
+.. note::
+
+  If the above command returns ``False`` and you have explicitly requested a GPU buy specifying the appropriate ``--gres`` option
+  to SLURM. You should check that the version of PyTorch in your Python environment is GPU capable. 
+
+
 As the PyTorch binary installed by ``pip`` will be built for specific CUDA compute capabilities, when the environment is active you can run
 the following command to ascertain which compute capabilities the environment requires:
 
