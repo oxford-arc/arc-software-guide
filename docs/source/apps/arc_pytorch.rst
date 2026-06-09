@@ -2,8 +2,8 @@ PyTorch
 -------
 
 .. warning::
-  ARC recommend using your own Python virtual environment for newer versions of PyTorch, we have included the PyTorch environment module    
-  versions for compatibility.   
+  ARC recommend building your own Python virtual environment for newer versions of PyTorch, however we have included the PyTorch 
+  environment module information below for reference.   
 
 **Using PyTorch environment modules**
 
@@ -96,7 +96,7 @@ To check that PyTorch can use the available GPU, the following command should re
 
 .. note::
 
-  If the above command returns ``False`` First check that you have explicitly requested a GPU buy specifying the appropriate ``--gres`` 
+  If the above command returns ``False`` First check that you have explicitly requested a GPU by specifying the appropriate ``--gres`` 
   option to SLURM. You should then check that the version of PyTorch in your Python environment is GPU capable. 
 
 
