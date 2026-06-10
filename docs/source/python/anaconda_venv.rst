@@ -197,18 +197,11 @@ Conda may display messages suggesting that you run:
 
 .. warning::
 
-   Avoid running ``conda init`` on HPC systems.
+   Avoid running ``conda init`` on HPC systems. Typically loading our Anaconda modules will provide all functionality which ``conda init`` adds to your .bashrc file.  
 
 ``conda init`` modifies your ``~/.bashrc`` file and can sometimes cause
-problems in SLURM batch jobs.
+problems in SLURM batch jobs. If you have accidentalliy run ``conda init`` in your ARC shell you can undo its effect by running ``conda init --reverse bash``
 
-If activation issues occur in batch scripts, use:
-
-.. code-block:: bash
-
-   source activate $CONPREFIX
-
-instead.
 
 7. Recommended Workflow
 =======================
