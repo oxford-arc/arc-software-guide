@@ -198,8 +198,8 @@ Conda may display messages suggesting that you run:
 .. warning::
 
    Avoid running ``conda init`` on HPC systems.``conda init`` modifies your ``~/.bashrc`` file and can sometimes cause
-   problems in SLURM batch jobs. Typically loading our Anaconda modules will provide all functionality which ``conda init`` adds to your .bashrc file.
-   If you have accidentalliy run ``conda init`` in your ARC shell you can undo its effect by running ``conda init --reverse bash``
+   problems in SLURM batch jobs. Typically loading our Anaconda modules will provide all functionality which ``conda init`` adds to your ``.bashrc`` file.
+   If you have accidentalliy run ``conda init`` in your ARC shell you can undo its changes by running ``conda init --reverse bash``
 
 
 7. Recommended Workflow
